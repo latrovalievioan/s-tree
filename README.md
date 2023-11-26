@@ -20,7 +20,7 @@ An S3 bucket explorer that mimics a filesystem.
 
 ### Dir tree:
 
--   [ ] Display dir objects as a tree
+-   [x] Display dir objects as a tree
 -   [ ] Handle open/close dir
 -   [ ] Handle dir selection
 -   [ ] UI/styles
