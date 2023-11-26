@@ -24,6 +24,8 @@ An S3 bucket explorer that mimics a filesystem.
 -   [x] Handle open/close dir
 -   [ ] Handle dir selection
 -   [ ] UI/styles
+    -   [x] Add icons
+    -   [ ] Handle display name
 -   [ ] Make section resizable
 -   [ ] Handle scrolling
 -   [ ] Handle error state

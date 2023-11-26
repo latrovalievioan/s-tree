@@ -1,5 +1,8 @@
 .dirTreeItem {
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .dirTreeItem:hover {
@@ -10,4 +13,12 @@
   height: 100vh;
   width: 50%;
   border: 1px solid red;
+}
+
+#chevron.expanded {
+  transform: rotate(90deg)
+}
+
+.dirItemIcon {
+  margin-right: 8px;
 }
