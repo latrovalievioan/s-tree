@@ -3,6 +3,8 @@ import { create } from "zustand";
 type Store = {
   expandedDirs: Set<string>;
   toggleExpandedDir: (dir: string) => void;
+  selectedDir: string;
+  setSelectedDir: (dir: string) => void;
 };
 
 export const useStore = create<Store>()((set) => ({
@@ -13,4 +15,6 @@ export const useStore = create<Store>()((set) => ({
       expandedDirs.has(dir) ? expandedDirs.delete(dir) : expandedDirs.add(dir);
       return { ...state, expandedDirs };
     }),
+  selectedDir: "",
+  setSelectedDir: (selectedDir) => set((state) => ({ ...state, selectedDir })),
 }));

@@ -2,7 +2,7 @@
   cursor: pointer;
   display: flex;
   align-items: center;
-  justify-content: center;
+  width: 100%;
 }
 
 .dirTreeItem:hover {
@@ -21,4 +21,8 @@
 
 .dirItemIcon {
   margin-right: 8px;
+}
+
+.selected {
+  background: rgba(255,255,255,0.2)
 }
