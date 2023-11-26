@@ -1,4 +1,5 @@
 import { useGetObjectNames } from "@/hooks/useGetObjectNames";
+import { useStore } from "@/store";
 import { getDirectChildren, isDir } from "@/utils";
 
 type Props = {
@@ -8,13 +9,16 @@ type Props = {
 export const DirTree: React.FC<Props> = ({ prefix = "" }) => {
   const objects = useGetObjectNames();
   const directChildren = getDirectChildren(prefix, objects);
+  const { expandedDirs, toggleExpandedDir } = useStore();
+
   return (
     <div>
       <ul>
-        <div>{prefix || "root"}</div>
+        <div onClick={() => toggleExpandedDir(prefix)}>{prefix || "root"}</div>
         {directChildren.map((c) => {
           return (
-            isDir(c) && (
+            isDir(c) &&
+            expandedDirs.has(prefix) && (
               <li key={c}>
                 <DirTree prefix={c} />
               </li>

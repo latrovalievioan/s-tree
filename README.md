@@ -21,7 +21,7 @@ An S3 bucket explorer that mimics a filesystem.
 ### Dir tree:
 
 -   [x] Display dir objects as a tree
--   [ ] Handle open/close dir
+-   [x] Handle open/close dir
 -   [ ] Handle dir selection
 -   [ ] UI/styles
 -   [ ] Make section resizable
@@ -42,3 +42,4 @@ An S3 bucket explorer that mimics a filesystem.
 
 -   [ ] Use React query for all requests
 -   [x] Create custom hook for handling object listing and tree structure
+-   [x] Setup state management
