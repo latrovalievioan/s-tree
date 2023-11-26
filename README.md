@@ -27,7 +27,6 @@ An S3 bucket explorer that mimics a filesystem.
 -   [ ] UI/styles
     -   [x] Add icons
     -   [x] Handle display name
-    -   [ ] Section title
 -   [ ] Make section resizable
 -   [ ] Handle scrolling
 -   [ ] Handle error state
@@ -35,12 +34,18 @@ An S3 bucket explorer that mimics a filesystem.
 
 ### Explorer:
 
--   [ ] Display current selected dir's direct children
+-   [x] Display current selected dir's direct children
 -   [ ] UI/styles
+    -   [x] Add icons
+    -   [x] Handle display name
+    -   [x] Section title
 -   [ ] Display file contents
+-   [ ] Navigate down a dir
+-   [ ] Navigate by clicking on the header
 -   [ ] Create file
 -   [ ] Delete file
 -   [ ] Handle scrolling
+    -   [ ] Sticky title
 
 ### Misc:
 
