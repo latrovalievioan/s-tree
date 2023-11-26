@@ -1,7 +1,7 @@
 import "./styles.css";
 import { useGetObjectNames } from "@/hooks/useGetObjectNames";
 import { useStore } from "@/store";
-import { getDirectChildren, isDir } from "@/utils";
+import { getDirectChildren, getDisplayName, isDir } from "@/utils";
 import { ChevronRight } from "@/assets/ChevronRight";
 import { OpenDir } from "@/assets/OpenDir";
 import { ClosedDir } from "@/assets/ClosedDir";
@@ -29,7 +29,7 @@ const Tree: React.FC<Props> = ({ prefix = "" }) => {
         ) : (
           <ClosedDir className="dirItemIcon" />
         )}
-        {prefix || "root"}
+        {getDisplayName(prefix) || "root"}
       </button>
       {directChildren.map((c) => {
         return (

@@ -17,3 +17,9 @@ export const getDirectChildren = (prefix: string, objects: string[]) => {
     return isDeeperByOne && isFromSubtree;
   });
 };
+
+export const getDisplayName = (s: string) => {
+  const split = s.split("/");
+
+  return isDir(s) ? split[split.length - 2] : split[split.length - 1];
+};
