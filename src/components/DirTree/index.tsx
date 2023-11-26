@@ -1,5 +1,5 @@
 import { useQuery } from "react-query";
-import { getObjects } from "../../api";
+import { getObjects } from "@/api";
 
 export const DirTree = () => {
   const { status, data, error } = useQuery("objects", getObjects);
