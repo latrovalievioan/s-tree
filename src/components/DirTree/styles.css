@@ -1,0 +1,13 @@
+.dirTreeItem {
+  cursor: pointer;
+}
+
+.dirTreeItem:hover {
+  font-weight: 600;
+}
+
+#dirTree {
+  height: 100vh;
+  width: 50%;
+  border: 1px solid red;
+}

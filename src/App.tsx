@@ -1,6 +1,7 @@
+import "./styles.css";
 import * as React from "react";
 import { QueryClient, QueryClientProvider } from "react-query";
-import { DirTree } from "@/components/DirTree";
+import { DirTree } from "./components/DirTree";
 
 // type CreateObjectInput = {
 //   Body: string;
