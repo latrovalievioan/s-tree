@@ -35,5 +35,5 @@ export const useGetObjectNames = () => {
     return objs;
   });
 
-  return objects;
+  return [...new Set(objects)];
 };
