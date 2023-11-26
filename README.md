@@ -6,32 +6,33 @@ An S3 bucket explorer that mimics a filesystem.
 
 ### Client <-> AWS API communication:
 
--   List objects
--   Read an object
--   Create an object
--   Delete an object
--   Live bucket state update
+-   [x] List objects
+-   [ ] Read an object
+-   [ ] Create an object
+-   [ ] Delete an object
+-   [ ] Live bucket state update
 
 ### Bucket credentials handling:
 
--   UI form
--   Store/retrieve credentials from localStorage
--   Show form when there are no credentials in localStorage
+-   [ ] UI form
+-   [ ] Store/retrieve credentials from localStorage
+-   [ ] Show form when there are no credentials in localStorage
 
 ### Dir tree:
 
--   Display dir objects as a tree
--   Handle open/close dir
--   Handle dir selection
--   UI/styles
--   Make section resizable
--   Handle scrolling
+-   [ ] Display dir objects as a tree
+-   [ ] Handle open/close dir
+-   [ ] Handle dir selection
+-   [ ] UI/styles
+-   [ ] Make section resizable
+-   [ ] Handle scrolling
 
 ### Explorer:
 
--   Display current selected dir's direct children
--   UI/styles
--   Display file contents
--   Create file
--   Delete file
--   Handle scrolling
+-   [ ] Display current selected dir's direct children
+-   [ ] UI/styles
+-   [ ] Display file contents
+-   [ ] Create file
+-   [ ] Delete file
+-   [ ] Handle scrolling
+
