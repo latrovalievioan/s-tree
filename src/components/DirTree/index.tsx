@@ -1,5 +1,5 @@
 import { useGetObjectNames } from "@/hooks/useGetObjectNames";
-import { getDirectChildren } from "@/utils";
+import { getDirectChildren, isDir } from "@/utils";
 
 type Props = {
   prefix?: string;
@@ -12,11 +12,15 @@ export const DirTree: React.FC<Props> = ({ prefix = "" }) => {
     <div>
       <ul>
         <div>{prefix || "root"}</div>
-        {directChildren.map((c) => (
-          <li key={c}>
-            <DirTree prefix={c} />
-          </li>
-        ))}
+        {directChildren.map((c) => {
+          return (
+            isDir(c) && (
+              <li key={c}>
+                <DirTree prefix={c} />
+              </li>
+            )
+          );
+        })}
       </ul>
     </div>
   );
