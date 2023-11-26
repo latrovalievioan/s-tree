@@ -2,6 +2,7 @@ import "./styles.css";
 import * as React from "react";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { DirTree } from "./components/DirTree";
+import { Explorer } from "./components/Explorer";
 
 // type CreateObjectInput = {
 //   Body: string;
@@ -43,6 +44,7 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <DirTree />
+      <Explorer />
     </QueryClientProvider>
   );
 }
