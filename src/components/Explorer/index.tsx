@@ -12,7 +12,7 @@ export const Explorer = () => {
 
   return (
     <div id="explorer">
-      <h2>{selectedDir ? "root/" + selectedDir : "root/"}</h2>
+      <h1>{selectedDir ? "root/" + selectedDir : "root/"}</h1>
       <ul>
         {directChildren.map((c) => (
           <li className="explorerItem">

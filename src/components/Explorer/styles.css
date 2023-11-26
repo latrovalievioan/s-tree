@@ -11,6 +11,10 @@
   border: 1px solid green;
 }
 
+#explorer > h1 {
+  border-bottom: 1px solid gray;
+}
+
 #explorer > ul {
   padding: 0;
 }
