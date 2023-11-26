@@ -1,27 +1,37 @@
-# React + TypeScript + Vite
+# S-tree
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+An S3 bucket explorer that mimics a filesystem.
 
-Currently, two official plugins are available:
+## TODOS:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Client <-> AWS API communication:
 
-## Expanding the ESLint configuration
+-   List objects
+-   Read an object
+-   Create an object
+-   Delete an object
+-   Live bucket state update
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+### Bucket credentials handling:
 
-- Configure the top-level `parserOptions` property like this:
+-   UI form
+-   Store/retrieve credentials from localStorage
+-   Show form when there are no credentials in localStorage
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
+### Dir tree:
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+-   Display dir objects as a tree
+-   Handle open/close dir
+-   Handle dir selection
+-   UI/styles
+-   Make section resizable
+-   Handle scrolling
+
+### Explorer:
+
+-   Display current selected dir's direct children
+-   UI/styles
+-   Display file contents
+-   Create file
+-   Delete file
+-   Handle scrolling
