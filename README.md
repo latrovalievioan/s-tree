@@ -42,6 +42,8 @@ An S3 bucket explorer that mimics a filesystem.
 -   [ ] Display file contents
 -   [x] Navigate down a dir
 -   [ ] Breadcrumbs
+    -   [x] Breadcrumbs navigation
+    -   [ ] Handle multiple bredcrumbs wrapping
 -   [ ] Create file
 -   [ ] Delete file
 -   [ ] Handle scrolling
