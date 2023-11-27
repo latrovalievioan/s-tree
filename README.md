@@ -44,19 +44,22 @@ An S3 bucket explorer that mimics a filesystem.
 - [ ] Breadcrumbs
   - [x] Breadcrumbs navigation
   - [ ] Handle multiple bredcrumbs wrapping
-- [ ] Display file contents
+- [x] File reader
+  - [x] Display file content
+  - [ ] Loading state
+  - [ ] Empty state
+  - [ ] Text coloring
 - [ ] Create file
 - [ ] Delete file
 - [ ] Handle scrolling
   - [ ] Sticky breadcrumbs
 
-### Misc:
-
-- [ ] Use React query for all requests
-- [x] Create custom hook for handling object listing and tree structure
-- [x] Setup state management
-
 ### Bugs and refactoring:
 
 - [ ] Root prefix handling
 - [ ] Breadcrumbs Root click
+- [ ] Rename all variables that use some system name
+
+### Nice to have
+
+- [ ] When selecting a child from Explorer if parent is collapsed in dir tree - expand it
