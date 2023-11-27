@@ -26,8 +26,8 @@ An S3 bucket explorer that mimics a filesystem.
 - [x] Handle dir selection
 - [ ] Handle onClick vs doubleclick
 - [ ] UI/styles
-  - [x] Add icons
-  - [x] Handle display name
+    - [x] Add icons
+    - [x] Handle display name
 - [x] Make section resizable
 - [ ] Handle scrolling
 - [ ] Handle error state
@@ -35,30 +35,34 @@ An S3 bucket explorer that mimics a filesystem.
 
 ### Explorer:
 
-- [x] Display current selected dir's direct children
-- [ ] UI/styles
-  - [x] Add icons
-  - [x] Handle display name
-  - [x] Section title
-- [x] Navigate down a dir
+- [ ] Child list
+    - [x] Display current selected dir's direct children
+    - [x] Add icons
+    - [x] Handle display name
+    - [x] Section title
+    - [x] Navigate down a dir
+    - [ ] Actions menu
+        - [ ] Create file
+        - [ ] Create directory
+        - [ ] Delete file
+        - [x] UI
 - [ ] Breadcrumbs
-  - [x] Breadcrumbs navigation
-  - [ ] Handle multiple bredcrumbs wrapping
+    - [x] Breadcrumbs navigation
+    - [ ] Handle multiple bredcrumbs wrapping
 - [x] File reader
-  - [x] Display file content
-  - [ ] Loading state
-  - [ ] Empty state
-  - [ ] Text coloring
-- [ ] Create file
-- [ ] Delete file
+    - [x] Display file content
+    - [ ] Loading state
+    - [ ] Empty state
+    - [ ] Text coloring
 - [ ] Handle scrolling
-  - [ ] Sticky breadcrumbs
+    - [ ] Sticky breadcrumbs
 
 ### Bugs and refactoring:
 
 - [ ] Root prefix handling
 - [ ] Breadcrumbs Root click
 - [ ] Rename all variables that use some system name
+- [ ] Selecting text while resizing
 
 ### Nice to have
 
