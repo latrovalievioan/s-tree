@@ -40,12 +40,12 @@ An S3 bucket explorer that mimics a filesystem.
     -   [x] Handle display name
     -   [x] Section title
 -   [ ] Display file contents
--   [ ] Navigate down a dir
--   [ ] Navigate by clicking on the header
+-   [x] Navigate down a dir
+-   [ ] Breadcrumbs
 -   [ ] Create file
 -   [ ] Delete file
 -   [ ] Handle scrolling
-    -   [ ] Sticky title
+    -   [ ] Sticky breadcrumbs
 
 ### Misc:
 

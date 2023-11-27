@@ -4,6 +4,7 @@ import { useGetObjectNames } from '@/hooks/useGetObjectNames';
 import { useStore } from '@/store';
 import { getDirectChildren, getDisplayName, isDir } from '@/utils';
 import { FileIcon } from '@/assets/FileIcon';
+import { Breadcrumbs } from './Breadcrumbs';
 
 export const Explorer = () => {
   const objects = useGetObjectNames();
@@ -12,7 +13,7 @@ export const Explorer = () => {
 
   return (
     <div id="explorer">
-      <h1>{selectedDir ? 'root/' + selectedDir : 'root/'}</h1>
+      <Breadcrumbs />
       <ul>
         {directChildren
           .sort((a, b) => Number(isDir(b)) - Number(isDir(a)))

@@ -1,8 +1,8 @@
-export const isDir = (s: string) => s.endsWith("/") || s === "";
+export const isDir = (s: string) => s.endsWith('/') || s === '';
 const getDepth = (s: string) => {
   let depth = 0;
   for (let i = 0; i < s.length; i++) {
-    if (s[i] === "/") depth++;
+    if (s[i] === '/') depth++;
   }
   return isDir(s) ? depth : depth + 1;
 };
@@ -19,7 +19,7 @@ export const getDirectChildren = (prefix: string, objects: string[]) => {
 };
 
 export const getDisplayName = (s: string) => {
-  const split = s.split("/");
+  const split = s.split('/');
 
   return isDir(s) ? split[split.length - 2] : split[split.length - 1];
 };

@@ -34,3 +34,11 @@
 .explorerItem > svg {
   margin-right: 8px;
 }
+
+.breadcrumb {
+  cursor: pointer;
+}
+
+.breadcrumb:hover {
+  color: yellow;
+}
