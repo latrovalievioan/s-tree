@@ -6,55 +6,56 @@ An S3 bucket explorer that mimics a filesystem.
 
 ### Client <-> AWS API communication:
 
--   [x] List objects
--   [ ] Read an object
--   [ ] Create an object
--   [ ] Delete an object
--   [ ] Live bucket state update
+- [x] List objects
+- [ ] Read an object
+- [ ] Create an object
+- [ ] Delete an object
+- [ ] Live bucket state update
 
 ### Bucket credentials handling:
 
--   [ ] UI form
--   [ ] Store/retrieve credentials from localStorage
--   [ ] Show form when there are no credentials in localStorage
+- [ ] UI form
+- [ ] Store/retrieve credentials from localStorage
+- [ ] Show form when there are no credentials in localStorage
 
 ### Dir tree:
 
--   [x] Display dir objects as a tree
--   [x] Handle open/close dir
--   [x] Handle dir selection
--   [ ] Handle onClick vs doubleclick
--   [ ] UI/styles
-    -   [x] Add icons
-    -   [x] Handle display name
--   [x] Make section resizable
--   [ ] Handle scrolling
--   [ ] Handle error state
--   [ ] Handle loading state
+- [x] Display dir objects as a tree
+- [x] Handle open/close dir
+- [x] Handle dir selection
+- [ ] Handle onClick vs doubleclick
+- [ ] UI/styles
+  - [x] Add icons
+  - [x] Handle display name
+- [x] Make section resizable
+- [ ] Handle scrolling
+- [ ] Handle error state
+- [ ] Handle loading state
 
 ### Explorer:
 
--   [x] Display current selected dir's direct children
--   [ ] UI/styles
-    -   [x] Add icons
-    -   [x] Handle display name
-    -   [x] Section title
--   [x] Navigate down a dir
--   [ ] Breadcrumbs
-    -   [x] Breadcrumbs navigation
-    -   [ ] Handle multiple bredcrumbs wrapping
--   [ ] Display file contents
--   [ ] Create file
--   [ ] Delete file
--   [ ] Handle scrolling
-    -   [ ] Sticky breadcrumbs
+- [x] Display current selected dir's direct children
+- [ ] UI/styles
+  - [x] Add icons
+  - [x] Handle display name
+  - [x] Section title
+- [x] Navigate down a dir
+- [ ] Breadcrumbs
+  - [x] Breadcrumbs navigation
+  - [ ] Handle multiple bredcrumbs wrapping
+- [ ] Display file contents
+- [ ] Create file
+- [ ] Delete file
+- [ ] Handle scrolling
+  - [ ] Sticky breadcrumbs
 
 ### Misc:
 
--   [ ] Use React query for all requests
--   [x] Create custom hook for handling object listing and tree structure
--   [x] Setup state management
+- [ ] Use React query for all requests
+- [x] Create custom hook for handling object listing and tree structure
+- [x] Setup state management
 
 ### Bugs and refactoring:
--   [ ] Root prefix handling
--   [ ] Breadcrumbs Root click
+
+- [ ] Root prefix handling
+- [ ] Breadcrumbs Root click

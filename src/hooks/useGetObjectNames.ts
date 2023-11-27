@@ -1,5 +1,5 @@
-import { S3Client, ListObjectsCommand } from "@aws-sdk/client-s3";
-import { useQuery } from "react-query";
+import { S3Client, ListObjectsCommand } from '@aws-sdk/client-s3';
+import { useQuery } from 'react-query';
 
 export const getObjects = async () => {
   const client = new S3Client({
@@ -18,18 +18,18 @@ export const getObjects = async () => {
 };
 
 export const useGetObjectNames = () => {
-  const { data } = useQuery("objects", getObjects);
+  const { data } = useQuery('objects', getObjects);
   if (!data?.Contents) return [];
 
   const objects = data.Contents.flatMap((c) => {
     const objs: string[] = [];
-    const str = c.Key || "";
-    let accString = "";
+    const str = c.Key || '';
+    let accString = '';
 
     for (let i = 0; i < str.length; i++) {
       const currentChar = str[i];
       accString += currentChar;
-      if (currentChar === "/" || i === str.length - 1) objs.push(accString);
+      if (currentChar === '/' || i === str.length - 1) objs.push(accString);
     }
 
     return objs;
