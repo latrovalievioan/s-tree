@@ -1,4 +1,6 @@
 #explorer {
+  position: relative;
+
   height: 100vh;
   flex: 1;
 
@@ -46,4 +48,29 @@
   padding: 16px;
   margin-top: 16px;
   border: 1px solid green;
+}
+
+#actionsMenu {
+  position: absolute;
+  left: calc(50% - 150px);
+  bottom: 20px;
+
+  display: flex;
+  background: rgba(0,0,0,0.5);
+  width: 300px;
+  height: 60px;
+
+  border-radius: 50px;
+  border: 2px solid gray;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.action {
+  cursor: pointer;
+}
+.action:hover {
+  color: yellow;
 }
