@@ -2,19 +2,19 @@ import { SVGProps } from 'react';
 
 export const FileIcon = (props: SVGProps<SVGSVGElement>) => (
   <svg
-    width={20}
-    height={20}
-    viewBox="0 0 24 24"
-    fill="none"
+    aria-hidden="true"
     xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    viewBox="0 0 16 20"
+    width={21}
+    height={20}
     {...props}
   >
     <path
-      d="M19 9v8.8c0 1.12 0 1.68-.218 2.108a2 2 0 0 1-.874.874C17.48 21 16.92 21 15.8 21H8.2c-1.12 0-1.68 0-2.108-.218a2 2 0 0 1-.874-.874C5 19.48 5 18.92 5 17.8V6.2c0-1.12 0-1.68.218-2.108a2 2 0 0 1 .874-.874C6.52 3 7.08 3 8.2 3H13m6 6-6-6m6 6h-5a1 1 0 0 1-1-1V3"
-      stroke="#fff"
-      strokeWidth={2}
-      strokeLinecap="round"
+      stroke="currentColor"
       strokeLinejoin="round"
+      strokeWidth={2}
+      d="M6 1v4a1 1 0 0 1-1 1H1m14-4v16a.97.97 0 0 1-.933 1H1.933A.97.97 0 0 1 1 18V5.828a2 2 0 0 1 .586-1.414l2.828-2.828A2 2 0 0 1 5.828 1h8.239A.97.97 0 0 1 15 2Z"
     />
   </svg>
 );
