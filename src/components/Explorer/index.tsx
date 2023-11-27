@@ -20,7 +20,7 @@ export const Explorer = () => {
           .map((c) => (
             <li
               key={c}
-              onDoubleClick={() => isDir(c) && setSelectedDir(c)}
+              onDoubleClick={() => setSelectedDir(c)}
               className="explorerItem"
             >
               {isDir(c) ? <ClosedDir /> : <FileIcon />}

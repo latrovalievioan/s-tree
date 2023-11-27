@@ -39,11 +39,11 @@ An S3 bucket explorer that mimics a filesystem.
     -   [x] Add icons
     -   [x] Handle display name
     -   [x] Section title
--   [ ] Display file contents
 -   [x] Navigate down a dir
 -   [ ] Breadcrumbs
     -   [x] Breadcrumbs navigation
     -   [ ] Handle multiple bredcrumbs wrapping
+-   [ ] Display file contents
 -   [ ] Create file
 -   [ ] Delete file
 -   [ ] Handle scrolling

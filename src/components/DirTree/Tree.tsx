@@ -32,7 +32,7 @@ export const Tree: React.FC<Props> = ({ prefix = '' }) => {
         ) : (
           <ClosedDir className="dirItemIcon" />
         )}
-        {getDisplayName(prefix) || 'root'}
+        {getDisplayName(prefix)}
       </button>
       {directChildren.map((c) => {
         return (
