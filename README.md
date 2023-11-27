@@ -7,10 +7,11 @@ An S3 bucket explorer that mimics a filesystem.
 ### Client <-> AWS API communication:
 
 - [x] List objects
-- [ ] Read an object
+- [x] Read an object
 - [ ] Create an object
 - [ ] Delete an object
 - [ ] Live bucket state update
+- [ ] Singleton client
 
 ### Bucket credentials handling:
 

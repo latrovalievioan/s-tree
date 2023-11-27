@@ -5,11 +5,13 @@ import { useStore } from '@/store';
 import { getDirectChildren, getDisplayName, isDir } from '@/utils';
 import { FileIcon } from '@/assets/FileIcon';
 import { Breadcrumbs } from './Breadcrumbs';
+import { useGetObject } from '@/hooks/useGetObject';
 
 export const Explorer = () => {
   const objects = useGetObjectNames();
   const { selectedObject, setSelectedObject } = useStore();
   const directChildren = getDirectChildren(selectedObject, objects);
+  const objectContent = useGetObject(selectedObject);
 
   return (
     <div id="explorer">

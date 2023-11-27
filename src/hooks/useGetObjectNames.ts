@@ -1,24 +1,8 @@
-import { S3Client, ListObjectsCommand } from '@aws-sdk/client-s3';
 import { useQuery } from 'react-query';
-
-export const getObjects = async () => {
-  const client = new S3Client({
-    region: import.meta.env.VITE_REGION_LUCID,
-    credentials: {
-      accessKeyId: import.meta.env.VITE_ACCESS_KEY_ID_LUCID,
-      secretAccessKey: import.meta.env.VITE_SECRET_ACCESS_KEY_LUCID,
-    },
-  });
-
-  const listObjectsCommand = new ListObjectsCommand({
-    Bucket: import.meta.env.VITE_BUCKET_LUCID,
-  });
-
-  return await client.send(listObjectsCommand);
-};
+import { listObjects } from '@/api';
 
 export const useGetObjectNames = () => {
-  const { data } = useQuery('objects', getObjects);
+  const { data } = useQuery('objects', listObjects);
   if (!data?.Contents) return [];
 
   const objects = data.Contents.flatMap((c) => {
