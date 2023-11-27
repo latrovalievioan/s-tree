@@ -5,7 +5,7 @@
   width: 100%;
 }
 
-.dirTreeItem:hover {
+.dirTreeItem:hover, .dirTreeItem:focus {
   font-weight: 600;
 }
 
