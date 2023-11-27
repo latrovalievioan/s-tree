@@ -12,8 +12,9 @@ type Props = {
 export const Tree: React.FC<Props> = ({ prefix = '' }) => {
   const objects = useGetObjectNames();
   const directChildren = getDirectChildren(prefix, objects);
-  const { expandedDirs, toggleExpandedDir, selectedObject, setSelectedObject } =
-    useStore();
+  const { toggleExpandedDir, selectedObject, setSelectedObject } = useStore();
+  const isExpanded = useStore((state) => state.expandedDirs.has(prefix));
+
   return (
     <ul>
       <button
@@ -23,27 +24,25 @@ export const Tree: React.FC<Props> = ({ prefix = '' }) => {
       >
         <ChevronRight
           id="chevron"
-          className={`dirItemIcon ${
-            expandedDirs.has(prefix) ? 'expanded' : 'collapsed'
-          }`}
+          className={`dirItemIcon ${isExpanded ? 'expanded' : 'collapsed'}`}
         />
-        {expandedDirs.has(prefix) ? (
+        {isExpanded ? (
           <OpenDir className="dirItemIcon" />
         ) : (
           <ClosedDir className="dirItemIcon" />
         )}
         {getDisplayName(prefix)}
       </button>
-      {directChildren.map((c) => {
-        return (
-          isDir(c) &&
-          expandedDirs.has(prefix) && (
-            <li key={c}>
-              <Tree prefix={c} />
-            </li>
-          )
-        );
-      })}
+      {isExpanded &&
+        directChildren.map((c) => {
+          return (
+            isDir(c) && (
+              <li key={c}>
+                <Tree prefix={c} />
+              </li>
+            )
+          );
+        })}
     </ul>
   );
 };

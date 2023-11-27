@@ -2,22 +2,26 @@ import { useQuery } from 'react-query';
 import { listObjects } from '@/api';
 
 export const useGetObjectNames = () => {
-  const { data } = useQuery('objects', listObjects);
-  if (!data?.Contents) return [];
+  const { data } = useQuery('objects', async () => {
+    console.log('query');
+    const list = await listObjects();
 
-  const objects = data.Contents.flatMap((c) => {
-    const objs: string[] = [];
-    const str = c.Key || '';
-    let accString = '';
+    if (!list.Contents) return [];
 
-    for (let i = 0; i < str.length; i++) {
-      const currentChar = str[i];
-      accString += currentChar;
-      if (currentChar === '/' || i === str.length - 1) objs.push(accString);
+    const objs: Set<string> = new Set();
+    for (let n = 0; n < list.Contents.length; n++) {
+      const str = list.Contents[n].Key || '';
+
+      for (let i = 0; i < str.length; i++) {
+        const currentChar = str[i];
+        if (currentChar === '/' || i === str.length - 1) {
+          objs.add(str.slice(0, i + 1));
+        }
+      }
     }
 
-    return objs;
+    return [...objs];
   });
 
-  return [...new Set(objects)];
+  return data || [];
 };
