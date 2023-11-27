@@ -17,12 +17,12 @@ const getBreadcrumbs = (s: string) => {
 };
 
 export const Breadcrumbs = () => {
-  const { selectedDir, setSelectedDir } = useStore();
+  const { selectedObject, setSelectedObject } = useStore();
 
-  const breadcrumbs = getBreadcrumbs(selectedDir);
+  const breadcrumbs = getBreadcrumbs(selectedObject);
 
   const handleClick = (i: number) => {
-    setSelectedDir(breadcrumbs.slice(0, i + 1).join(''));
+    setSelectedObject(breadcrumbs.slice(0, i + 1).join(''));
   };
 
   return (

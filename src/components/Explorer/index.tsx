@@ -8,8 +8,8 @@ import { Breadcrumbs } from './Breadcrumbs';
 
 export const Explorer = () => {
   const objects = useGetObjectNames();
-  const { selectedDir, setSelectedDir } = useStore();
-  const directChildren = getDirectChildren(selectedDir, objects);
+  const { selectedObject, setSelectedObject } = useStore();
+  const directChildren = getDirectChildren(selectedObject, objects);
 
   return (
     <div id="explorer">
@@ -20,7 +20,7 @@ export const Explorer = () => {
           .map((c) => (
             <li
               key={c}
-              onDoubleClick={() => setSelectedDir(c)}
+              onDoubleClick={() => setSelectedObject(c)}
               className="explorerItem"
             >
               {isDir(c) ? <ClosedDir /> : <FileIcon />}

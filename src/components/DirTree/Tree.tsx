@@ -12,14 +12,14 @@ type Props = {
 export const Tree: React.FC<Props> = ({ prefix = '' }) => {
   const objects = useGetObjectNames();
   const directChildren = getDirectChildren(prefix, objects);
-  const { expandedDirs, toggleExpandedDir, selectedDir, setSelectedDir } =
+  const { expandedDirs, toggleExpandedDir, selectedObject, setSelectedObject } =
     useStore();
   return (
     <ul>
       <button
-        className={`dirTreeItem ${selectedDir === prefix ? 'selected' : ''}`}
+        className={`dirTreeItem ${selectedObject === prefix ? 'selected' : ''}`}
         onClick={() => toggleExpandedDir(prefix)}
-        onDoubleClick={() => setSelectedDir(prefix)}
+        onDoubleClick={() => setSelectedObject(prefix)}
       >
         <ChevronRight
           id="chevron"
