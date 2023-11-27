@@ -1,57 +1,28 @@
-import "./styles.css";
-import { useGetObjectNames } from "@/hooks/useGetObjectNames";
-import { useStore } from "@/store";
-import { getDirectChildren, getDisplayName, isDir } from "@/utils";
-import { ChevronRight } from "@/assets/ChevronRight";
-import { OpenDir } from "@/assets/OpenDir";
-import { ClosedDir } from "@/assets/ClosedDir";
+import { Tree } from './Tree';
+import './styles.css';
+import { useRef, useState } from 'react';
 
-type Props = {
-  prefix?: string;
-};
+export const DirTree = () => {
+  const [width, setWidth] = useState(300);
+  const borderRef = useRef<HTMLDivElement>(null);
 
-const Tree: React.FC<Props> = ({ prefix = "" }) => {
-  const objects = useGetObjectNames();
-  const directChildren = getDirectChildren(prefix, objects);
-  const { expandedDirs, toggleExpandedDir, selectedDir, setSelectedDir } =
-    useStore();
+  const onMouseDown = () => {
+    const onMouseMove = (event: MouseEvent) => {
+      setWidth((width) => width + event.movementX);
+    };
+
+    const onMouseUp = () => {
+      document.removeEventListener('mousemove', onMouseMove);
+      document.removeEventListener('mouseup', onMouseUp);
+    };
+    document.addEventListener('mousemove', onMouseMove);
+    document.addEventListener('mouseup', onMouseUp);
+  };
 
   return (
-    <ul>
-      <button
-        className={`dirTreeItem ${selectedDir === prefix ? "selected" : ""}`}
-        onClick={() => toggleExpandedDir(prefix)}
-        onDoubleClick={() => setSelectedDir(prefix)}
-      >
-        <ChevronRight
-          id="chevron"
-          className={`dirItemIcon ${
-            expandedDirs.has(prefix) ? "expanded" : "collapsed"
-          }`}
-        />
-        {expandedDirs.has(prefix) ? (
-          <OpenDir className="dirItemIcon" />
-        ) : (
-          <ClosedDir className="dirItemIcon" />
-        )}
-        {getDisplayName(prefix) || "root"}
-      </button>
-      {directChildren.map((c) => {
-        return (
-          isDir(c) &&
-          expandedDirs.has(prefix) && (
-            <li key={c}>
-              <Tree prefix={c} />
-            </li>
-          )
-        );
-      })}
-    </ul>
+    <div id="dirTree" style={{ width }}>
+      <Tree />
+      <div id="border" ref={borderRef} onMouseDown={onMouseDown} />
+    </div>
   );
 };
-
-export const DirTree = () => (
-  <div id="dirTree">
-    <Tree />
-  </div>
-);

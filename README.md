@@ -27,7 +27,7 @@ An S3 bucket explorer that mimics a filesystem.
 -   [ ] UI/styles
     -   [x] Add icons
     -   [x] Handle display name
--   [ ] Make section resizable
+-   [x] Make section resizable
 -   [ ] Handle scrolling
 -   [ ] Handle error state
 -   [ ] Handle loading state
@@ -54,3 +54,7 @@ An S3 bucket explorer that mimics a filesystem.
 -   [ ] Use React query for all requests
 -   [x] Create custom hook for handling object listing and tree structure
 -   [x] Setup state management
+
+### Bugs and refactoring:
+-   [ ] Root prefix handling
+-   [ ] Breadcrumbs Root click
