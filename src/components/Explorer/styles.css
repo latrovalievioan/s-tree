@@ -17,11 +17,18 @@
 
 #explorer > ul {
   padding: 0;
+  cursor: pointer;
 }
 
 .explorerItem {
   display: flex;
   align-items: center;
+}
+
+.explorerItem:hover {
+  padding: 0;
+  cursor: pointer;
+  font-weight: 600;
 }
 
 .explorerItem > svg {

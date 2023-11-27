@@ -7,7 +7,7 @@ import { FileIcon } from '@/assets/FileIcon';
 
 export const Explorer = () => {
   const objects = useGetObjectNames();
-  const { selectedDir } = useStore();
+  const { selectedDir, setSelectedDir } = useStore();
   const directChildren = getDirectChildren(selectedDir, objects);
 
   return (
@@ -17,7 +17,11 @@ export const Explorer = () => {
         {directChildren
           .sort((a, b) => Number(isDir(b)) - Number(isDir(a)))
           .map((c) => (
-            <li key={c} className="explorerItem">
+            <li
+              key={c}
+              onDoubleClick={() => isDir(c) && setSelectedDir(c)}
+              className="explorerItem"
+            >
               {isDir(c) ? <ClosedDir /> : <FileIcon />}
               {getDisplayName(c)}
             </li>
