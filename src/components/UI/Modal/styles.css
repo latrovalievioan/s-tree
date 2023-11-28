@@ -1,16 +1,35 @@
 dialog {
   position: relative;
-  min-width: 40%;
-  min-height: 40%;
+  min-width: 500px;
+  min-height: 300px;
+
+  padding: 16px;
+
+  background: gray;
+
+  border-radius: 20px;
+}
+
+dialog > header {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid black;
+}
+
+dialog > header > button {
+  display: flex;
+  align-items: center;
+}
+
+dialog > header > h2 {
+  margin: 0;
 }
 
 #closeModal{
-  position: absolute;
-  right: 16px;
-  top: 16px;
   cursor: pointer;
+  margin-left: auto;
 }
 
 #closeModal:hover{
-  color: yellow;
+  color: white;
 }

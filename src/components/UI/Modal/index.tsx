@@ -11,10 +11,12 @@ export const Modal = forwardRef<HTMLDialogElement, Props>(
   ({ title, onClose }, ref) => {
     return (
       <dialog ref={ref}>
-        <h1>{title}</h1>
-        <button id="closeModal" onClick={onClose}>
-          <Close />
-        </button>
+        <header>
+          <h2>{title}</h2>
+          <button id="closeModal" onClick={onClose}>
+            <Close />
+          </button>
+        </header>
       </dialog>
     );
   }

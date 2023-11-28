@@ -58,6 +58,9 @@ An S3 bucket explorer that mimics a filesystem.
 - [ ] Handle scrolling
     - [ ] Sticky breadcrumbs
 
+### Other: 
+- [x] Implement a reusable Modal component
+
 ### Bugs and refactoring:
 
 - [ ] Root prefix handling
