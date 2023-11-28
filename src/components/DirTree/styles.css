@@ -16,6 +16,7 @@
   min-width: 300px;
   max-width: 50%;
   display: flex;
+  overflow: auto;
 }
 
 #chevron.expanded {

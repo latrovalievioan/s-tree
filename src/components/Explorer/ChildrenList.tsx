@@ -12,7 +12,7 @@ export const ChildrenList = () => {
 
   return (
     <>
-      <ul>
+      <ul id="explorerItemList">
         {directChildren
           .sort((a, b) => Number(isDir(b)) - Number(isDir(a)))
           .map((c) => (

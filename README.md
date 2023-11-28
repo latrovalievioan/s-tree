@@ -29,7 +29,7 @@ An S3 bucket explorer that mimics a filesystem.
     - [x] Add icons
     - [x] Handle display name
 - [x] Make section resizable
-- [ ] Handle scrolling
+- [x] Handle scrolling
 - [ ] Handle error state
 - [ ] Handle loading state
 
@@ -55,8 +55,7 @@ An S3 bucket explorer that mimics a filesystem.
     - [ ] Empty state
     - [x] Formatting
     - [ ] Text coloring
-- [ ] Handle scrolling
-    - [ ] Sticky breadcrumbs
+- [x] Handle scrolling
 
 ### Other: 
 - [x] Implement a reusable Modal component
