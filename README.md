@@ -41,16 +41,16 @@ An S3 bucket explorer that mimics a filesystem.
     - [x] Handle display name
     - [x] Section title
     - [x] Navigate down a dir
-    - [ ] Actions menu
-        - [ ] Create file
-        - [ ] Create directory
-            -   [x] Form UI
-            -   [x] Form field validation
-            -   [x] Loading state
-            -   [x] Invalidate objects query
-            -   [ ] Handle errors
-        - [ ] Delete object
-        - [x] UI
+- [ ] Actions menu
+    - [ ] Create file
+    - [ ] Create directory
+        -   [x] Form UI
+        -   [x] Form field validation
+        -   [x] Loading state
+        -   [x] Invalidate objects query
+        -   [ ] Handle errors
+    - [ ] Delete object
+    - [x] UI
 - [ ] Breadcrumbs
     - [x] Breadcrumbs navigation
     - [ ] Handle multiple bredcrumbs wrapping
