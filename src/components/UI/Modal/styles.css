@@ -1,7 +1,6 @@
 dialog {
   position: relative;
   min-width: 500px;
-  min-height: 300px;
 
   padding: 16px;
 
@@ -35,5 +34,5 @@ dialog > header > h2 {
 }
 
 dialog::backdrop {
-        backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
 }

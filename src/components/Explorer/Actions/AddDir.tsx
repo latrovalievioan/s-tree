@@ -41,10 +41,12 @@ export const AddDir = () => {
       <Modal title="Add a directory:" ref={dialogRef} onClose={closeDialog}>
         <form className="modalContent">
           <div>
-            <div>
-              <label>Parent Directory:&nbsp;</label>
-              <span>{selectedObject}</span>
-            </div>
+            <label>Location:&nbsp;</label>
+            <span>
+              <i>{selectedObject}</i>
+            </span>
+          </div>
+          <div>
             <input
               id="dirName"
               value={dirName}
@@ -56,7 +58,11 @@ export const AddDir = () => {
                 setDirName(e.target.value)
               }
             />
-            <span>Should not contain / or an empty space</span>
+            <div>
+              <i className="inputRule">
+                *Should not contain / or an empty space
+              </i>
+            </div>
           </div>
           <button onClick={() => createDir()}>Done</button>
         </form>

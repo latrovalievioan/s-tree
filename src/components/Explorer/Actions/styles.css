@@ -1,6 +1,9 @@
 .modalContent {
   display: flex;
   flex-direction: column;
+  margin-top: 16px;
+  gap: 16px;
+  flex: 1;
 }
 
 .modalContent > button {
@@ -9,10 +12,34 @@
   cursor: pointer;
 }
 
-.modalContent > button:hover, .modalContent > button:focus {
-  background: rgba(0,0,0,0.6);
+#dirName {
+  width: 50%;
+  height: 40px;
+  border-radius: 8px;
+  padding: 8px;
+  border: 2px solid black;
 }
 
 input:invalid {
   color: red;
+}
+
+input::placeholder {
+  font-size: 1rem;
+}
+
+.inputRule {
+  color: rgba(255,255,255,0.6);
+}
+
+.modalContent > button {
+  width: 100px;
+  height: 40px;
+  text-align: center;
+  border-radius: 16px;
+}
+
+.modalContent > button:hover, .modalContent > button:focus {
+  background: white;
+  color: black;
 }
