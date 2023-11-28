@@ -2,21 +2,29 @@ import './styles.css';
 import { AddDirIcon } from '@/assets/AddDirIcon';
 import { Modal } from '@/components/UI/Modal';
 import { OBJECT_NAME_REGEX } from '@/constants';
+import { useGetObjectNames } from '@/hooks/useGetObjectNames';
 import { usePutObject } from '@/hooks/usePutObject';
 import { useStore } from '@/store';
 import { useRef, useState } from 'react';
 
 export const AddDir = () => {
   const { selectedObject } = useStore();
+  const objects = useGetObjectNames();
   const dialogRef = useRef<HTMLDialogElement>(null);
-  // const dirNameRef = useRef<HTMLInputElement>(null);
   const [dirName, setDirName] = useState('');
 
   const { mutateAsync } = usePutObject();
 
   const createDir = () => {
+    const dirKey = selectedObject + dirName + '/';
+
+    if (objects.includes(dirKey)) {
+      console.log('TODO HANDLE THIS');
+      return;
+    }
+
     mutateAsync({
-      key: selectedObject + dirName + '/',
+      key: dirKey,
       body: '',
     });
   };
