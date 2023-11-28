@@ -53,6 +53,7 @@ An S3 bucket explorer that mimics a filesystem.
     - [x] Display file content
     - [ ] Loading state
     - [ ] Empty state
+    - [x] Formatting
     - [ ] Text coloring
 - [ ] Handle scrolling
     - [ ] Sticky breadcrumbs

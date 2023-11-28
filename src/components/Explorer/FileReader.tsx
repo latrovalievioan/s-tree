@@ -7,5 +7,5 @@ export const FileReader = () => {
 
   if (!content) return <div>LOADING TODO</div>;
 
-  return <div id="fileReader">{content}</div>;
+  return <pre id="fileReader">{content}</pre>;
 };
