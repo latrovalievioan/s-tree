@@ -3,7 +3,6 @@ import { listObjects } from '@/api';
 
 export const useGetObjectNames = () => {
   const { data } = useQuery('objects', async () => {
-    console.log('query');
     const list = await listObjects();
 
     if (!list.Contents) return [];
