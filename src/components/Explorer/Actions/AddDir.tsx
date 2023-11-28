@@ -1,6 +1,7 @@
 import './styles.css';
 import { AddDirIcon } from '@/assets/AddDirIcon';
 import { Modal } from '@/components/UI/Modal';
+import { Spinner } from '@/components/UI/Spinner';
 import { OBJECT_NAME_REGEX } from '@/constants';
 import { useGetObjectNames } from '@/hooks/useGetObjectNames';
 import { usePutObject } from '@/hooks/usePutObject';
@@ -24,10 +25,11 @@ export const AddDir = () => {
 
   const onSuccess = async () => {
     await queryClient.invalidateQueries({ queryKey: ['objects'] });
+    setDirName('');
     closeDialog();
   };
 
-  const { mutateAsync } = usePutObject(onSuccess);
+  const { mutateAsync, isPending } = usePutObject(onSuccess);
 
   const createDir = () => {
     const dirKey = selectedObject + dirName + '/';
@@ -55,7 +57,14 @@ export const AddDir = () => {
         <AddDirIcon className="action" />
       </button>
       <Modal title="Add a directory:" ref={dialogRef} onClose={closeDialog}>
-        <form className="modalContent">
+        <form
+          className="modalContent"
+          onKeyDown={(e: React.KeyboardEvent<HTMLFormElement>) => {
+            if (e.key !== 'Enter' || isPending) return;
+            e.preventDefault();
+            createDir();
+          }}
+        >
           <div>
             <label>Location:&nbsp;</label>
             <span>
@@ -80,8 +89,12 @@ export const AddDir = () => {
               </i>
             </div>
           </div>
-          <button type="button" onClick={() => createDir()}>
-            Done
+          <button
+            type="button"
+            className={isPending ? 'innactive' : ''}
+            onClick={isPending ? () => {} : () => createDir()}
+          >
+            {isPending ? <Spinner width={24} height={24} border={2} /> : 'Done'}
           </button>
         </form>
       </Modal>

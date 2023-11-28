@@ -46,9 +46,10 @@ An S3 bucket explorer that mimics a filesystem.
         - [ ] Create directory
             -   [x] Form UI
             -   [x] Form field validation
-            -   [ ] Loading state
-            -   [ ] Refresh the page state
-        - [ ] Delete file
+            -   [x] Loading state
+            -   [x] Invalidate objects query
+            -   [ ] Handle errors
+        - [ ] Delete object
         - [x] UI
 - [ ] Breadcrumbs
     - [x] Breadcrumbs navigation
