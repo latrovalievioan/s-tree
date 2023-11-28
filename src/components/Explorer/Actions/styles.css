@@ -12,3 +12,7 @@
 .modalContent > button:hover, .modalContent > button:focus {
   background: rgba(0,0,0,0.6);
 }
+
+input:invalid {
+  color: red;
+}

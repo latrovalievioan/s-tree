@@ -1,22 +1,22 @@
 import './styles.css';
 import { AddDirIcon } from '@/assets/AddDirIcon';
 import { Modal } from '@/components/UI/Modal';
+import { OBJECT_NAME_REGEX } from '@/constants';
 import { usePutObject } from '@/hooks/usePutObject';
 import { useStore } from '@/store';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 
 export const AddDir = () => {
   const { selectedObject } = useStore();
   const dialogRef = useRef<HTMLDialogElement>(null);
-  const dirNameRef = useRef<HTMLInputElement>(null);
+  // const dirNameRef = useRef<HTMLInputElement>(null);
+  const [dirName, setDirName] = useState('');
 
   const { mutateAsync } = usePutObject();
 
   const createDir = () => {
-    if (!dirNameRef.current) return;
-
     mutateAsync({
-      key: selectedObject + dirNameRef.current.value + '/',
+      key: selectedObject + dirName + '/',
       body: '',
     });
   };
@@ -36,20 +36,30 @@ export const AddDir = () => {
   return (
     <>
       <button onClick={openDialog}>
-        <AddDirIcon className="action" />{' '}
+        <AddDirIcon className="action" />
       </button>
       <Modal title="Add a directory:" ref={dialogRef} onClose={closeDialog}>
-        <div className="modalContent">
+        <form className="modalContent">
           <div>
             <div>
-              <span>Parent Directory:</span>
+              <label>Parent Directory:&nbsp;</label>
               <span>{selectedObject}</span>
             </div>
-            <label htmlFor="name">Name:</label>
-            <input ref={dirNameRef} type="text" />
+            <input
+              id="dirName"
+              value={dirName}
+              placeholder="Name"
+              type="text"
+              pattern={OBJECT_NAME_REGEX}
+              required
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                setDirName(e.target.value)
+              }
+            />
+            <span>Should not contain / or an empty space</span>
           </div>
           <button onClick={() => createDir()}>Done</button>
-        </div>
+        </form>
       </Modal>
     </>
   );
