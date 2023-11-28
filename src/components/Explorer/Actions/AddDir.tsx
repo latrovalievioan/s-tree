@@ -5,6 +5,7 @@ import { OBJECT_NAME_REGEX } from '@/constants';
 import { useGetObjectNames } from '@/hooks/useGetObjectNames';
 import { usePutObject } from '@/hooks/usePutObject';
 import { useStore } from '@/store';
+import { useQueryClient } from '@tanstack/react-query';
 import { useRef, useState } from 'react';
 
 export const AddDir = () => {
@@ -13,7 +14,20 @@ export const AddDir = () => {
   const dialogRef = useRef<HTMLDialogElement>(null);
   const [dirName, setDirName] = useState('');
 
-  const { mutateAsync } = usePutObject();
+  const queryClient = useQueryClient();
+
+  const closeDialog = () => {
+    if (!dialogRef.current) return;
+
+    dialogRef.current.close();
+  };
+
+  const onSuccess = async () => {
+    await queryClient.invalidateQueries({ queryKey: ['objects'] });
+    closeDialog();
+  };
+
+  const { mutateAsync } = usePutObject(onSuccess);
 
   const createDir = () => {
     const dirKey = selectedObject + dirName + '/';
@@ -33,12 +47,6 @@ export const AddDir = () => {
     if (!dialogRef.current) return;
 
     dialogRef.current.showModal();
-  };
-
-  const closeDialog = () => {
-    if (!dialogRef.current) return;
-
-    dialogRef.current.close();
   };
 
   return (
@@ -72,7 +80,9 @@ export const AddDir = () => {
               </i>
             </div>
           </div>
-          <button onClick={() => createDir()}>Done</button>
+          <button type="button" onClick={() => createDir()}>
+            Done
+          </button>
         </form>
       </Modal>
     </>
