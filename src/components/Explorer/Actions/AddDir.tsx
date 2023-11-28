@@ -59,9 +59,9 @@ export const AddDir = () => {
       <Modal title="Add a directory:" ref={dialogRef} onClose={closeDialog}>
         <form
           className="modalContent"
-          onKeyDown={(e: React.KeyboardEvent<HTMLFormElement>) => {
-            if (e.key !== 'Enter' || isPending) return;
+          onSubmit={(e) => {
             e.preventDefault();
+            if (isPending) return;
             createDir();
           }}
         >
@@ -89,11 +89,7 @@ export const AddDir = () => {
               </i>
             </div>
           </div>
-          <button
-            type="button"
-            className={isPending ? 'innactive' : ''}
-            onClick={isPending ? () => {} : () => createDir()}
-          >
+          <button type="button" className={isPending ? 'innactive' : ''}>
             {isPending ? <Spinner width={24} height={24} border={2} /> : 'Done'}
           </button>
         </form>
