@@ -1,6 +1,6 @@
 import { SVGProps } from 'react';
 
-export const AddDir = (props: SVGProps<SVGSVGElement>) => (
+export const AddDirIcon = (props: SVGProps<SVGSVGElement>) => (
   <svg
     className="w-[20px] h-[20px] text-gray-800 dark:text-white"
     aria-hidden="true"

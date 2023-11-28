@@ -5,10 +5,11 @@ import { forwardRef } from 'react';
 type Props = {
   title: string;
   onClose: () => void;
+  children?: React.ReactNode;
 };
 
 export const Modal = forwardRef<HTMLDialogElement, Props>(
-  ({ title, onClose }, ref) => {
+  ({ title, onClose, children }, ref) => {
     return (
       <dialog ref={ref}>
         <header>
@@ -17,6 +18,7 @@ export const Modal = forwardRef<HTMLDialogElement, Props>(
             <Close />
           </button>
         </header>
+        {children}
       </dialog>
     );
   }

@@ -1,0 +1,14 @@
+.modalContent {
+  display: flex;
+  flex-direction: column;
+}
+
+.modalContent > button {
+  background: black;
+  color: white;
+  cursor: pointer;
+}
+
+.modalContent > button:hover, .modalContent > button:focus {
+  background: rgba(0,0,0,0.6);
+}
