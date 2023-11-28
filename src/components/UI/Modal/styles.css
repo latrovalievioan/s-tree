@@ -33,3 +33,7 @@ dialog > header > h2 {
 #closeModal:hover{
   color: white;
 }
+
+dialog::backdrop {
+        backdrop-filter: blur(3px);
+}

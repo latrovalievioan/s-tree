@@ -57,8 +57,10 @@ An S3 bucket explorer that mimics a filesystem.
     - [ ] Text coloring
 - [x] Handle scrolling
 
-### Other: 
+### Modal: 
 - [x] Implement a reusable Modal component
+- [ ] UI
+    -   [x] Cool backdrop with blur
 
 ### Bugs and refactoring:
 
