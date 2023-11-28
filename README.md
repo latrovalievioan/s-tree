@@ -8,7 +8,7 @@ An S3 bucket explorer that mimics a filesystem.
 
 - [x] List objects
 - [x] Read an object
-- [ ] Create an object
+- [x] Create an object
 - [ ] Delete an object
 - [ ] Live bucket state update
 - [ ] Singleton client
@@ -44,6 +44,10 @@ An S3 bucket explorer that mimics a filesystem.
     - [ ] Actions menu
         - [ ] Create file
         - [ ] Create directory
+            -   [x] Form UI
+            -   [x] Form field validation
+            -   [ ] Loading state
+            -   [ ] Refresh the page state
         - [ ] Delete file
         - [x] UI
 - [ ] Breadcrumbs
@@ -59,8 +63,7 @@ An S3 bucket explorer that mimics a filesystem.
 
 ### Modal: 
 - [x] Implement a reusable Modal component
-- [ ] UI
-    -   [x] Cool backdrop with blur
+- [x] UI
 
 ### Bugs and refactoring:
 
