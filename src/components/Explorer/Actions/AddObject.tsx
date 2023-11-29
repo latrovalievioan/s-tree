@@ -50,12 +50,11 @@ export const AddObject: React.FC<Props> = ({ type, closeDialog }) => {
       <div>
         <span>Location:&nbsp;</span>
         <span>
-          <i>{selectedObject}</i>
+          <em>{selectedObject}</em>
         </span>
       </div>
       <div>
         <input
-          id="dirName"
           value={dirName}
           placeholder="Name"
           type="text"
