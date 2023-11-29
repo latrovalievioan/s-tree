@@ -6,7 +6,7 @@ import {
   DeleteObjectCommand,
 } from '@aws-sdk/client-s3';
 
-export const listObjects = async () => {
+export const listObjects = async (prefix = '') => {
   const client = new S3Client({
     region: import.meta.env.VITE_REGION_LUCID,
     credentials: {
@@ -17,6 +17,7 @@ export const listObjects = async () => {
 
   const listObjectsCommand = new ListObjectsCommand({
     Bucket: import.meta.env.VITE_BUCKET_LUCID,
+    Prefix: prefix,
   });
 
   return await client.send(listObjectsCommand);
@@ -66,10 +67,14 @@ export const deleteObject = async (key: string) => {
     },
   });
 
-  const deleteObjectCommand = new DeleteObjectCommand({
-    Bucket: import.meta.env.VITE_BUCKET_LUCID,
-    Key: key,
-  });
+  const objectsToDelete = await listObjects(key);
 
-  return await client.send(deleteObjectCommand);
+  objectsToDelete.Contents?.forEach((o) => {
+    const deleteObjectCommand = new DeleteObjectCommand({
+      Bucket: import.meta.env.VITE_BUCKET_LUCID,
+      Key: o.Key,
+    });
+
+    client.send(deleteObjectCommand);
+  });
 };

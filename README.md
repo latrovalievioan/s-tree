@@ -83,6 +83,7 @@ An S3 bucket explorer that mimics a filesystem.
 - [ ] Breadcrumbs Root click
 - [ ] Rename all variables that use some system name
 - [ ] Selecting text while resizing
+- [x] Cannot delete objects by prefix (folder name)
 
 ### Nice to have
 
