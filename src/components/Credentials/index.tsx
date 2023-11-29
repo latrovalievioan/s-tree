@@ -3,6 +3,10 @@ import { Modal } from '@/components/UI/Modal';
 import { Spinner } from '../UI/Spinner';
 import { initialInputValues, inputValuesReducer } from './reducer';
 import { useInitializeClient } from '@/hooks/useInitializeClient';
+import { useMutation } from '@tanstack/react-query';
+import { initializeClient } from '@/api';
+import { S3Client } from '@aws-sdk/client-s3';
+import { useClientStore } from '@/store';
 
 export const Credentials = () => {
   const [inputValues, dispatchInputValue] = useReducer(
@@ -15,17 +19,26 @@ export const Credentials = () => {
     localStorage.setItem('credentials', JSON.stringify(inputValues));
   };
 
+  const { setClient, setBucket } = useClientStore();
+
   const closeDialog = () => {
     if (!dialogRef.current) return;
     dialogRef.current.close();
   };
 
-  const onSuccess = () => {
+  const onSuccess = (client: S3Client) => {
     addCredentialsToStorage();
+    setClient(client);
+    setBucket(inputValues.bucket);
     closeDialog();
   };
 
-  const { mutate, isPending, error } = useInitializeClient(onSuccess);
+  const { mutate, isPending, error } = useMutation({
+    mutationFn: initializeClient,
+    onSuccess: (client) => {
+      onSuccess(client);
+    },
+  });
 
   useEffect(() => {
     dialogRef.current?.showModal();

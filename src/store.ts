@@ -1,3 +1,4 @@
+import { S3Client } from '@aws-sdk/client-s3';
 import { create } from 'zustand';
 
 type Store = {
@@ -23,4 +24,18 @@ export const useStore = create<Store>()((set) => ({
   selectedObjectForAction: '',
   setSelectedObjectForAction: (selectedObjectForAction) =>
     set((state) => ({ ...state, selectedObjectForAction })),
+}));
+
+type ClientStore = {
+  client?: S3Client;
+  setClient: (client: S3Client) => void;
+  bucket: string;
+  setBucket: (bucket: string) => void;
+};
+
+export const useClientStore = create<ClientStore>()((set) => ({
+  client: undefined,
+  setClient: (client) => set((state) => ({ ...state, client })),
+  bucket: '',
+  setBucket: (bucket) => set((state) => ({ ...state, bucket })),
 }));

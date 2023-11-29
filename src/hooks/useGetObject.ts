@@ -6,7 +6,7 @@ export const useGetObject = (key: string) => {
     queryKey: [key],
     queryFn: async () => {
       const response = await getObject(key);
-      return (await response.Body?.transformToString()) || '';
+      return (await response?.Body?.transformToString()) || '';
     },
   });
   return data;

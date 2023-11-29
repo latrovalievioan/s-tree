@@ -12,12 +12,12 @@ An S3 bucket explorer that mimics a filesystem.
 - [x] Delete an object
 - [x] Validate credentials
 - [ ] Live bucket state update
-- [ ] Singleton client
+- [x] Single instantiation of client
 
 ### Bucket credentials handling:
 
 - [x] UI form
-- [ ] Store credentials to localStorage after validation
+- [x] Store credentials to localStorage after validation
 - [ ] Handle error
 - [ ] Retrieve credentials from localStorage
 - [ ] Show form when there are no credentials in localStorage

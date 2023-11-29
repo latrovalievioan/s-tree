@@ -1,4 +1,4 @@
-import { useStore } from '@/store';
+import { useClientStore, useStore } from '@/store';
 
 const getBreadcrumbs = (s: string) => {
   let accString = '';
@@ -18,6 +18,7 @@ const getBreadcrumbs = (s: string) => {
 
 export const Breadcrumbs = () => {
   const { selectedObject, setSelectedObject } = useStore();
+  const { bucket } = useClientStore();
 
   const breadcrumbs = getBreadcrumbs(selectedObject);
 
@@ -29,7 +30,7 @@ export const Breadcrumbs = () => {
     <h1>
       {
         <span className="breadcrumb" onClick={() => setSelectedObject('')}>
-          s3://{import.meta.env.VITE_BUCKET_LUCID}/
+          s3://{bucket}/
         </span>
       }
       {breadcrumbs.map((crumb, i) => (
