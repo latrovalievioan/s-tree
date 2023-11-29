@@ -46,10 +46,22 @@ input::placeholder {
 }
 
 .inputRule {
-  color: rgba(255,255,255,0.6);
+  color: rgba(0,0,0,0.8);
 }
 
 .modalContent > button:hover, .modalContent > button:focus {
   background: white;
   color: black;
+}
+
+.modalContent > textarea {
+  resize: none;
+  height: 300px;
+  border-radius: 8px;
+  padding: 8px;
+  border: 2px solid black;
+}
+
+.modalContent > textarea::placeholder {
+  font-size: 1rem;
 }

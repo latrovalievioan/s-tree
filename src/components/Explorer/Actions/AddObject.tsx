@@ -4,7 +4,7 @@ import { useGetObjectNames } from '@/hooks/useGetObjectNames';
 import { usePutObject } from '@/hooks/usePutObject';
 import { useStore } from '@/store';
 import { useQueryClient } from '@tanstack/react-query';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 
 type Props = {
   type: 'directory' | 'file';
@@ -12,6 +12,7 @@ type Props = {
 };
 
 export const AddObject: React.FC<Props> = ({ type, closeDialog }) => {
+  const textAreaRef = useRef<HTMLTextAreaElement>(null);
   const { selectedObject } = useStore();
   const objects = useGetObjectNames();
   const [dirName, setDirName] = useState('');
@@ -34,7 +35,7 @@ export const AddObject: React.FC<Props> = ({ type, closeDialog }) => {
 
     mutateAsync({
       key: dirKey,
-      body: '',
+      body: textAreaRef.current?.value || '',
     });
   };
 
@@ -43,12 +44,11 @@ export const AddObject: React.FC<Props> = ({ type, closeDialog }) => {
       className="modalContent"
       onSubmit={(e) => {
         e.preventDefault();
-        if (isPending) return;
         createObject();
       }}
     >
       <div>
-        <label>Location:&nbsp;</label>
+        <span>Location:&nbsp;</span>
         <span>
           <i>{selectedObject}</i>
         </span>
@@ -66,10 +66,15 @@ export const AddObject: React.FC<Props> = ({ type, closeDialog }) => {
           }
         />
         <div>
-          <i className="inputRule">*Should not contain / or an empty space</i>
+          <em className="inputRule">
+            *Should not contain "/" or an empty space
+          </em>
         </div>
       </div>
-      <button type="button" className={isPending ? 'innactive' : ''}>
+      {type === 'file' && (
+        <textarea ref={textAreaRef} placeholder="Content of your file" />
+      )}
+      <button disabled={isPending} className={isPending ? 'innactive' : ''}>
         {isPending ? <Spinner width={24} height={24} border={2} /> : 'Done'}
       </button>
     </form>

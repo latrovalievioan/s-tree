@@ -1,11 +1,11 @@
-import { AddFileIcon } from '@/assets/AddFileIcon';
 import { Trash } from '@/assets/Trash';
 import { AddDir } from './AddDir';
+import { AddFile } from './AddFile';
 
 export const Actions = () => {
   return (
     <div id="actionsMenu">
-      <AddFileIcon className="action" />
+      <AddFile />
       <AddDir />
       <Trash className="action" />
     </div>
