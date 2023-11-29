@@ -86,5 +86,5 @@ An S3 bucket explorer that mimics a filesystem.
 - [x] Cannot delete objects by prefix (folder name)
 
 ### Nice to have
-
 - [ ] When selecting a child from Explorer if parent is collapsed in dir tree - expand it
+- [ ] Bundle delete objects
