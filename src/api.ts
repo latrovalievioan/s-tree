@@ -4,7 +4,9 @@ import {
   GetObjectCommand,
   PutObjectCommand,
   DeleteObjectCommand,
+  HeadBucketCommand,
 } from '@aws-sdk/client-s3';
+import { CredentialsType } from './types';
 
 export const listObjects = async (prefix = '') => {
   const client = new S3Client({
@@ -81,4 +83,25 @@ export const deleteObject = async (key: string) => {
   });
 
   return await Promise.all(deletionPromises);
+};
+
+export const validateCredentials = async (credentials: CredentialsType) => {
+  const { accessKeyId, secretAccessKey, bucket, region } = credentials;
+
+  const client = new S3Client({
+    region,
+    credentials: {
+      accessKeyId,
+      secretAccessKey,
+    },
+  });
+
+  const headBucketCommand = new HeadBucketCommand({ Bucket: bucket });
+
+  try {
+    await client.send(headBucketCommand);
+    return true;
+  } catch {
+    return false;
+  }
 };
