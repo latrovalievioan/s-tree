@@ -21,5 +21,7 @@ export const getDirectChildren = (prefix: string, objects: string[]) => {
 export const getDisplayName = (s: string) => {
   const split = s.split('/');
 
+  if (!s.length) return 's3://' + import.meta.env.VITE_BUCKET_LUCID;
+
   return isDir(s) ? split[split.length - 2] : split[split.length - 1];
 };

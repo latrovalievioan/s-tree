@@ -61,7 +61,7 @@ An S3 bucket explorer that mimics a filesystem.
         -   [x] Invalidate objects query
         -   [ ] Handle errors
     - [x] UI
-- [ ] Breadcrumbs
+- [x] Breadcrumbs
     - [x] Breadcrumbs navigation
     - [ ] Handle multiple bredcrumbs wrapping
 - [x] File reader
@@ -79,8 +79,8 @@ An S3 bucket explorer that mimics a filesystem.
 ### Bugs and refactoring:
 
 - [x] Can create invalid dirs
-- [ ] Root prefix handling
-- [ ] Breadcrumbs Root click
+- [x] Root prefix handling
+- [x] Breadcrumbs Root click
 - [ ] Rename all variables that use some system name
 - [ ] Selecting text while resizing
 - [x] Cannot delete objects by prefix (folder name)
@@ -88,3 +88,4 @@ An S3 bucket explorer that mimics a filesystem.
 ### Nice to have
 - [ ] When selecting a child from Explorer if parent is collapsed in dir tree - expand it
 - [ ] Bundle delete objects
+- [ ] React router for file explorer

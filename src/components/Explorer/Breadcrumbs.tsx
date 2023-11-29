@@ -27,6 +27,11 @@ export const Breadcrumbs = () => {
 
   return (
     <h1>
+      {
+        <span className="breadcrumb" onClick={() => setSelectedObject('')}>
+          s3://{import.meta.env.VITE_BUCKET_LUCID}/
+        </span>
+      }
       {breadcrumbs.map((crumb, i) => (
         <span
           key={crumb + i}
