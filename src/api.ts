@@ -85,7 +85,7 @@ export const deleteObject = async (key: string) => {
   return await Promise.all(deletionPromises);
 };
 
-export const validateCredentials = async (credentials: CredentialsType) => {
+export const initializeClient = async (credentials: CredentialsType) => {
   const { accessKeyId, secretAccessKey, bucket, region } = credentials;
 
   const client = new S3Client({
@@ -98,10 +98,5 @@ export const validateCredentials = async (credentials: CredentialsType) => {
 
   const headBucketCommand = new HeadBucketCommand({ Bucket: bucket });
 
-  try {
-    await client.send(headBucketCommand);
-    return true;
-  } catch {
-    return false;
-  }
+  return await client.send(headBucketCommand);
 };

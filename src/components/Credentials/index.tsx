@@ -2,7 +2,7 @@ import { useEffect, useReducer, useRef } from 'react';
 import { Modal } from '@/components/UI/Modal';
 import { Spinner } from '../UI/Spinner';
 import { initialInputValues, inputValuesReducer } from './reducer';
-import { validateCredentials } from '@/api';
+import { useInitializeClient } from '@/hooks/useInitializeClient';
 
 export const Credentials = () => {
   const [inputValues, dispatchInputValue] = useReducer(
@@ -12,15 +12,20 @@ export const Credentials = () => {
   const dialogRef = useRef<HTMLDialogElement>(null);
 
   const addCredentialsToStorage = () => {
-    Object.keys(inputValues).forEach((k: string) => {
-      localStorage.setItem(k, inputValues[k as keyof typeof inputValues]);
-    });
+    localStorage.setItem('credentials', JSON.stringify(inputValues));
   };
 
   const closeDialog = () => {
     if (!dialogRef.current) return;
     dialogRef.current.close();
   };
+
+  const onSuccess = () => {
+    addCredentialsToStorage();
+    closeDialog();
+  };
+
+  const { mutate, isPending, error } = useInitializeClient(onSuccess);
 
   useEffect(() => {
     dialogRef.current?.showModal();
@@ -37,11 +42,7 @@ export const Credentials = () => {
         className="modalContent"
         onSubmit={(e) => {
           e.preventDefault();
-          if (!validateCredentials(inputValues)) {
-            console.log('TODO: HANDLE INVALID CREDENTIALS');
-            return;
-          }
-          addCredentialsToStorage();
+          mutate(inputValues);
         }}
       >
         <input
@@ -49,7 +50,7 @@ export const Credentials = () => {
           type="text"
           required
           value={inputValues.accessKeyId}
-          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+          onChange={(e) =>
             dispatchInputValue({
               type: 'setAccessKeyId',
               payload: e.target.value,
@@ -61,7 +62,7 @@ export const Credentials = () => {
           type="text"
           required
           value={inputValues.secretAccessKey}
-          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+          onChange={(e) =>
             dispatchInputValue({
               type: 'setSecretAccessKey',
               payload: e.target.value,
@@ -73,7 +74,7 @@ export const Credentials = () => {
           type="text"
           required
           value={inputValues.region}
-          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+          onChange={(e) =>
             dispatchInputValue({
               type: 'setRegion',
               payload: e.target.value,
@@ -85,7 +86,7 @@ export const Credentials = () => {
           type="text"
           required
           value={inputValues.bucket}
-          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+          onChange={(e) =>
             dispatchInputValue({
               type: 'setBucket',
               payload: e.target.value,
@@ -93,12 +94,7 @@ export const Credentials = () => {
           }
         />
 
-        <button
-        // disabled={
-        //   isPending || confirmationText !== DELETE_CONFIRMATION_STRING
-        // }
-        // className={isPending ? 'innactive' : ''}
-        >
+        <button disabled={isPending} className={isPending ? 'innactive' : ''}>
           {false ? <Spinner width={24} height={24} border={2} /> : 'Done'}
         </button>
       </form>
