@@ -78,7 +78,7 @@ An S3 bucket explorer that mimics a filesystem.
 
 ### Bugs and refactoring:
 
-- [ ] Can create invalid dirs
+- [x] Can create invalid dirs
 - [ ] Root prefix handling
 - [ ] Breadcrumbs Root click
 - [ ] Rename all variables that use some system name
