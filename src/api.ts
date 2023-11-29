@@ -69,12 +69,16 @@ export const deleteObject = async (key: string) => {
 
   const objectsToDelete = await listObjects(key);
 
-  objectsToDelete.Contents?.forEach((o) => {
+  if (!objectsToDelete.Contents) return;
+
+  const deletionPromises = objectsToDelete.Contents?.map((o) => {
     const deleteObjectCommand = new DeleteObjectCommand({
       Bucket: import.meta.env.VITE_BUCKET_LUCID,
       Key: o.Key,
     });
 
-    client.send(deleteObjectCommand);
+    return client.send(deleteObjectCommand);
   });
+
+  return await Promise.all(deletionPromises);
 };
