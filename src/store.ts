@@ -18,7 +18,9 @@ export const useStore = create<Store>()((set) => ({
       return { ...state, expandedDirs };
     }),
   selectedObject: '',
-  setSelectedObject: (key) => set((state) => ({ ...state, key })),
+  setSelectedObject: (selectedObject) =>
+    set((state) => ({ ...state, selectedObject })),
   selectedObjectForAction: '',
-  setSelectedObjectForAction: (key) => set((state) => ({ ...state, key })),
+  setSelectedObjectForAction: (selectedObjectForAction) =>
+    set((state) => ({ ...state, selectedObjectForAction })),
 }));

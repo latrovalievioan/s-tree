@@ -7,7 +7,12 @@ import { Actions } from './Actions';
 
 export const ChildrenList = () => {
   const objects = useGetObjectNames();
-  const { selectedObject, setSelectedObject } = useStore();
+  const {
+    selectedObject,
+    setSelectedObject,
+    selectedObjectForAction,
+    setSelectedObjectForAction,
+  } = useStore();
   const directChildren = getDirectChildren(selectedObject, objects);
 
   return (
@@ -18,8 +23,16 @@ export const ChildrenList = () => {
           .map((c) => (
             <li
               key={c}
-              onDoubleClick={() => setSelectedObject(c)}
-              className="explorerItem"
+              className={`explorerItem ${
+                c === selectedObjectForAction ? 'selected' : ''
+              }`}
+              onClick={() => {
+                setSelectedObjectForAction(c);
+              }}
+              onDoubleClick={() => {
+                setSelectedObject(c);
+                setSelectedObjectForAction('');
+              }}
             >
               {isDir(c) ? <ClosedDir /> : <FileIcon />}
               {getDisplayName(c)}
