@@ -4,7 +4,9 @@ type Store = {
   expandedDirs: Set<string>;
   toggleExpandedDir: (dir: string) => void;
   selectedObject: string;
-  setSelectedObject: (dir: string) => void;
+  setSelectedObject: (key: string) => void;
+  selectedObjectForAction: string;
+  setSelectedObjectForAction: (key: string) => void;
 };
 
 export const useStore = create<Store>()((set) => ({
@@ -16,6 +18,7 @@ export const useStore = create<Store>()((set) => ({
       return { ...state, expandedDirs };
     }),
   selectedObject: '',
-  setSelectedObject: (selectedObject) =>
-    set((state) => ({ ...state, selectedObject })),
+  setSelectedObject: (key) => set((state) => ({ ...state, key })),
+  selectedObjectForAction: '',
+  setSelectedObjectForAction: (key) => set((state) => ({ ...state, key })),
 }));
