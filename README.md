@@ -9,7 +9,7 @@ An S3 bucket explorer that mimics a filesystem.
 - [x] List objects
 - [x] Read an object
 - [x] Create an object
-- [ ] Delete an object
+- [x] Delete an object
 - [ ] Live bucket state update
 - [ ] Singleton client
 
@@ -43,6 +43,11 @@ An S3 bucket explorer that mimics a filesystem.
     - [x] Navigate down a dir
 - [ ] Actions menu
     - [ ] Create file
+        -   [x] Form UI
+        -   [x] Form field validation
+        -   [x] Loading state
+        -   [x] Invalidate objects query
+        -   [ ] Handle errors
     - [ ] Create directory
         -   [x] Form UI
         -   [x] Form field validation
@@ -50,6 +55,11 @@ An S3 bucket explorer that mimics a filesystem.
         -   [x] Invalidate objects query
         -   [ ] Handle errors
     - [ ] Delete object
+        -   [x] Form UI
+        -   [x] Form field validation
+        -   [x] Loading state
+        -   [x] Invalidate objects query
+        -   [ ] Handle errors
     - [x] UI
 - [ ] Breadcrumbs
     - [x] Breadcrumbs navigation
