@@ -6,17 +6,27 @@ type Props = {
   title: string;
   onClose: () => void;
   children?: React.ReactNode;
+  nonEscapable?: boolean;
 };
 
 export const Modal = forwardRef<HTMLDialogElement, Props>(
-  ({ title, onClose, children }, ref) => {
+  ({ title, onClose, children, nonEscapable = false }, ref) => {
     return (
-      <dialog ref={ref}>
+      <dialog
+        ref={ref}
+        onKeyDown={(e: React.KeyboardEvent<HTMLDialogElement>) => {
+          if (nonEscapable && e.key === 'Escape') {
+            e.preventDefault();
+          }
+        }}
+      >
         <header>
           <h2>{title}</h2>
-          <button id="closeModal" onClick={onClose}>
-            <Close />
-          </button>
+          {!nonEscapable && (
+            <button id="closeModal" onClick={onClose}>
+              <Close />
+            </button>
+          )}
         </header>
         {children}
       </dialog>
