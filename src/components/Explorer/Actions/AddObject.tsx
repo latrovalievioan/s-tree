@@ -1,3 +1,4 @@
+import { Form } from '@/components/UI/Form';
 import { Spinner } from '@/components/UI/Spinner';
 import { OBJECT_NAME_REGEX } from '@/constants';
 import { useGetObjectNames } from '@/hooks/useGetObjectNames';
@@ -7,11 +8,12 @@ import { useQueryClient } from '@tanstack/react-query';
 import { useRef, useState } from 'react';
 
 type Props = {
+  formName: string;
   type: 'directory' | 'file';
   closeDialog: () => void;
 };
 
-export const AddObject: React.FC<Props> = ({ type, closeDialog }) => {
+export const AddObject: React.FC<Props> = ({ formName, type, closeDialog }) => {
   const textAreaRef = useRef<HTMLTextAreaElement>(null);
   const { selectedObject } = useStore();
   const objects = useGetObjectNames();
@@ -40,13 +42,7 @@ export const AddObject: React.FC<Props> = ({ type, closeDialog }) => {
   };
 
   return (
-    <form
-      className="modalContent"
-      onSubmit={(e) => {
-        e.preventDefault();
-        createObject();
-      }}
-    >
+    <Form name={formName} onSubmit={createObject}>
       <div>
         <span>Location:&nbsp;</span>
         <span>
@@ -76,6 +72,6 @@ export const AddObject: React.FC<Props> = ({ type, closeDialog }) => {
       <button disabled={isPending} className={isPending ? 'innactive' : ''}>
         {isPending ? <Spinner width={24} height={24} border={2} /> : 'Done'}
       </button>
-    </form>
+    </Form>
   );
 };

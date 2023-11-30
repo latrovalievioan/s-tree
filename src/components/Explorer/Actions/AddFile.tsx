@@ -24,7 +24,7 @@ export const AddFile = () => {
     <>
       <IconButton Icon={AddFileIcon} onClick={openDialog} />
       <Modal title="Add a file:" ref={dialogRef} onClose={closeDialog}>
-        <AddObject type="file" closeDialog={closeDialog} />
+        <AddObject formName={'addFile'} type="file" closeDialog={closeDialog} />
       </Modal>
     </>
   );

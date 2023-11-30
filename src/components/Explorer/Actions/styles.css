@@ -1,11 +1,3 @@
-.modalContent {
-  display: flex;
-  flex-direction: column;
-  margin-top: 16px;
-  gap: 16px;
-  flex: 1;
-}
-
 .modalContent > button {
   background: black;
   color: white;

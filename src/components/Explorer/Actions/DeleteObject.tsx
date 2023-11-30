@@ -1,5 +1,6 @@
 import { Trash } from '@/assets/Trash';
 import { IconButton } from '@/components/UI/Buttons/IconButton';
+import { Form } from '@/components/UI/Form';
 import { Modal } from '@/components/UI/Modal';
 import { Spinner } from '@/components/UI/Spinner';
 import { DELETE_CONFIRMATION_STRING } from '@/constants';
@@ -49,13 +50,7 @@ export const DeleteObject = () => {
         ref={dialogRef}
         onClose={closeDialog}
       >
-        <form
-          className="modalContent"
-          onSubmit={(e) => {
-            e.preventDefault();
-            deleteObject();
-          }}
-        >
+        <Form name="deleteObject" onSubmit={deleteObject}>
           <div>
             <input
               value={confirmationText}
@@ -81,7 +76,7 @@ export const DeleteObject = () => {
           >
             {isPending ? <Spinner width={24} height={24} border={2} /> : 'Done'}
           </button>
-        </form>
+        </Form>
       </Modal>
     </>
   );
