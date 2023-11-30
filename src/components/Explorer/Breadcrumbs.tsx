@@ -29,18 +29,18 @@ export const Breadcrumbs = () => {
   return (
     <h1>
       {
-        <span className="breadcrumb" onClick={() => setSelectedObject('')}>
+        <button className="breadcrumb" onClick={() => setSelectedObject('')}>
           s3://{bucket}/
-        </span>
+        </button>
       }
       {breadcrumbs.map((crumb, i) => (
-        <span
+        <button
           key={crumb + i}
           className="breadcrumb"
           onClick={() => handleClick(i)}
         >
           {crumb}
-        </span>
+        </button>
       ))}
     </h1>
   );
