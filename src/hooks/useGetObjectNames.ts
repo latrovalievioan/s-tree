@@ -3,12 +3,13 @@ import { listObjects } from '@/api';
 import { useClientStore } from '@/store';
 
 export const useGetObjectNames = () => {
-  const { client } = useClientStore();
+  const { client, bucket } = useClientStore();
 
   const { data } = useQuery({
-    queryKey: ['objects'],
+    queryKey: ['objects', client, bucket],
     queryFn: async () => {
-      const list = await listObjects();
+      if (!client) return;
+      const list = await listObjects(client, bucket);
 
       if (!list?.Contents) return [];
 

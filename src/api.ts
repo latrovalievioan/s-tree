@@ -7,7 +7,6 @@ import {
   HeadBucketCommand,
 } from '@aws-sdk/client-s3';
 import { CredentialsType } from './types';
-import { useClientStore } from './store';
 
 export const initializeClient = async (credentials: CredentialsType) => {
   const { accessKeyId, secretAccessKey, bucket, region } = credentials;
@@ -27,11 +26,11 @@ export const initializeClient = async (credentials: CredentialsType) => {
   return client;
 };
 
-export const listObjects = async (prefix = '') => {
-  const { client, bucket } = useClientStore.getState();
-
-  if (!client) return;
-
+export const listObjects = async (
+  client: S3Client,
+  bucket: string,
+  prefix = ''
+) => {
   const listObjectsCommand = new ListObjectsCommand({
     Bucket: bucket,
     Prefix: prefix,
@@ -40,11 +39,11 @@ export const listObjects = async (prefix = '') => {
   return await client.send(listObjectsCommand);
 };
 
-export const getObject = async (key: string) => {
-  const { client, bucket } = useClientStore.getState();
-
-  if (!client) return;
-
+export const getObject = async (
+  client: S3Client,
+  bucket: string,
+  key: string
+) => {
   const getObjectCommand = new GetObjectCommand({
     Bucket: bucket,
     Key: key,
@@ -53,11 +52,11 @@ export const getObject = async (key: string) => {
   return await client.send(getObjectCommand);
 };
 
-export const putObject = async (obj: { key: string; body: string }) => {
-  const { client, bucket } = useClientStore.getState();
-
-  if (!client) return;
-
+export const putObject = async (
+  client: S3Client,
+  bucket: string,
+  obj: { key: string; body: string }
+) => {
   const createObjectCommand = new PutObjectCommand({
     Bucket: bucket,
     Key: obj.key,
@@ -67,14 +66,14 @@ export const putObject = async (obj: { key: string; body: string }) => {
   return await client.send(createObjectCommand);
 };
 
-export const deleteObject = async (key: string) => {
-  const { client, bucket } = useClientStore.getState();
+export const deleteObject = async (
+  client: S3Client,
+  bucket: string,
+  key: string
+) => {
+  const objectsToDelete = await listObjects(client, bucket, key);
 
-  if (!client) return;
-
-  const objectsToDelete = await listObjects(key);
-
-  if (!objectsToDelete || !objectsToDelete.Contents) return;
+  if (!objectsToDelete.Contents) return;
 
   const deletionPromises = objectsToDelete.Contents.map((o) => {
     const deleteObjectCommand = new DeleteObjectCommand({
