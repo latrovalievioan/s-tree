@@ -29,6 +29,10 @@ h1 {
   padding: 16px 0;
 }
 
+h2 {
+  flex: 1;
+}
+
 ul {
   list-style-type: none;
   padding-left: 16px;

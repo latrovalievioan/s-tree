@@ -1,6 +1,7 @@
 import { Close } from '@/assets/Close';
 import './styles.css';
 import { forwardRef } from 'react';
+import { IconButton } from '../Buttons/IconButton';
 
 type Props = {
   title: string;
@@ -22,11 +23,7 @@ export const Modal = forwardRef<HTMLDialogElement, Props>(
       >
         <header>
           <h2>{title}</h2>
-          {!nonEscapable && (
-            <button id="closeModal" onClick={onClose}>
-              <Close />
-            </button>
-          )}
+          {!nonEscapable && <IconButton Icon={Close} onClick={onClose} />}
         </header>
         {children}
       </dialog>
