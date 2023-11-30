@@ -9,6 +9,7 @@ dialog {
 
   border: 0;
   border-radius: 20px;
+  filter: drop-shadow(0px 0px 5px var(--secondary-bg-color));
 }
 
 dialog > header {
