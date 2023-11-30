@@ -103,3 +103,4 @@ An S3 bucket explorer that mimics a filesystem.
 - [ ] Bundle delete objects
 - [ ] React router for file explorer
 - [ ] Invalidate credentials in localStorage (logout)
+- [ ] Different views in explorer
