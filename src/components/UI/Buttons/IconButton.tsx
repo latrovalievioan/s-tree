@@ -1,4 +1,4 @@
-import './styles.css';
+import './IconButton.css';
 import { SVGProps } from 'react';
 
 type Props = {

@@ -1,5 +1,6 @@
-import { Spinner } from '@/components/UI/Spinner';
 import React from 'react';
+import './FormSubmitButton.css';
+import { Spinner } from '@/components/UI/Spinner';
 
 type Props = {
   isPending: boolean;

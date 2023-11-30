@@ -1,9 +1,7 @@
 import { useGetObjectNames } from '@/hooks/useGetObjectNames';
 import { useStore } from '@/store';
-import { getDirectChildren, getDisplayName, isDir } from '@/utils';
-import { ChevronRight } from '@/assets/ChevronRight';
-import { OpenDir } from '@/assets/OpenDir';
-import { ClosedDir } from '@/assets/ClosedDir';
+import { getDirectChildren, isDir } from '@/utils';
+import { TreeItem } from '../UI/Buttons/TreeItem';
 
 type Props = {
   prefix?: string;
@@ -14,25 +12,17 @@ export const Tree: React.FC<Props> = ({ prefix = '' }) => {
   const directChildren = getDirectChildren(prefix, objects);
   const { toggleExpandedDir, selectedObject, setSelectedObject } = useStore();
   const isExpanded = useStore((state) => state.expandedDirs.has(prefix));
+  const isSelected = selectedObject === prefix;
 
   return (
     <ul>
-      <button
-        className={`dirTreeItem ${selectedObject === prefix ? 'selected' : ''}`}
+      <TreeItem
+        title={prefix}
+        isSelected={isSelected}
+        isExpanded={isExpanded}
         onClick={() => toggleExpandedDir(prefix)}
         onDoubleClick={() => setSelectedObject(prefix)}
-      >
-        <ChevronRight
-          id="chevron"
-          className={`dirItemIcon ${isExpanded ? 'expanded' : 'collapsed'}`}
-        />
-        {isExpanded ? (
-          <OpenDir className="dirItemIcon" />
-        ) : (
-          <ClosedDir className="dirItemIcon" />
-        )}
-        {getDisplayName(prefix)}
-      </button>
+      />
       {isExpanded &&
         directChildren.map((c) => {
           return (

@@ -1,15 +1,3 @@
-.dirTreeItem {
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  width: 100%;
-}
-
-.dirTreeItem:hover,
-.dirTreeItem:focus {
-  font-weight: 600;
-}
-
 #dirTree {
   height: 100vh;
   width: 300px;
@@ -21,14 +9,6 @@
 
 #chevron.expanded {
   transform: rotate(90deg);
-}
-
-.dirItemIcon {
-  margin-right: 8px;
-}
-
-.selected {
-  background: rgba(255, 255, 255, 0.2);
 }
 
 #border {
