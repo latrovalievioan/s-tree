@@ -1,9 +1,8 @@
-import { ClosedDir } from '@/assets/ClosedDir';
 import { useGetObjectNames } from '@/hooks/useGetObjectNames';
 import { useStore } from '@/store';
-import { getDirectChildren, getDisplayName, isDir } from '@/utils';
-import { FileIcon } from '@/assets/FileIcon';
+import { getDirectChildren, isDir } from '@/utils';
 import { Actions } from './Actions';
+import { TreeItem } from '../UI/Buttons/TreeItem';
 
 export const ChildrenList = () => {
   const objects = useGetObjectNames();
@@ -21,21 +20,18 @@ export const ChildrenList = () => {
         {directChildren
           .sort((a, b) => Number(isDir(b)) - Number(isDir(a)))
           .map((c) => (
-            <li
-              key={c}
-              className={`explorerItem ${
-                c === selectedObjectForAction ? 'selected' : ''
-              }`}
-              onClick={() => {
-                setSelectedObjectForAction(c);
-              }}
-              onDoubleClick={() => {
-                setSelectedObject(c);
-                setSelectedObjectForAction('');
-              }}
-            >
-              {isDir(c) ? <ClosedDir /> : <FileIcon />}
-              {getDisplayName(c)}
+            <li>
+              <TreeItem
+                title={c}
+                isSelected={c === selectedObjectForAction}
+                isExpanded={false}
+                isExpandable={false}
+                onClick={() => setSelectedObjectForAction(c)}
+                onDoubleClick={() => {
+                  setSelectedObject(c);
+                  setSelectedObjectForAction('');
+                }}
+              />
             </li>
           ))}
       </ul>

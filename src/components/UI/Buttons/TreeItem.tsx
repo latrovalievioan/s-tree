@@ -10,21 +10,16 @@ type Props = {
   isExpanded: boolean;
   onClick: () => void;
   onDoubleClick: () => void;
+  isExpandable?: boolean;
 };
 
-export const TreeItem: React.FC<Props> = ({
-  title,
-  isSelected,
-  isExpanded,
-  onClick,
-  onDoubleClick,
-}) => {
+const TreeItemIcons: React.FC<{
+  isExpandable: boolean;
+  isExpanded: boolean;
+}> = ({ isExpandable, isExpanded }) => {
+  if (!isExpandable) return <ClosedDir className="treeItemIcon" />;
   return (
-    <button
-      className={`treeItem ${isSelected ? 'selected' : ''}`}
-      onClick={onClick}
-      onDoubleClick={onDoubleClick}
-    >
+    <>
       <ChevronRight
         id="chevron"
         className={`treeItemIcon ${isExpanded ? 'expanded' : 'collapsed'}`}
@@ -34,6 +29,25 @@ export const TreeItem: React.FC<Props> = ({
       ) : (
         <ClosedDir className="treeItemIcon" />
       )}
+    </>
+  );
+};
+
+export const TreeItem: React.FC<Props> = ({
+  title,
+  isSelected,
+  isExpanded,
+  onClick,
+  onDoubleClick,
+  isExpandable = true,
+}) => {
+  return (
+    <button
+      className={`treeItem ${isSelected ? 'selected' : ''}`}
+      onClick={onClick}
+      onDoubleClick={onDoubleClick}
+    >
+      <TreeItemIcons isExpanded={isExpanded} isExpandable={isExpandable} />
       {getDisplayName(title)}
     </button>
   );
