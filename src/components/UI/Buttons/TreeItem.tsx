@@ -20,7 +20,11 @@ const TreeItemIcons: React.FC<{
   isExpanded: boolean;
 }> = ({ title, isExpandable, isExpanded }) => {
   if (!isExpandable)
-    return isDir(title) ? <ClosedDir className="treeItemIcon" /> : <FileIcon />;
+    return isDir(title) ? (
+      <ClosedDir className="treeItemIcon" />
+    ) : (
+      <FileIcon className="treeItemIcon" />
+    );
   return (
     <>
       <ChevronRight

@@ -3,18 +3,29 @@
 }
 
 :root {
+  /*COLORS*/
+  --main-bg-color: #25263b;
+  --secondary-bg-color: #191927;
+  --selected-color: #373b4e;
+  --text-color: #cad3f5;
+  --accent-color: #f7a87f;
+
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color: var(--text-color);
+  background-color: var(--main-bg-color);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+}
+
+svg {
+  color: var(--text-color)
 }
 
 body {
@@ -72,3 +83,7 @@ form {
   flex: 1;
 }
 
+
+em {
+  color: var(--accent-color)
+}

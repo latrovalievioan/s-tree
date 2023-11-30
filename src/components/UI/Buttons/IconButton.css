@@ -1,7 +1,7 @@
 .action {
   cursor: pointer;
 }
-.action:hover {
-  color: yellow;
+.action>svg:hover {
+  color: var(--accent-color);
 }
 

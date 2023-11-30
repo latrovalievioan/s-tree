@@ -7,7 +7,7 @@
 
 .treeItem:hover,
 .treeItem:focus {
-  font-weight: 600;
+  color: var(--accent-color)
 }
 
 .treeItemIcon {
@@ -15,7 +15,7 @@
 }
 
 .selected {
-  background: rgba(255, 255, 255, 0.2);
+  background: var(--selected-color);
 }
 
 #chevron.expanded {

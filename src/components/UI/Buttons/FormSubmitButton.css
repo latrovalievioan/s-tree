@@ -1,6 +1,6 @@
 button[type=submit] {
-  background: black;
-  color: white;
+  background: var(--text-color);
+  color: var(--secondary-bg-color);
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -9,19 +9,23 @@ button[type=submit] {
   width: 100px;
   height: 40px;
   border-radius: 16px;
+
+  font-weight: bold;
 }
 
 button[type=submit]:disabled {
-  background: black;
+  background: var(--text-color);
+  color: var(--secondary-bg-color);
   cursor: initial;
 }
 
 button[type=submit]:disabled:hover,button[type=submit]:disabled:focus {
-  background: black;
+  background: var(--text-color);
+  color: var(--secondary-bg-color);
   cursor: initial;
 }
 
 button[type=submit]:hover, button[type=submit]:focus {
-  background: white;
-  color: black;
+  background: var(--accent-color);
+  color: var(--secondary-bg-color);
 }

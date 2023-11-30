@@ -8,15 +8,14 @@
   flex-direction: column;
 
   overflow: hidden;
-  padding: 0 16px;
 }
 
 #explorer > h1 {
-  border-bottom: 1px solid gray;
+  border-bottom: 1px solid var(--text-color);
 }
 
 #explorer > ul {
-  padding: 16px 0 0 0;
+  padding: 16px 0 0 16px;
   margin: 0;
   cursor: pointer;
 }
@@ -45,17 +44,16 @@
 }
 
 .breadcrumb:hover {
-  color: yellow;
+  color: var(--accent-color);
 }
 
 #fileReader {
-  background: black;
   height: 100%;
   width: 100%;
   padding: 16px;
-  margin-top: 16px;
-  border: 1px solid green;
+  margin: 0px;
 
+  background: var(--selected-color);
   overflow: auto;
 }
 
@@ -65,12 +63,12 @@
   bottom: 20px;
 
   display: flex;
-  background: rgba(0,0,0,0.5);
+  background: var(--secondary-bg-color);
   width: 300px;
   height: 60px;
 
   border-radius: 50px;
-  border: 2px solid gray;
+  filter: drop-shadow(0px 0px 15px var(--secondary-bg-color));
 
   display: flex;
   align-items: center;
