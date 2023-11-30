@@ -12,15 +12,16 @@ An S3 bucket explorer that mimics a filesystem.
 - [x] Delete an object
 - [x] Validate credentials
 - [ ] Live bucket state update
-- [x] Single instantiation of client
+    -   [ ] Smaller refetch interval 
+- [x] Single instance of client
 
 ### Bucket credentials handling:
 
 - [x] UI form
 - [x] Store credentials to localStorage after validation
 - [ ] Handle error
-- [ ] Retrieve credentials from localStorage
-- [ ] Show form when there are no credentials in localStorage
+- [x] Retrieve credentials from localStorage
+- [x] Show form when there are no credentials in localStorage
 
 ### Dir tree:
 
@@ -44,26 +45,8 @@ An S3 bucket explorer that mimics a filesystem.
     - [x] Handle display name
     - [x] Section title
     - [x] Navigate down a dir
-- [ ] Actions menu
-    - [ ] Create file
-        -   [x] Form UI
-        -   [x] Form field validation
-        -   [x] Loading state
-        -   [x] Invalidate objects query
-        -   [ ] Handle errors
-    - [ ] Create directory
-        -   [x] Form UI
-        -   [x] Form field validation
-        -   [x] Loading state
-        -   [x] Invalidate objects query
-        -   [ ] Handle errors
-    - [ ] Delete object
-        -   [x] Form UI
-        -   [x] Form field validation
-        -   [x] Loading state
-        -   [x] Invalidate objects query
-        -   [ ] Handle errors
-    - [x] UI
+    - [ ] Handle error state
+    - [ ] Handle loading state
 - [x] Breadcrumbs
     - [x] Breadcrumbs navigation
     - [ ] Handle multiple bredcrumbs wrapping
@@ -74,6 +57,32 @@ An S3 bucket explorer that mimics a filesystem.
     - [x] Formatting
     - [ ] Text coloring
 - [x] Handle scrolling
+
+### Actions menu:
+- [ ] Create file
+    - [x] Form UI
+    - [x] Form field validation
+    - [x] Loading state
+    - [x] Invalidate objects query
+    - [ ] Handle errors
+- [ ] Create directory
+    - [x] Form UI
+    - [x] Form field validation
+    - [x] Loading state
+    - [x] Invalidate objects query
+    - [ ] Handle errors
+- [ ] Delete object
+    - [x] Form UI
+    - [x] Form field validation
+    - [x] Loading state
+    - [x] Invalidate objects query
+    - [ ] Handle errors
+- [x] UI
+    - [ ] Tooltips for buttons
+
+### Form:
+- [ ] Create reusable components for form
+- [ ] Create reusable form component
 
 ### Modal: 
 - [x] Implement a reusable Modal component
@@ -87,8 +96,10 @@ An S3 bucket explorer that mimics a filesystem.
 - [ ] Rename all variables that use some system name
 - [ ] Selecting text while resizing
 - [x] Cannot delete objects by prefix (folder name)
+- [ ] Bucket name in dirTree is undefined
 
 ### Nice to have
 - [ ] When selecting a child from Explorer if parent is collapsed in dir tree - expand it
 - [ ] Bundle delete objects
 - [ ] React router for file explorer
+- [ ] Invalidate credentials in localStorage (logout)
