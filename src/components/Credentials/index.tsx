@@ -7,6 +7,7 @@ import { initializeClient } from '@/api';
 import { S3Client } from '@aws-sdk/client-s3';
 import { useClientStore } from '@/store';
 import { FormSubmitButton } from '../UI/Buttons/FormSubmitButton';
+import { Form } from '../UI/Form';
 
 export const Credentials = () => {
   const [inputValues, dispatchInputValue] = useReducer(
@@ -51,13 +52,7 @@ export const Credentials = () => {
       ref={dialogRef}
       nonEscapable
     >
-      <form
-        className="modalContent"
-        onSubmit={(e) => {
-          e.preventDefault();
-          mutate(inputValues);
-        }}
-      >
+      <Form name="credentials" onSubmit={() => mutate(inputValues)}>
         <input
           placeholder="Access Key Id"
           type="text"
@@ -107,7 +102,7 @@ export const Credentials = () => {
           }
         />
         <FormSubmitButton isPending={isPending} />
-      </form>
+      </Form>
     </Modal>
   );
 };
