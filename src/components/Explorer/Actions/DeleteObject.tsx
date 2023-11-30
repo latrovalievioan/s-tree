@@ -1,4 +1,5 @@
 import { Trash } from '@/assets/Trash';
+import { IconButton } from '@/components/UI/Buttons/IconButton';
 import { Modal } from '@/components/UI/Modal';
 import { Spinner } from '@/components/UI/Spinner';
 import { DELETE_CONFIRMATION_STRING } from '@/constants';
@@ -42,9 +43,7 @@ export const DeleteObject = () => {
 
   return (
     <>
-      <button disabled={!selectedObjectForAction} onClick={openDialog}>
-        <Trash className="action" />
-      </button>
+      <IconButton Icon={Trash} onClick={openDialog} />
       <Modal
         title={`Delete ${getDisplayName(selectedObjectForAction)}`}
         ref={dialogRef}

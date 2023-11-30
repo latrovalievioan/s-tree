@@ -3,6 +3,7 @@ import { AddDirIcon } from '@/assets/AddDirIcon';
 import { Modal } from '@/components/UI/Modal';
 import { useRef } from 'react';
 import { AddObject } from './AddObject';
+import { IconButton } from '@/components/UI/Buttons/IconButton';
 
 export const AddDir = () => {
   const dialogRef = useRef<HTMLDialogElement>(null);
@@ -21,9 +22,7 @@ export const AddDir = () => {
 
   return (
     <>
-      <button onClick={openDialog}>
-        <AddDirIcon className="action" />
-      </button>
+      <IconButton Icon={AddDirIcon} onClick={openDialog} />
       <Modal title="Add a directory:" ref={dialogRef} onClose={closeDialog}>
         <AddObject type="directory" closeDialog={closeDialog} />
       </Modal>

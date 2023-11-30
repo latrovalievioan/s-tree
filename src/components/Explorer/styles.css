@@ -76,10 +76,3 @@
   align-items: center;
   justify-content: space-around;
 }
-
-.action {
-  cursor: pointer;
-}
-.action:hover {
-  color: yellow;
-}
