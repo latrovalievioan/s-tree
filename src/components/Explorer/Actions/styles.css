@@ -1,26 +1,3 @@
-.modalContent > button {
-  background: black;
-  color: white;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  width: 100px;
-  height: 40px;
-  border-radius: 16px;
-}
-
-.modalContent > button.innactive {
-  background: black;
-  cursor: initial;
-}
-
-.modalContent > button.innactive:hover,.modalContent > button.innactive:focus {
-  background: black;
-  cursor: initial;
-}
-
 input[type=text], input[type=password] {
   width: 50%;
   height: 40px;
@@ -39,11 +16,6 @@ input::placeholder {
 
 .modalContent > em {
   color: rgba(0,0,0,0.8);
-}
-
-.modalContent > button:hover, .modalContent > button:focus {
-  background: white;
-  color: black;
 }
 
 .modalContent > textarea {

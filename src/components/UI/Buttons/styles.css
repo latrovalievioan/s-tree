@@ -4,3 +4,32 @@
 .action:hover {
   color: yellow;
 }
+
+button[type=submit] {
+  background: black;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100px;
+  height: 40px;
+  border-radius: 16px;
+}
+
+button[type=submit]:disabled {
+  background: black;
+  cursor: initial;
+}
+
+button[type=submit]:disabled:hover,button[type=submit]:disabled:focus {
+  background: black;
+  cursor: initial;
+}
+
+button[type=submit]:hover, button[type=submit]:focus {
+  background: white;
+  color: black;
+}
+
