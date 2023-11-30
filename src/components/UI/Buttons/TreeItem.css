@@ -6,8 +6,7 @@
   padding: 4px;
 }
 
-.treeItem:hover,
-.treeItem:focus {
+.treeItem:hover {
   color: var(--accent-color)
 }
 
