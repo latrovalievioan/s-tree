@@ -12,7 +12,11 @@ export const FormSubmitButton: React.FC<Props> = ({
 }) => {
   return (
     <button type="submit" disabled={isPending || isDisabled}>
-      {isPending ? <Spinner width={24} height={24} border={2} /> : 'Done'}
+      {isPending ? (
+        <Spinner skin="dark" width={24} height={24} border={2} />
+      ) : (
+        'Done'
+      )}
     </button>
   );
 };
