@@ -12,6 +12,7 @@
 
 #explorer > h1 {
   border-bottom: 1px solid var(--text-color);
+  padding: 16px;
 }
 
 #explorer > ul {
