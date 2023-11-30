@@ -20,7 +20,7 @@ export const ChildrenList = () => {
         {directChildren
           .sort((a, b) => Number(isDir(b)) - Number(isDir(a)))
           .map((c) => (
-            <li>
+            <li key={c}>
               <TreeItem
                 title={c}
                 isSelected={c === selectedObjectForAction}
