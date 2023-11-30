@@ -2,7 +2,6 @@ import { useEffect, useReducer, useRef } from 'react';
 import { Modal } from '@/components/UI/Modal';
 import { Spinner } from '../UI/Spinner';
 import { initialInputValues, inputValuesReducer } from './reducer';
-import { useInitializeClient } from '@/hooks/useInitializeClient';
 import { useMutation } from '@tanstack/react-query';
 import { initializeClient } from '@/api';
 import { S3Client } from '@aws-sdk/client-s3';
@@ -33,7 +32,7 @@ export const Credentials = () => {
     closeDialog();
   };
 
-  const { mutate, isPending, error } = useMutation({
+  const { mutate, isPending } = useMutation({
     mutationFn: initializeClient,
     onSuccess: (client) => {
       onSuccess(client);
@@ -72,7 +71,7 @@ export const Credentials = () => {
         />
         <input
           placeholder="Secret Access Key"
-          type="text"
+          type="password"
           required
           value={inputValues.secretAccessKey}
           onChange={(e) =>
@@ -108,7 +107,7 @@ export const Credentials = () => {
         />
 
         <button disabled={isPending} className={isPending ? 'innactive' : ''}>
-          {false ? <Spinner width={24} height={24} border={2} /> : 'Done'}
+          {isPending ? <Spinner width={24} height={24} border={2} /> : 'Done'}
         </button>
       </form>
     </Modal>
