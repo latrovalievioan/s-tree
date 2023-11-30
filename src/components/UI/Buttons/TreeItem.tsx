@@ -1,8 +1,9 @@
 import './TreeItem.css';
 import { ChevronRight } from '@/assets/ChevronRight';
 import { ClosedDir } from '@/assets/ClosedDir';
+import { FileIcon } from '@/assets/FileIcon';
 import { OpenDir } from '@/assets/OpenDir';
-import { getDisplayName } from '@/utils';
+import { getDisplayName, isDir } from '@/utils';
 
 type Props = {
   title: string;
@@ -14,10 +15,12 @@ type Props = {
 };
 
 const TreeItemIcons: React.FC<{
+  title: string;
   isExpandable: boolean;
   isExpanded: boolean;
-}> = ({ isExpandable, isExpanded }) => {
-  if (!isExpandable) return <ClosedDir className="treeItemIcon" />;
+}> = ({ title, isExpandable, isExpanded }) => {
+  if (!isExpandable)
+    return isDir(title) ? <ClosedDir className="treeItemIcon" /> : <FileIcon />;
   return (
     <>
       <ChevronRight
@@ -47,7 +50,11 @@ export const TreeItem: React.FC<Props> = ({
       onClick={onClick}
       onDoubleClick={onDoubleClick}
     >
-      <TreeItemIcons isExpanded={isExpanded} isExpandable={isExpandable} />
+      <TreeItemIcons
+        title={title}
+        isExpanded={isExpanded}
+        isExpandable={isExpandable}
+      />
       {getDisplayName(title)}
     </button>
   );
