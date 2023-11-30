@@ -60,11 +60,7 @@ export const AddObject: React.FC<Props> = ({ formName, type, closeDialog }) => {
             setDirName(e.target.value)
           }
         />
-        <div>
-          <em className="inputRule">
-            *Should not contain "/" or an empty space
-          </em>
-        </div>
+        <em className="inputRule">*Should not contain "/" or an empty space</em>
       </div>
       {type === 'file' && (
         <textarea ref={textAreaRef} placeholder="Content of your file" />

@@ -62,11 +62,9 @@ export const DeleteObject = () => {
                 setConfirmationText(e.target.value)
               }
             />
-            <div>
-              <em>
-                *Deleting is permanent, type "DELETE" to confirm your action:
-              </em>
-            </div>
+            <em>
+              *Deleting is permanent, type "DELETE" to confirm your action:
+            </em>
           </div>
           <FormSubmitButton
             isPending={isPending}
