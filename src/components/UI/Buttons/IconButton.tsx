@@ -6,9 +6,9 @@ type Props = {
   onClick: () => void;
 };
 
-export const IconButton: React.FC<Props> = ({ Icon }) => {
+export const IconButton: React.FC<Props> = ({ Icon, onClick }) => {
   return (
-    <button className="action">
+    <button className="action" onClick={onClick}>
       <Icon />
     </button>
   );

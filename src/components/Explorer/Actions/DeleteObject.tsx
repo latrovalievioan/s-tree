@@ -3,7 +3,6 @@ import { FormSubmitButton } from '@/components/UI/Buttons/FormSubmitButton';
 import { IconButton } from '@/components/UI/Buttons/IconButton';
 import { Form } from '@/components/UI/Form';
 import { Modal } from '@/components/UI/Modal';
-import { Spinner } from '@/components/UI/Spinner';
 import { DELETE_CONFIRMATION_STRING } from '@/constants';
 import { useDeleteObject } from '@/hooks/useDeleteObject';
 import { useStore } from '@/store';

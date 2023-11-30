@@ -1,6 +1,5 @@
 import { useEffect, useReducer, useRef } from 'react';
 import { Modal } from '@/components/UI/Modal';
-import { Spinner } from '../UI/Spinner';
 import { initialInputValues, inputValuesReducer } from './reducer';
 import { useMutation } from '@tanstack/react-query';
 import { initializeClient } from '@/api';
