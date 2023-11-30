@@ -1,4 +1,5 @@
 import { Trash } from '@/assets/Trash';
+import { FormSubmitButton } from '@/components/UI/Buttons/FormSubmitButton';
 import { IconButton } from '@/components/UI/Buttons/IconButton';
 import { Form } from '@/components/UI/Form';
 import { Modal } from '@/components/UI/Modal';
@@ -68,14 +69,10 @@ export const DeleteObject = () => {
               </em>
             </div>
           </div>
-          <button
-            disabled={
-              isPending || confirmationText !== DELETE_CONFIRMATION_STRING
-            }
-            className={isPending ? 'innactive' : ''}
-          >
-            {isPending ? <Spinner width={24} height={24} border={2} /> : 'Done'}
-          </button>
+          <FormSubmitButton
+            isPending={isPending}
+            isDisabled={confirmationText !== DELETE_CONFIRMATION_STRING}
+          />
         </Form>
       </Modal>
     </>

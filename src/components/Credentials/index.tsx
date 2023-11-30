@@ -6,6 +6,7 @@ import { useMutation } from '@tanstack/react-query';
 import { initializeClient } from '@/api';
 import { S3Client } from '@aws-sdk/client-s3';
 import { useClientStore } from '@/store';
+import { FormSubmitButton } from '../UI/Buttons/FormSubmitButton';
 
 export const Credentials = () => {
   const [inputValues, dispatchInputValue] = useReducer(
@@ -105,10 +106,7 @@ export const Credentials = () => {
             })
           }
         />
-
-        <button disabled={isPending} className={isPending ? 'innactive' : ''}>
-          {isPending ? <Spinner width={24} height={24} border={2} /> : 'Done'}
-        </button>
+        <FormSubmitButton isPending={isPending} />
       </form>
     </Modal>
   );

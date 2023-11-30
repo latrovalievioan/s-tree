@@ -1,5 +1,5 @@
+import { FormSubmitButton } from '@/components/UI/Buttons/FormSubmitButton';
 import { Form } from '@/components/UI/Form';
-import { Spinner } from '@/components/UI/Spinner';
 import { OBJECT_NAME_REGEX } from '@/constants';
 import { useGetObjectNames } from '@/hooks/useGetObjectNames';
 import { usePutObject } from '@/hooks/usePutObject';
@@ -69,9 +69,7 @@ export const AddObject: React.FC<Props> = ({ formName, type, closeDialog }) => {
       {type === 'file' && (
         <textarea ref={textAreaRef} placeholder="Content of your file" />
       )}
-      <button disabled={isPending} className={isPending ? 'innactive' : ''}>
-        {isPending ? <Spinner width={24} height={24} border={2} /> : 'Done'}
-      </button>
+      <FormSubmitButton isPending={isPending} />
     </Form>
   );
 };
