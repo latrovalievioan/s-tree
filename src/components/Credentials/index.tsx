@@ -34,7 +34,7 @@ export const Credentials = () => {
 
   const { mutate, isPending } = useMutation({
     mutationFn: initializeClient,
-    onSuccess: (client) => {
+    onSuccess: ({ client }) => {
       onSuccess(client);
     },
   });

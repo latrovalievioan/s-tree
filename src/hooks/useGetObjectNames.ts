@@ -8,7 +8,7 @@ export const useGetObjectNames = () => {
   const { data } = useQuery({
     queryKey: ['objects', client, bucket],
     queryFn: async () => {
-      if (!client) return;
+      if (!client || !bucket) return;
       const list = await listObjects(client, bucket);
 
       if (!list?.Contents) return [];
@@ -27,7 +27,7 @@ export const useGetObjectNames = () => {
 
       return [...objs];
     },
-    enabled: !!client,
+    enabled: !!client && !!bucket,
   });
 
   return data || [];

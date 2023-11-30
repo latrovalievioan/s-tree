@@ -1,3 +1,6 @@
+import { initializeClient } from './api';
+import { CredentialsType } from './types';
+
 export const isDir = (s: string) => s.endsWith('/') || s === '';
 const getDepth = (s: string) => {
   let depth = 0;
@@ -24,4 +27,17 @@ export const getDisplayName = (s: string) => {
   if (!s.length) return 's3://' + import.meta.env.VITE_BUCKET_LUCID;
 
   return isDir(s) ? split[split.length - 2] : split[split.length - 1];
+};
+
+export const initializeClientFromStorage = async () => {
+  const storageCredentials = localStorage.getItem('credentials');
+  if (!storageCredentials)
+    return {
+      client: undefined,
+      bucket: '',
+    };
+
+  const parsedCredentials: CredentialsType = JSON.parse(storageCredentials);
+
+  return await initializeClient(parsedCredentials);
 };

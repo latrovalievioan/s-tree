@@ -23,7 +23,7 @@ export const initializeClient = async (credentials: CredentialsType) => {
 
   await client.send(headBucketCommand);
 
-  return client;
+  return { client, bucket };
 };
 
 export const listObjects = async (
