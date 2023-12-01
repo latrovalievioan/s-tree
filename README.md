@@ -11,8 +11,8 @@ An S3 bucket explorer that mimics a filesystem.
 - [x] Create an object
 - [x] Delete an object
 - [x] Validate credentials
-- [ ] Live bucket state update
-    -   [ ] Smaller refetch interval 
+- [x] Live bucket state update
+    -   [x] Smaller refetch interval 
 - [x] Single instance of client
 
 ### Bucket credentials handling:

@@ -28,5 +28,6 @@ export const useGetObjectNames = () => {
       return [...objs];
     },
     enabled: !!client && !!bucket,
+    refetchInterval: 1000 * 10,
   });
 };
