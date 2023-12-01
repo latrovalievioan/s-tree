@@ -38,7 +38,7 @@ An S3 bucket explorer that mimics a filesystem.
 
 ### Explorer:
 
-- [ ] Child list
+- [x] Child list
     - [x] Display current selected dir's direct children
     - [x] Add icons
     - [x] Handle display name
@@ -48,8 +48,8 @@ An S3 bucket explorer that mimics a filesystem.
     - [x] Handle loading state
 - [x] Breadcrumbs
     - [x] Breadcrumbs navigation
-    - [ ] Handle multiple bredcrumbs wrapping
-- [x] File reader
+    - [x] Handle multiple bredcrumbs wrapping
+- [ ] File reader
     - [x] Display file content
     - [x] Loading state
     - [ ] Empty state
@@ -70,12 +70,12 @@ An S3 bucket explorer that mimics a filesystem.
     - [x] Loading state
     - [x] Invalidate objects query
     - [x] Handle errors
-- [ ] Delete object
+- [x] Delete object
     - [x] Form UI
     - [x] Form field validation
     - [x] Loading state
     - [x] Invalidate objects query
-    - [ ] Handle errors
+    - [x] Handle errors
 - [x] UI
     - [ ] Tooltips for buttons
     - [ ] Disable delete button when there isn't a selected file/dir

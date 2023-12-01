@@ -1,6 +1,7 @@
 import { Trash } from '@/assets/Trash';
 import { FormSubmitButton } from '@/components/UI/Buttons/FormSubmitButton';
 import { IconButton } from '@/components/UI/Buttons/IconButton';
+import { ErrorMessage } from '@/components/UI/ErrorMessage';
 import { Form } from '@/components/UI/Form';
 import { Modal } from '@/components/UI/Modal';
 import { DELETE_CONFIRMATION_STRING } from '@/constants';
@@ -20,7 +21,7 @@ export const DeleteObject = () => {
     setConfirmationText('');
     closeDialog();
   };
-  const { mutateAsync, isPending } = useDeleteObject(onSuccess);
+  const { mutateAsync, isPending, error } = useDeleteObject(onSuccess);
 
   const closeDialog = () => {
     if (!dialogRef.current) return;
@@ -51,6 +52,7 @@ export const DeleteObject = () => {
         ref={dialogRef}
         onClose={closeDialog}
       >
+        {error && <ErrorMessage />}
         <Form name="deleteObject" onSubmit={deleteObject}>
           <div>
             <input
