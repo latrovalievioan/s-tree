@@ -1,4 +1,4 @@
-.treeItem {
+.listItem {
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -6,11 +6,15 @@
   padding: 4px;
 }
 
-.treeItem:hover {
+.listItem .shiftRight {
+  margin-left: 18px;
+}
+
+.listItem:hover {
   color: var(--accent-color)
 }
 
-.treeItemIcon {
+.listItemIcon {
   margin-right: 8px;
 }
 

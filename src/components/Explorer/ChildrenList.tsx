@@ -2,7 +2,7 @@ import { useGetObjectNames } from '@/hooks/useGetObjectNames';
 import { useStore } from '@/store';
 import { getDirectChildren, isDir } from '@/utils';
 import { Actions } from './Actions';
-import { TreeItem } from '../UI/Buttons/TreeItem';
+import { ListItem } from '@/components/UI/ListItem';
 
 export const ChildrenList = () => {
   const { data } = useGetObjectNames();
@@ -21,11 +21,12 @@ export const ChildrenList = () => {
           .sort((a, b) => Number(isDir(b)) - Number(isDir(a)))
           .map((c) => (
             <li key={c}>
-              <TreeItem
+              <ListItem
                 title={c}
                 isSelected={c === selectedObjectForAction}
                 isExpanded={false}
                 isExpandable={false}
+                isFromTree={false}
                 onClick={() => setSelectedObjectForAction(c)}
                 onDoubleClick={() => {
                   setSelectedObject(c);
