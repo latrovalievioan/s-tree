@@ -1,6 +1,7 @@
 import { FormSubmitButton } from '@/components/UI/Buttons/FormSubmitButton';
+import { ErrorMessage } from '@/components/UI/ErrorMessage';
 import { Form } from '@/components/UI/Form';
-import { OBJECT_NAME_REGEX } from '@/constants';
+import { EXISTING_NAME_MESSAGE, OBJECT_NAME_REGEX } from '@/constants';
 import { useGetObjectNames } from '@/hooks/useGetObjectNames';
 import { usePutObject } from '@/hooks/usePutObject';
 import { useStore } from '@/store';
@@ -18,6 +19,7 @@ export const AddObject: React.FC<Props> = ({ formName, type, closeDialog }) => {
   const { selectedObject } = useStore();
   const { data: objects } = useGetObjectNames();
   const [dirName, setDirName] = useState('');
+  const [invalidName, setInvalidName] = useState<string | undefined>(undefined);
   const queryClient = useQueryClient();
 
   const onSuccess = async () => {
@@ -25,47 +27,55 @@ export const AddObject: React.FC<Props> = ({ formName, type, closeDialog }) => {
     setDirName('');
     closeDialog();
   };
-  const { mutateAsync, isPending } = usePutObject(onSuccess);
+  const { mutateAsync, isPending, error } = usePutObject(onSuccess);
 
   const createObject = () => {
-    const dirKey = selectedObject + dirName + (type === 'directory' ? '/' : '');
+    const objectKey =
+      selectedObject + dirName + (type === 'directory' ? '/' : '');
 
-    if (objects?.includes(dirKey)) {
-      console.log('TODO HANDLE THIS');
+    if (objects?.includes(objectKey)) {
+      setInvalidName(objectKey);
       return;
     }
 
     mutateAsync({
-      key: dirKey,
+      key: objectKey,
       body: textAreaRef.current?.value || '',
     });
   };
 
   return (
-    <Form name={formName} onSubmit={createObject}>
-      <div>
-        <span>Location:&nbsp;</span>
-        <span>
-          <em>{selectedObject}</em>
-        </span>
-      </div>
-      <div>
-        <input
-          value={dirName}
-          placeholder="Name"
-          type="text"
-          pattern={OBJECT_NAME_REGEX}
-          required
-          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-            setDirName(e.target.value)
-          }
-        />
-        <em className="inputRule">*Should not contain "/" or an empty space</em>
-      </div>
-      {type === 'file' && (
-        <textarea ref={textAreaRef} placeholder="Content of your file" />
+    <>
+      {(error || invalidName) && (
+        <ErrorMessage message={`${invalidName} ${EXISTING_NAME_MESSAGE}`} />
       )}
-      <FormSubmitButton isPending={isPending} />
-    </Form>
+      <Form name={formName} onSubmit={createObject}>
+        <div>
+          <span>Location:&nbsp;</span>
+          <span>
+            <em>{selectedObject}</em>
+          </span>
+        </div>
+        <div>
+          <input
+            value={dirName}
+            placeholder="Name"
+            type="text"
+            pattern={OBJECT_NAME_REGEX}
+            required
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+              setDirName(e.target.value)
+            }
+          />
+          <em className="inputRule">
+            *Should not contain "/" or an empty space
+          </em>
+        </div>
+        {type === 'file' && (
+          <textarea ref={textAreaRef} placeholder="Content of your file" />
+        )}
+        <FormSubmitButton isPending={isPending} />
+      </Form>
+    </>
   );
 };

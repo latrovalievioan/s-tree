@@ -58,18 +58,18 @@ An S3 bucket explorer that mimics a filesystem.
 - [x] Handle scrolling
 
 ### Actions menu:
-- [ ] Create file
+- [x] Create file
     - [x] Form UI
     - [x] Form field validation
     - [x] Loading state
     - [x] Invalidate objects query
-    - [ ] Handle errors
-- [ ] Create directory
+    - [x] Handle errors
+- [x] Create directory
     - [x] Form UI
     - [x] Form field validation
     - [x] Loading state
     - [x] Invalidate objects query
-    - [ ] Handle errors
+    - [x] Handle errors
 - [ ] Delete object
     - [x] Form UI
     - [x] Form field validation
