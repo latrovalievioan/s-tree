@@ -1,4 +1,5 @@
 import { initializeClient } from './api';
+import { useClientStore } from './store';
 import { CredentialsType } from './types';
 
 export const isDir = (s: string) => s.endsWith('/') || s === '';
@@ -21,10 +22,12 @@ export const getDirectChildren = (prefix: string, objects: string[]) => {
   });
 };
 
-export const getDisplayName = (s: string) => {
+export const useGetDisplayName = (s: string) => {
+  const { bucket } = useClientStore();
+
   const split = s.split('/');
 
-  if (!s.length) return 's3://' + import.meta.env.VITE_BUCKET_LUCID;
+  if (!s.length) return 's3://' + bucket;
 
   return isDir(s) ? split[split.length - 2] : split[split.length - 1];
 };

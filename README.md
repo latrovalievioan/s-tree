@@ -96,7 +96,7 @@ An S3 bucket explorer that mimics a filesystem.
 - [ ] Rename all variables that use some system name
 - [ ] Selecting text while resizing
 - [x] Cannot delete objects by prefix (folder name)
-- [ ] Bucket name in dirTree is undefined
+- [x] Bucket name in dirTree is undefined
 - [x] Object is in invalid state on Safari
 - [ ] Breadcrumbs text-align left
 - [ ] Tree items text align left

@@ -6,7 +6,7 @@ import { Modal } from '@/components/UI/Modal';
 import { DELETE_CONFIRMATION_STRING } from '@/constants';
 import { useDeleteObject } from '@/hooks/useDeleteObject';
 import { useStore } from '@/store';
-import { getDisplayName } from '@/utils';
+import { useGetDisplayName } from '@/utils';
 import { useQueryClient } from '@tanstack/react-query';
 import { useRef, useState } from 'react';
 
@@ -47,7 +47,7 @@ export const DeleteObject = () => {
     <>
       <IconButton Icon={Trash} onClick={openDialog} />
       <Modal
-        title={`Delete ${getDisplayName(selectedObjectForAction)}`}
+        title={`Delete ${useGetDisplayName(selectedObjectForAction)}`}
         ref={dialogRef}
         onClose={closeDialog}
       >

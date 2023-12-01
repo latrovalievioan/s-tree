@@ -3,7 +3,7 @@ import { ChevronRight } from '@/assets/ChevronRight';
 import { ClosedDir } from '@/assets/ClosedDir';
 import { FileIcon } from '@/assets/FileIcon';
 import { OpenDir } from '@/assets/OpenDir';
-import { getDisplayName, isDir } from '@/utils';
+import { useGetDisplayName, isDir } from '@/utils';
 
 type Props = {
   title: string;
@@ -59,7 +59,7 @@ export const TreeItem: React.FC<Props> = ({
         isExpanded={isExpanded}
         isExpandable={isExpandable}
       />
-      {getDisplayName(title)}
+      {useGetDisplayName(title)}
     </button>
   );
 };
