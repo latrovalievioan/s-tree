@@ -97,6 +97,13 @@ An S3 bucket explorer that mimics a filesystem.
 - [ ] Selecting text while resizing
 - [x] Cannot delete objects by prefix (folder name)
 - [ ] Bucket name in dirTree is undefined
+- [ ] Object is in invalid state on Safari
+- [ ] Breadcrumbs text-align left
+- [ ] Tree items text align left
+- [ ] Tree items icon shrink
+- [ ] Tree items overflow x
+- [ ] Empty dir state
+- [ ] Empty file state
 
 ### Nice to have
 - [ ] When selecting a child from Explorer if parent is collapsed in dir tree - expand it
