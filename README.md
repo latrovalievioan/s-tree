@@ -106,7 +106,7 @@ An S3 bucket explorer that mimics a filesystem.
 - [ ] Dirtree directories that doesn't have subdirs should not be expandable
 - [ ] The current working directory should always be visible in
 the tree view and should be “decorated” in some way.
-- [ ] Add favicon
+- [x] Add favicon
 
 ### Nice to have
 - [ ] When selecting a child from Explorer if parent is collapsed in dir tree - expand it
