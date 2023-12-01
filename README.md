@@ -78,7 +78,7 @@ An S3 bucket explorer that mimics a filesystem.
     - [x] Handle errors
 - [x] UI
     - [ ] Tooltips for buttons
-    - [ ] Disable delete button when there isn't a selected file/dir
+    - [x] Disable delete button when there isn't a selected file/dir
 
 ### Form:
 - [x] Create reusable form component
@@ -107,6 +107,7 @@ An S3 bucket explorer that mimics a filesystem.
 - [ ] The current working directory should always be visible in
 the tree view and should be “decorated” in some way.
 - [x] Add favicon
+- [x] User can delete the root object, hence everything in the bucket
 
 ### Nice to have
 - [ ] When selecting a child from Explorer if parent is collapsed in dir tree - expand it

@@ -1,6 +1,12 @@
 .action {
   cursor: pointer;
 }
+
+.action:disabled > *, .action:disabled > *:hover {
+  color: var(--disabled-color);
+  cursor: initial;
+}
+
 .action>svg:hover {
   color: var(--accent-color);
 }

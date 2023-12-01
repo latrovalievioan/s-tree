@@ -46,7 +46,11 @@ export const DeleteObject = () => {
 
   return (
     <>
-      <IconButton Icon={Trash} onClick={openDialog} />
+      <IconButton
+        disabled={selectedObjectForAction === ''}
+        Icon={Trash}
+        onClick={openDialog}
+      />
       <Modal
         title={`Delete ${useGetDisplayName(selectedObjectForAction)}`}
         ref={dialogRef}

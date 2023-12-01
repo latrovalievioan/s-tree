@@ -4,11 +4,16 @@ import { SVGProps } from 'react';
 type Props = {
   Icon: React.FC<SVGProps<SVGSVGElement>>;
   onClick: () => void;
+  disabled?: boolean;
 };
 
-export const IconButton: React.FC<Props> = ({ Icon, onClick }) => {
+export const IconButton: React.FC<Props> = ({
+  Icon,
+  onClick,
+  disabled = false,
+}) => {
   return (
-    <button className="action" onClick={onClick}>
+    <button className="action" disabled={disabled} onClick={onClick}>
       <Icon />
     </button>
   );
