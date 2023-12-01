@@ -5,7 +5,7 @@ import { useQuery } from '@tanstack/react-query';
 export const useGetObject = (key: string) => {
   const { client, bucket } = useClientStore();
 
-  const { data } = useQuery({
+  return useQuery({
     queryKey: [key, client, bucket],
     queryFn: async () => {
       if (!client) return;
@@ -14,5 +14,4 @@ export const useGetObject = (key: string) => {
     },
     enabled: !!client,
   });
-  return data;
 };

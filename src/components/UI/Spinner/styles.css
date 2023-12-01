@@ -14,3 +14,9 @@
     transform: rotate(360deg)
   }
 }
+
+.globalSpinner {
+  min-width: 0;
+  background: transparent;
+  border: 0;
+}

@@ -52,7 +52,7 @@ An S3 bucket explorer that mimics a filesystem.
     - [ ] Handle multiple bredcrumbs wrapping
 - [x] File reader
     - [x] Display file content
-    - [ ] Loading state
+    - [x] Loading state
     - [ ] Empty state
     - [x] Formatting
     - [ ] Text coloring
