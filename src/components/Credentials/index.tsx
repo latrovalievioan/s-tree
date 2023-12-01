@@ -7,6 +7,7 @@ import { S3Client } from '@aws-sdk/client-s3';
 import { useClientStore } from '@/store';
 import { FormSubmitButton } from '../UI/Buttons/FormSubmitButton';
 import { Form } from '../UI/Form';
+import { ErrorMessage } from '../UI/ErrorMessage';
 
 export const Credentials = () => {
   const [inputValues, dispatchInputValue] = useReducer(
@@ -14,12 +15,17 @@ export const Credentials = () => {
     initialInputValues
   );
   const dialogRef = useRef<HTMLDialogElement>(null);
+  const { setClient, setBucket } = useClientStore();
+  const { mutate, isPending, error } = useMutation({
+    mutationFn: initializeClient,
+    onSuccess: ({ client }) => {
+      onSuccess(client);
+    },
+  });
 
   const addCredentialsToStorage = () => {
     localStorage.setItem('credentials', JSON.stringify(inputValues));
   };
-
-  const { setClient, setBucket } = useClientStore();
 
   const closeDialog = () => {
     if (!dialogRef.current) return;
@@ -33,13 +39,6 @@ export const Credentials = () => {
     closeDialog();
   };
 
-  const { mutate, isPending } = useMutation({
-    mutationFn: initializeClient,
-    onSuccess: ({ client }) => {
-      onSuccess(client);
-    },
-  });
-
   useEffect(() => {
     dialogRef.current?.close();
     dialogRef.current?.showModal();
@@ -52,6 +51,7 @@ export const Credentials = () => {
       ref={dialogRef}
       nonEscapable
     >
+      {error && <ErrorMessage />}
       <Form name="credentials" onSubmit={() => mutate(inputValues)}>
         <input
           placeholder="Access Key Id"

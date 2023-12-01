@@ -7,3 +7,5 @@
 // $ - Match the end of the line
 export const OBJECT_NAME_REGEX = '^((?!(/|\\s)).)*$';
 export const DELETE_CONFIRMATION_STRING = 'DELETE';
+export const DEFAULT_ERROR_MESSAGE =
+  'There was an unexpected error, please refresh the page or try again.';

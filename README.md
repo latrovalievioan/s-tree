@@ -19,7 +19,7 @@ An S3 bucket explorer that mimics a filesystem.
 
 - [x] UI form
 - [x] Store credentials to localStorage after validation
-- [ ] Handle error
+- [x] Handle error
 - [x] Retrieve credentials from localStorage
 - [x] Show form when there are no credentials in localStorage
 

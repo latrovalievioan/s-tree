@@ -9,6 +9,7 @@
   --selected-color: #373b4e;
   --text-color: #cad3f5;
   --accent-color: #f7a87f;
+  --error-color: #ed8796;
 
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
