@@ -51,8 +51,9 @@ export const TreeItem: React.FC<Props> = ({
   return (
     <button
       className={`treeItem ${isSelected ? 'selected' : ''}`}
-      onClick={onClick}
-      onDoubleClick={onDoubleClick}
+      onClick={(e) => {
+        e.detail === 1 ? onClick() : onDoubleClick();
+      }}
     >
       <TreeItemIcons
         title={title}
