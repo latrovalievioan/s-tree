@@ -1,8 +1,6 @@
 dialog {
   position: relative;
   min-width: 500px;
-  width: 500px;
-
   padding: 24px;
 
   background: var(--selected-color);

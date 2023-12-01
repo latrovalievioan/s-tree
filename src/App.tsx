@@ -7,11 +7,12 @@ import { useEffect, useState } from 'react';
 import { initializeClientFromStorage } from './utils';
 import { useGetObjectNames } from './hooks/useGetObjectNames';
 import { GlobalSpinner } from './components/UI/Spinner/GlobalSpinner';
+import { ErrorModal } from './components/UI/ErrorModal';
 
 function App() {
   const { client, setClient, setBucket } = useClientStore();
   const [showForm, setShowForm] = useState(false);
-  const { isPending } = useGetObjectNames();
+  const { isPending, error } = useGetObjectNames();
 
   useEffect(() => {
     initializeClientFromStorage().then(({ client, bucket }) => {
@@ -22,6 +23,8 @@ function App() {
   }, []);
 
   if (isPending && client) return <GlobalSpinner />;
+
+  if (error) return <ErrorModal />;
 
   return (
     <>
