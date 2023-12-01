@@ -5,14 +5,14 @@ import { Actions } from './Actions';
 import { TreeItem } from '../UI/Buttons/TreeItem';
 
 export const ChildrenList = () => {
-  const objects = useGetObjectNames();
+  const { data } = useGetObjectNames();
   const {
     selectedObject,
     setSelectedObject,
     selectedObjectForAction,
     setSelectedObjectForAction,
   } = useStore();
-  const directChildren = getDirectChildren(selectedObject, objects);
+  const directChildren = getDirectChildren(selectedObject, data || []);
 
   return (
     <>

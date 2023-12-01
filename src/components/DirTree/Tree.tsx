@@ -8,8 +8,8 @@ type Props = {
 };
 
 export const Tree: React.FC<Props> = ({ prefix = '' }) => {
-  const objects = useGetObjectNames();
-  const directChildren = getDirectChildren(prefix, objects);
+  const { data: objects } = useGetObjectNames();
+  const directChildren = getDirectChildren(prefix, objects || []);
   const { toggleExpandedDir, selectedObject, setSelectedObject } = useStore();
   const isExpanded = useStore((state) => state.expandedDirs.has(prefix));
   const isSelected = selectedObject === prefix;

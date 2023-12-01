@@ -1,17 +1,17 @@
 import './styles.css';
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { DirTree } from './components/DirTree';
 import { Explorer } from './components/Explorer';
 import { Credentials } from './components/Credentials';
 import { useClientStore } from './store';
 import { useEffect, useState } from 'react';
 import { initializeClientFromStorage } from './utils';
-
-const queryClient = new QueryClient();
+import { useGetObjectNames } from './hooks/useGetObjectNames';
+import { GlobalSpinner } from './components/UI/Spinner/GlobalSpinner';
 
 function App() {
   const { client, setClient, setBucket } = useClientStore();
   const [showForm, setShowForm] = useState(false);
+  const { isPending } = useGetObjectNames();
 
   useEffect(() => {
     initializeClientFromStorage().then(({ client, bucket }) => {
@@ -21,16 +21,18 @@ function App() {
     });
   }, []);
 
+  if (isPending && client) return <GlobalSpinner />;
+
   return (
-    <QueryClientProvider client={queryClient}>
+    <>
       {client && (
         <>
           <DirTree />
           <Explorer />
         </>
       )}
-      {showForm && <Credentials />}
-    </QueryClientProvider>
+      {showForm && !client && <Credentials />}
+    </>
   );
 }
 

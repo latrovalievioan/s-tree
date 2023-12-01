@@ -16,7 +16,7 @@ type Props = {
 export const AddObject: React.FC<Props> = ({ formName, type, closeDialog }) => {
   const textAreaRef = useRef<HTMLTextAreaElement>(null);
   const { selectedObject } = useStore();
-  const objects = useGetObjectNames();
+  const { data: objects } = useGetObjectNames();
   const [dirName, setDirName] = useState('');
   const queryClient = useQueryClient();
 
@@ -30,7 +30,7 @@ export const AddObject: React.FC<Props> = ({ formName, type, closeDialog }) => {
   const createObject = () => {
     const dirKey = selectedObject + dirName + (type === 'directory' ? '/' : '');
 
-    if (objects.includes(dirKey)) {
+    if (objects?.includes(dirKey)) {
       console.log('TODO HANDLE THIS');
       return;
     }

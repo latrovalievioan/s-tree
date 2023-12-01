@@ -5,10 +5,10 @@ import { useClientStore } from '@/store';
 export const useGetObjectNames = () => {
   const { client, bucket } = useClientStore();
 
-  const { data } = useQuery({
+  return useQuery({
     queryKey: ['objects', client, bucket],
     queryFn: async () => {
-      if (!client || !bucket) return;
+      if (!client || !bucket) return [];
       const list = await listObjects(client, bucket);
 
       if (!list?.Contents) return [];
@@ -29,6 +29,4 @@ export const useGetObjectNames = () => {
     },
     enabled: !!client && !!bucket,
   });
-
-  return data || [];
 };
