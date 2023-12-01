@@ -35,7 +35,7 @@ An S3 bucket explorer that mimics a filesystem.
 - [x] Make section resizable
 - [x] Handle scrolling
 - [ ] Handle error state
-- [ ] Handle loading state
+- [x] Handle loading state
 
 ### Explorer:
 
@@ -46,7 +46,7 @@ An S3 bucket explorer that mimics a filesystem.
     - [x] Section title
     - [x] Navigate down a dir
     - [ ] Handle error state
-    - [ ] Handle loading state
+    - [x] Handle loading state
 - [x] Breadcrumbs
     - [x] Breadcrumbs navigation
     - [ ] Handle multiple bredcrumbs wrapping
@@ -79,10 +79,10 @@ An S3 bucket explorer that mimics a filesystem.
     - [ ] Handle errors
 - [x] UI
     - [ ] Tooltips for buttons
+    - [ ] Disable delete button when there isn't a selected file/dir
 
 ### Form:
-- [ ] Create reusable components for form
-- [ ] Create reusable form component
+- [x] Create reusable form component
 
 ### Modal: 
 - [x] Implement a reusable Modal component
@@ -94,7 +94,7 @@ An S3 bucket explorer that mimics a filesystem.
 - [x] Root prefix handling
 - [x] Breadcrumbs Root click
 - [ ] Rename all variables that use some system name
-- [ ] Selecting text while resizing
+- [x] Selecting text while resizing
 - [x] Cannot delete objects by prefix (folder name)
 - [x] Bucket name in dirTree is undefined
 - [x] Object is in invalid state on Safari
@@ -104,6 +104,9 @@ An S3 bucket explorer that mimics a filesystem.
 - [ ] Tree items overflow x
 - [ ] Empty dir state
 - [ ] Empty file state
+- [ ] Dirtree directories that doesn't have subdirs should not be expandable
+- [ ] The current working directory should always be visible in
+the tree view and should be “decorated” in some way.
 
 ### Nice to have
 - [ ] When selecting a child from Explorer if parent is collapsed in dir tree - expand it
