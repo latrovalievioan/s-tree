@@ -17,6 +17,7 @@ export const AddFile = () => {
   const openDialog = () => {
     if (!dialogRef.current) return;
 
+    dialogRef.current.close();
     dialogRef.current.showModal();
   };
 

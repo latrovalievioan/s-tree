@@ -41,6 +41,7 @@ export const Credentials = () => {
   });
 
   useEffect(() => {
+    dialogRef.current?.close();
     dialogRef.current?.showModal();
   }, [dialogRef.current]);
 

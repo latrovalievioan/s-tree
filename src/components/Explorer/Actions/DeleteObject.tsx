@@ -31,6 +31,7 @@ export const DeleteObject = () => {
   const openDialog = () => {
     if (!dialogRef.current) return;
 
+    dialogRef.current.close();
     dialogRef.current.showModal();
   };
 
