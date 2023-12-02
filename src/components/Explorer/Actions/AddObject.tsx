@@ -64,6 +64,7 @@ export const AddObject: React.FC<Props> = ({ formName, type, closeDialog }) => {
         </div>
         <div>
           <input
+            maxLength={50}
             value={name}
             placeholder="Name"
             type="text"
@@ -76,7 +77,11 @@ export const AddObject: React.FC<Props> = ({ formName, type, closeDialog }) => {
           <em>*Should not contain "/" or an empty space</em>
         </div>
         {type === 'file' && (
-          <textarea ref={textAreaRef} placeholder="Content of your file" />
+          <textarea
+            maxLength={50_000}
+            ref={textAreaRef}
+            placeholder="Content of your file"
+          />
         )}
         <FormSubmitButton isPending={isPending} />
       </Form>
