@@ -1,11 +1,11 @@
-#spinner {
+.spinner {
   border-style: solid; 
   border-color: var(--color-lighter) transparent var(--color-lighter) transparent;
   border-radius: 50%;
   animation: spin 1.4s linear infinite;
 }
 
-#spinner.darkSkin {
+.spinner.darkSkin {
   border-color: var(--color-darker) transparent var(--color-darker) transparent;
 }
 
