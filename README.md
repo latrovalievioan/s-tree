@@ -74,7 +74,6 @@ An S3 bucket explorer that mimics a filesystem.
     - [x] Loading state
     - [x] Invalidate objects query
     - [x] Handle errors
-- [ ] Tooltips for buttons
 - [x] Disable delete button when there isn't a selected file/dir
 
 ### Form:
@@ -97,8 +96,6 @@ An S3 bucket explorer that mimics a filesystem.
 - [x] Breadcrumbs text-align left
 - [x] Tree items icon shrink
 - [x] Tree items overflow x
-- [ ] Empty dir state
-- [ ] Empty file state
 - [x] Handle long names
 - [x] Dirtree directories that doesn't have subdirs should not be expandable
 - [x] The current working directory should always be visible in
@@ -107,9 +104,11 @@ the tree view
 - [x] User can delete the root object, hence everything in the bucket
 
 ### Nice to have
-- [ ] When selecting a child from Explorer if parent is collapsed in dir tree - expand it
 - [ ] Bundle delete objects
 - [ ] React router for file explorer
 - [ ] Invalidate credentials in localStorage (logout)
 - [ ] Different views in explorer
 - [ ] Syntax highlighting
+- [ ] Tooltips for buttons
+- [ ] Empty dir state
+- [ ] Empty file state
