@@ -27,15 +27,6 @@ dialog > header > h2 {
   margin-bottom: 8px;
 }
 
-#closeModal{
-  cursor: pointer;
-  margin-left: auto;
-}
-
-#closeModal:hover{
-  color: white;
-}
-
 dialog::backdrop {
   backdrop-filter: blur(3px);
 }
