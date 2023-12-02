@@ -1,5 +1,9 @@
 .breadcrumb {
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
   cursor: pointer;
+  white-space: nowrap;
 }
 
 .breadcrumb:hover {
