@@ -32,6 +32,10 @@ export const useGetDisplayName = (s: string) => {
   return isDir(s) ? split[split.length - 2] : split[split.length - 1];
 };
 
+export const addCredentialsToStorage = (credentials: CredentialsType) => {
+  localStorage.setItem('credentials', JSON.stringify(credentials));
+};
+
 export const initializeClientFromStorage = async () => {
   const storageCredentials = localStorage.getItem('credentials');
   if (!storageCredentials)

@@ -8,13 +8,14 @@ import { useClientStore } from '@/store';
 import { FormSubmitButton } from '../UI/Buttons/FormSubmitButton';
 import { Form } from '../UI/Form';
 import { ErrorMessage } from '../UI/ErrorMessage';
+import { addCredentialsToStorage } from '@/utils';
 
 export const Credentials = () => {
+  const dialogRef = useRef<HTMLDialogElement>(null);
   const [inputValues, dispatchInputValue] = useReducer(
     inputValuesReducer,
     initialInputValues
   );
-  const dialogRef = useRef<HTMLDialogElement>(null);
   const { setClient, setBucket } = useClientStore();
   const { mutate, isPending, error } = useMutation({
     mutationFn: initializeClient,
@@ -23,17 +24,13 @@ export const Credentials = () => {
     },
   });
 
-  const addCredentialsToStorage = () => {
-    localStorage.setItem('credentials', JSON.stringify(inputValues));
-  };
-
   const closeDialog = () => {
     if (!dialogRef.current) return;
     dialogRef.current.close();
   };
 
   const onSuccess = (client: S3Client) => {
-    addCredentialsToStorage();
+    addCredentialsToStorage(inputValues);
     setClient(client);
     setBucket(inputValues.bucket);
     closeDialog();
