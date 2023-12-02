@@ -1,6 +1,6 @@
 import './styles.css';
 import { useGetObjectNames } from '@/hooks/useGetObjectNames';
-import { useStore } from '@/store';
+import { useAppStore } from '@/store';
 import { getDirectChildren, isDir } from '@/utils';
 import { Actions } from './Actions';
 import { ListItem } from '@/components/UI/ListItem';
@@ -12,7 +12,7 @@ export const ExplorerList = () => {
     setSelectedObject,
     selectedObjectForAction,
     setSelectedObjectForAction,
-  } = useStore();
+  } = useAppStore();
   const directChildren = getDirectChildren(selectedObject, data || []);
 
   return (

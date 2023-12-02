@@ -1,9 +1,9 @@
 import './Breadcrumbs.css';
-import { useClientStore, useStore } from '@/store';
+import { useClientStore, useAppStore } from '@/store';
 import { generateBreadcrumbs } from '@/utils';
 
 export const Breadcrumbs = () => {
-  const { selectedObject, setSelectedObject } = useStore();
+  const { selectedObject, setSelectedObject } = useAppStore();
   const { bucket } = useClientStore();
 
   const breadcrumbs = generateBreadcrumbs(selectedObject);

@@ -1,7 +1,7 @@
 import { S3Client } from '@aws-sdk/client-s3';
 import { create } from 'zustand';
 
-type Store = {
+type AppStore = {
   expandedDirs: Set<string>;
   toggleExpandedDir: (dir: string) => void;
   selectedObject: string;
@@ -10,7 +10,7 @@ type Store = {
   setSelectedObjectForAction: (key: string) => void;
 };
 
-export const useStore = create<Store>()((set) => ({
+export const useAppStore = create<AppStore>()((set) => ({
   expandedDirs: new Set<string>(['']),
   toggleExpandedDir: (dir) =>
     set((state) => {

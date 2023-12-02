@@ -6,7 +6,7 @@ import { Form } from '@/components/UI/Form';
 import { Modal } from '@/components/UI/Modal';
 import { DELETE_CONFIRMATION_STRING } from '@/constants';
 import { useDeleteObject } from '@/hooks/useDeleteObject';
-import { useStore } from '@/store';
+import { useAppStore } from '@/store';
 import { useGetDisplayName } from '@/utils';
 import { useQueryClient } from '@tanstack/react-query';
 import { useRef, useState } from 'react';
@@ -15,7 +15,7 @@ export const DeleteObject = () => {
   const queryClient = useQueryClient();
   const dialogRef = useRef<HTMLDialogElement>(null);
 
-  const { selectedObjectForAction } = useStore();
+  const { selectedObjectForAction } = useAppStore();
   const [confirmationText, setConfirmationText] = useState('');
 
   const onSuccess = async () => {

@@ -1,5 +1,5 @@
 import { useGetObjectNames } from '@/hooks/useGetObjectNames';
-import { useStore } from '@/store';
+import { useAppStore } from '@/store';
 import { getDirectChildren, isDir } from '@/utils';
 import { ListItem } from '@/components/UI/ListItem';
 
@@ -9,9 +9,9 @@ type Props = {
 
 export const Tree: React.FC<Props> = ({ prefix = '' }) => {
   const { data: objects } = useGetObjectNames();
-  const { toggleExpandedDir, setSelectedObject } = useStore();
-  const isExpanded = useStore((state) => state.expandedDirs.has(prefix));
-  const isSelected = useStore((state) => state.selectedObject === prefix);
+  const { toggleExpandedDir, setSelectedObject } = useAppStore();
+  const isExpanded = useAppStore((state) => state.expandedDirs.has(prefix));
+  const isSelected = useAppStore((state) => state.selectedObject === prefix);
 
   const directChildren = getDirectChildren(prefix, objects || []);
   const hasDirsAsDirectChildren = directChildren.filter(isDir).length;

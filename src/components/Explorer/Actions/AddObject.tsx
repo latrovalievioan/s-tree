@@ -4,7 +4,7 @@ import { Form } from '@/components/UI/Form';
 import { EXISTING_NAME_MESSAGE, OBJECT_NAME_REGEX } from '@/constants';
 import { useGetObjectNames } from '@/hooks/useGetObjectNames';
 import { usePutObject } from '@/hooks/usePutObject';
-import { useClientStore, useStore } from '@/store';
+import { useClientStore, useAppStore } from '@/store';
 import { useQueryClient } from '@tanstack/react-query';
 import { useRef, useState } from 'react';
 
@@ -21,7 +21,7 @@ export const AddObject: React.FC<Props> = ({ formName, type, closeDialog }) => {
 
   const { data: objects } = useGetObjectNames();
 
-  const { selectedObject } = useStore();
+  const { selectedObject } = useAppStore();
   const { bucket } = useClientStore();
   const [name, setName] = useState('');
   const [invalidName, setInvalidName] = useState<string | undefined>(undefined);
