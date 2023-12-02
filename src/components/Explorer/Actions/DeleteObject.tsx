@@ -12,15 +12,18 @@ import { useQueryClient } from '@tanstack/react-query';
 import { useRef, useState } from 'react';
 
 export const DeleteObject = () => {
-  const [confirmationText, setConfirmationText] = useState('');
-  const dialogRef = useRef<HTMLDialogElement>(null);
   const queryClient = useQueryClient();
+  const dialogRef = useRef<HTMLDialogElement>(null);
+
+  const { selectedObjectForAction } = useStore();
+  const [confirmationText, setConfirmationText] = useState('');
 
   const onSuccess = async () => {
     await queryClient.invalidateQueries({ queryKey: ['objects'] });
     setConfirmationText('');
     closeDialog();
   };
+
   const { mutateAsync, isPending, error } = useDeleteObject(onSuccess);
 
   const closeDialog = () => {
@@ -35,8 +38,6 @@ export const DeleteObject = () => {
     dialogRef.current.close();
     dialogRef.current.showModal();
   };
-
-  const { selectedObjectForAction } = useStore();
 
   const deleteObject = () => {
     if (confirmationText !== DELETE_CONFIRMATION_STRING) return;
