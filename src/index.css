@@ -4,20 +4,20 @@
 
 :root {
   /*COLORS*/
-  --main-bg-color: #25263b;
-  --secondary-bg-color: #191927;
-  --selected-color: #373b4e;
-  --text-color: #cad3f5;
-  --accent-color: #f7a87f;
-  --error-color: #ed8796;
-  --disabled-color: #7e88a3;
+  --color-darker: #191927;
+  --color-dark: #25263b;
+  --color-light: #373b4e;
+  --color-lighter: #cad3f5;
+  --color-accent: #f7a87f;
+  --color-error: #ed8796;
+  --color-disabled: #7e88a3;
 
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
-  color: var(--text-color);
-  background-color: var(--main-bg-color);
+  color: var(--color-lighter);
+  background-color: var(--color-dark);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -27,7 +27,7 @@
 }
 
 svg {
-  color: var(--text-color)
+  color: var(--color-lighter)
 }
 
 body {
@@ -87,5 +87,5 @@ form {
 
 
 em {
-  color: var(--accent-color)
+  color: var(--color-accent)
 }

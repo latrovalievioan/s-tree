@@ -3,7 +3,7 @@ input[type=text], input[type=password] {
   height: 40px;
   border-radius: 8px;
   padding: 8px;
-  background: var(--text-color);
+  background: var(--color-lighter);
   border: none;
 }
 
@@ -24,7 +24,7 @@ textarea {
   height: 300px;
   border-radius: 8px;
   padding: 8px;
-  background: var(--text-color);
+  background: var(--color-lighter);
   border: none;
 }
 

@@ -11,7 +11,7 @@
 }
 
 .listItem:hover {
-  color: var(--accent-color)
+  color: var(--color-accent)
 }
 
 .listItemIcon {
@@ -19,7 +19,7 @@
 }
 
 .selected {
-  background: var(--selected-color);
+  background: var(--color-light);
 }
 
 #chevron.expanded {

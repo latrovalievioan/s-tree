@@ -1,12 +1,12 @@
 #spinner {
   border-style: solid; 
-  border-color: var(--text-color) transparent var(--text-color) transparent;
+  border-color: var(--color-lighter) transparent var(--color-lighter) transparent;
   border-radius: 50%;
   animation: spin 1.4s linear infinite;
 }
 
 #spinner.darkSkin {
-  border-color: var(--secondary-bg-color) transparent var(--secondary-bg-color) transparent;
+  border-color: var(--color-darker) transparent var(--color-darker) transparent;
 }
 
 @keyframes spin {

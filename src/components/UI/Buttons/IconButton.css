@@ -3,11 +3,11 @@
 }
 
 .action:disabled > *, .action:disabled > *:hover {
-  color: var(--disabled-color);
+  color: var(--color-disabled);
   cursor: initial;
 }
 
 .action>svg:hover {
-  color: var(--accent-color);
+  color: var(--color-accent);
 }
 

@@ -1,6 +1,6 @@
 button[type=submit] {
-  background: var(--text-color);
-  color: var(--secondary-bg-color);
+  background: var(--color-lighter);
+  color: var(--color-darker);
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -14,18 +14,18 @@ button[type=submit] {
 }
 
 button[type=submit]:disabled {
-  background: var(--text-color);
-  color: var(--secondary-bg-color);
+  background: var(--color-lighter);
+  color: var(--color-darker);
   cursor: initial;
 }
 
 button[type=submit]:disabled:hover,button[type=submit]:disabled:focus {
-  background: var(--text-color);
-  color: var(--secondary-bg-color);
+  background: var(--color-lighter);
+  color: var(--color-darker);
   cursor: initial;
 }
 
 button[type=submit]:hover, button[type=submit]:focus {
-  background: var(--accent-color);
-  color: var(--secondary-bg-color);
+  background: var(--color-accent);
+  color: var(--color-darker);
 }
