@@ -1,9 +1,13 @@
 import { expect, it, describe } from 'vitest';
 import {
   addCredentialsToStorage,
+  generateBreadcrumbs,
   getDepth,
   getDirectChildren,
+  getParentsOf,
+  initializeClientFromStorage,
   isDir,
+  isParentOf,
   useGetDisplayName,
 } from './utils';
 
@@ -59,18 +63,58 @@ describe.skip(useGetDisplayName, () => {
   it('Figure out how to test this');
 });
 
-describe(addCredentialsToStorage, () => {
-  it('Should add the passed credentials to storage', () => {
-    const credentials = {
-      accessKeyId: 'id',
-      secretAccessKey: 'key',
-      region: 'region',
-      bucket: 'bucket',
-    };
+it('addCredentialsToStorage', () => {
+  const credentials = {
+    accessKeyId: 'id',
+    secretAccessKey: 'key',
+    region: 'region',
+    bucket: 'bucket',
+  };
 
-    addCredentialsToStorage(credentials);
-    expect(JSON.parse(localStorage.getItem('credentials')!)).toStrictEqual(
-      credentials
-    );
-  });
+  addCredentialsToStorage(credentials);
+  expect(JSON.parse(localStorage.getItem('credentials')!)).toStrictEqual(
+    credentials
+  );
+});
+
+describe.skip(initializeClientFromStorage, () => {
+  it(
+    'Figure how to test this with ENV variables without exposing the secrets to github'
+  );
+});
+
+it(generateBreadcrumbs, () => {
+  const expected = ['test1/', 'test2/', 'test3/', 'test4.hs'];
+
+  expect(generateBreadcrumbs('test1/test2/test3/test4.hs')).toStrictEqual(
+    expected
+  );
+});
+
+it(isParentOf, () => {
+  expect(isParentOf('test1/test2/', 'test1/test2/test3.hs')).toBeTruthy();
+});
+
+it(getParentsOf, () => {
+  const expected = [
+    'test1/',
+    'test1/test2/',
+    'test1/test2/test3/',
+    'test1/test2/test3/',
+    '',
+  ];
+  const keys = [
+    'test1/',
+    'test1/test2/',
+    'test1/test2/test3/',
+    'test1/test2/test3/',
+    'test0/',
+    'test0/test-1',
+    'test0/test-1/test-2',
+    '',
+  ];
+
+  expect(getParentsOf(keys, '/test1/test2/test3/test4.hs')).toStrictEqual(
+    expected
+  );
 });
