@@ -20,9 +20,9 @@ export const DirTree = () => {
   };
 
   return (
-    <div id="dirTree" style={{ width }}>
+    <div className="dirTree" style={{ width }}>
       <Tree />
-      <div id="resizeBorder" ref={borderRef} onMouseDown={onMouseDown} />
+      <div className="resizeBorder" ref={borderRef} onMouseDown={onMouseDown} />
     </div>
   );
 };

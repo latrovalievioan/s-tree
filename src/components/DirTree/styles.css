@@ -1,4 +1,4 @@
-#dirTree {
+.dirTree {
   height: 100vh;
   min-width: 300px;
   max-width: 50%;
@@ -8,7 +8,7 @@
   filter: drop-shadow(0px 0px 5px var(--color-darker));
 }
 
-#resizeBorder {
+.resizeBorder {
   width: 8px;
   cursor: ew-resize;
 }
