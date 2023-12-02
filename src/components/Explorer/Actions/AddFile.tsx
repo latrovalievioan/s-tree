@@ -1,4 +1,3 @@
-import './styles.css';
 import { Modal } from '@/components/UI/Modal';
 import { useRef } from 'react';
 import { AddObject } from './AddObject';

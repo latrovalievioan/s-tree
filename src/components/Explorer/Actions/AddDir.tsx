@@ -1,4 +1,3 @@
-import './styles.css';
 import { AddDirIcon } from '@/assets/AddDirIcon';
 import { Modal } from '@/components/UI/Modal';
 import { useRef } from 'react';
