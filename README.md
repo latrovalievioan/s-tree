@@ -92,7 +92,7 @@ An S3 bucket explorer that mimics a filesystem.
 - [x] Can create invalid dirs
 - [x] Root prefix handling
 - [x] Breadcrumbs Root click
-- [ ] Rename all variables that use some system name
+- [x] Rename all variables that use some system name
 - [x] Selecting text while resizing
 - [x] Cannot delete objects by prefix (folder name)
 - [x] Bucket name in dirTree is undefined
