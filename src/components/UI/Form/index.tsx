@@ -1,3 +1,5 @@
+import './styles.css';
+
 type Props = {
   onSubmit: () => void;
   name: string;
