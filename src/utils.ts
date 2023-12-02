@@ -70,5 +70,5 @@ export const isParentOf = (parent: string, child: string) => {
 };
 
 export const getParentsOf = (keys: string[], child: string) => {
-  return keys.filter((k) => child.includes(k) && k !== child);
+  return keys.filter((k) => isParentOf(k, child));
 };
