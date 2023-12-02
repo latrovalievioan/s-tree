@@ -26,16 +26,15 @@ function App() {
 
   if (error) return <ErrorModal />;
 
+  if (showForm && !client) return <Credentials />;
+
   return (
-    <>
-      {client && (
-        <>
-          <DirTree />
-          <Explorer />
-        </>
-      )}
-      {showForm && !client && <Credentials />}
-    </>
+    client && (
+      <>
+        <DirTree />
+        <Explorer />
+      </>
+    )
   );
 }
 
