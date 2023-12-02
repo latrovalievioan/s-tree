@@ -3,7 +3,7 @@ import { useClientStore } from './store';
 import { CredentialsType } from './types';
 
 export const isDir = (s: string) => s.endsWith('/') || s === '';
-const getDepth = (s: string) => {
+export const getDepth = (s: string) => {
   let depth = 0;
   for (let i = 0; i < s.length; i++) {
     if (s[i] === '/') depth++;
