@@ -1,7 +1,7 @@
 import './styles.css';
 import { useGetObjectNames } from '@/hooks/useGetObjectNames';
 import { useAppStore } from '@/store';
-import { getDirectChildren, isDir } from '@/utils';
+import { getDirectChildren, getParentsOf, isDir } from '@/utils';
 import { Actions } from './Actions';
 import { ListItem } from '@/components/UI/ListItem';
 
@@ -12,8 +12,20 @@ export const ExplorerList = () => {
     setSelectedObject,
     selectedObjectForAction,
     setSelectedObjectForAction,
+    toggleExpandedDir,
   } = useAppStore();
   const directChildren = getDirectChildren(selectedObject, data || []);
+  const { data: keys } = useGetObjectNames();
+
+  const selectObject = (key: string) => {
+    // The current working directory should always be visible in the tree view
+    // If we select the directory from the Explorer,
+    // we expand the parents in the tree, so that it is visible
+    const parentDirs = getParentsOf(keys || [], key);
+    parentDirs.forEach((p) => toggleExpandedDir(p));
+
+    setSelectedObject(key);
+  };
 
   return (
     <>
@@ -30,7 +42,7 @@ export const ExplorerList = () => {
                 isFromTree={false}
                 onClick={() => setSelectedObjectForAction(c)}
                 onDoubleClick={() => {
-                  setSelectedObject(c);
+                  selectObject(c);
                   setSelectedObjectForAction('');
                 }}
               />

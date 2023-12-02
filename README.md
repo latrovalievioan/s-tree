@@ -49,12 +49,10 @@ An S3 bucket explorer that mimics a filesystem.
 - [x] Breadcrumbs
     - [x] Breadcrumbs navigation
     - [x] Handle multiple bredcrumbs wrapping
-- [ ] File reader
+- [x] File reader
     - [x] Display file content
     - [x] Loading state
-    - [ ] Empty state
     - [x] Formatting
-    - [ ] Text coloring
 - [x] Handle scrolling
 
 ### Actions menu:
@@ -76,9 +74,8 @@ An S3 bucket explorer that mimics a filesystem.
     - [x] Loading state
     - [x] Invalidate objects query
     - [x] Handle errors
-- [x] UI
-    - [ ] Tooltips for buttons
-    - [x] Disable delete button when there isn't a selected file/dir
+- [ ] Tooltips for buttons
+- [x] Disable delete button when there isn't a selected file/dir
 
 ### Form:
 - [x] Create reusable form component
@@ -97,16 +94,15 @@ An S3 bucket explorer that mimics a filesystem.
 - [x] Cannot delete objects by prefix (folder name)
 - [x] Bucket name in dirTree is undefined
 - [x] Object is in invalid state on Safari
-- [ ] Breadcrumbs text-align left
-- [ ] Tree items text align left
-- [ ] Tree items icon shrink
-- [ ] Tree items overflow x
+- [x] Breadcrumbs text-align left
+- [x] Tree items icon shrink
+- [x] Tree items overflow x
 - [ ] Empty dir state
 - [ ] Empty file state
-- [ ] Handle long names
+- [x] Handle long names
 - [x] Dirtree directories that doesn't have subdirs should not be expandable
-- [ ] The current working directory should always be visible in
-the tree view and should be “decorated” in some way.
+- [x] The current working directory should always be visible in
+the tree view
 - [x] Add favicon
 - [x] User can delete the root object, hence everything in the bucket
 
@@ -116,3 +112,4 @@ the tree view and should be “decorated” in some way.
 - [ ] React router for file explorer
 - [ ] Invalidate credentials in localStorage (logout)
 - [ ] Different views in explorer
+- [ ] Syntax highlighting

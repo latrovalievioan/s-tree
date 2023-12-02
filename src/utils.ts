@@ -64,3 +64,11 @@ export const generateBreadcrumbs = (s: string) => {
 
   return breadcrubsItems;
 };
+
+export const isParentOf = (parent: string, child: string) => {
+  return child.includes(parent) && parent !== child;
+};
+
+export const getParentsOf = (keys: string[], child: string) => {
+  return keys.filter((k) => child.includes(k) && k !== child);
+};

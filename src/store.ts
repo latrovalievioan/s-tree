@@ -1,5 +1,6 @@
 import { S3Client } from '@aws-sdk/client-s3';
 import { create } from 'zustand';
+import { isParentOf } from './utils';
 
 type AppStore = {
   expandedDirs: Set<string>;
@@ -15,7 +16,11 @@ export const useAppStore = create<AppStore>()((set) => ({
   toggleExpandedDir: (dir) =>
     set((state) => {
       const expandedDirs = new Set(state.expandedDirs);
-      expandedDirs.has(dir) ? expandedDirs.delete(dir) : expandedDirs.add(dir);
+      // The current working directory should always be visible in the tree view
+      // Unable parent directories of current selected one to collapse
+      if (expandedDirs.has(dir) && !isParentOf(dir, state.selectedObject)) {
+        expandedDirs.delete(dir);
+      } else expandedDirs.add(dir);
       return { ...state, expandedDirs };
     }),
   selectedObject: '',
