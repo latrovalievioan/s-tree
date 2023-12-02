@@ -1,7 +1,13 @@
 import { expect, it, describe } from 'vitest';
-import { getDepth, getDirectChildren, isDir } from './utils';
+import {
+  addCredentialsToStorage,
+  getDepth,
+  getDirectChildren,
+  isDir,
+  useGetDisplayName,
+} from './utils';
 
-describe('isDir', () => {
+describe(isDir, () => {
   it('Shoud return true when the string is empty', () => {
     expect(isDir('')).toBeTruthy();
   });
@@ -15,7 +21,7 @@ describe('isDir', () => {
   });
 });
 
-describe('getDepth', () => {
+describe(getDepth, () => {
   it('Should return correct depth for dir keys', () => {
     expect(getDepth('hello/world/')).toEqual(2);
   });
@@ -25,7 +31,7 @@ describe('getDepth', () => {
   });
 });
 
-describe('getDirectChildren', () => {
+describe(getDirectChildren, () => {
   const keys = [
     'test1/',
     'test1.go',
@@ -46,5 +52,25 @@ describe('getDirectChildren', () => {
   it('Should return correct children for different depths', () => {
     const expected = ['test1/test2/test3/', 'test1/test2/test3.hs'];
     expect(getDirectChildren('test1/test2/', keys)).toStrictEqual(expected);
+  });
+});
+
+describe.skip(useGetDisplayName, () => {
+  it('Figure out how to test this');
+});
+
+describe(addCredentialsToStorage, () => {
+  it('Should add the passed credentials to storage', () => {
+    const credentials = {
+      accessKeyId: 'id',
+      secretAccessKey: 'key',
+      region: 'region',
+      bucket: 'bucket',
+    };
+
+    addCredentialsToStorage(credentials);
+    expect(JSON.parse(localStorage.getItem('credentials')!)).toStrictEqual(
+      credentials
+    );
   });
 });
