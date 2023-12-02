@@ -18,7 +18,11 @@ export const useAppStore = create<AppStore>()((set) => ({
       const expandedDirs = new Set(state.expandedDirs);
       // The current working directory should always be visible in the tree view
       // Unable parent directories of current selected one to collapse
-      if (expandedDirs.has(dir) && !isParentOf(dir, state.selectedObject)) {
+      if (
+        expandedDirs.has(dir) &&
+        !isParentOf(dir, state.selectedObject) &&
+        dir !== ''
+      ) {
         expandedDirs.delete(dir);
       } else expandedDirs.add(dir);
       return { ...state, expandedDirs };
