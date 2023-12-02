@@ -1,7 +1,8 @@
+import './FileReader.css';
 import { useGetObject } from '@/hooks/useGetObject';
 import { useStore } from '@/store';
-import { GlobalSpinner } from '../UI/Spinner/GlobalSpinner';
-import { ErrorModal } from '../UI/ErrorModal';
+import { GlobalSpinner } from '@/components/UI/Spinner/GlobalSpinner';
+import { ErrorModal } from '@/components/UI/ErrorModal';
 
 export const FileReader = () => {
   const { selectedObject } = useStore();
@@ -11,5 +12,5 @@ export const FileReader = () => {
 
   if (error) return <ErrorModal />;
 
-  return <pre id="fileReader">{data}</pre>;
+  return <pre className="fileReader">{data}</pre>;
 };

@@ -1,4 +1,4 @@
-#explorer {
+.explorer {
   position: relative;
 
   height: 100vh;
@@ -8,70 +8,4 @@
   flex-direction: column;
 
   overflow: hidden;
-}
-
-#explorer > h1 {
-  border-bottom: 1px solid var(--color-lighter);
-  padding: 16px;
-}
-
-#explorer > ul {
-  padding: 16px 0 0 16px;
-  margin: 0;
-  cursor: pointer;
-}
-
-.explorerItem {
-  display: flex;
-  align-items: center;
-}
-
-.explorerItem:hover {
-  padding: 0;
-  cursor: pointer;
-  font-weight: 600;
-}
-
-.explorerItem > svg {
-  margin-right: 8px;
-}
-
-#explorerItemList {
-  overflow: auto;
-}
-
-.breadcrumb {
-  cursor: pointer;
-}
-
-.breadcrumb:hover {
-  color: var(--color-accent);
-}
-
-#fileReader {
-  height: 100%;
-  width: 100%;
-  padding: 16px;
-  margin: 0px;
-
-  background: var(--color-light);
-  overflow: auto;
-}
-
-#actionsMenu {
-  position: absolute;
-  left: calc(50% - 150px);
-  bottom: 20px;
-
-  display: flex;
-  background: var(--color-darker);
-  width: 300px;
-  height: 60px;
-
-  border-radius: 50px;
-  filter: drop-shadow(0px 0px 5px var(--color-darker));
-
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
 }

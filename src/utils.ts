@@ -48,3 +48,19 @@ export const initializeClientFromStorage = async () => {
 
   return await initializeClient(parsedCredentials);
 };
+
+export const generateBreadcrumbs = (s: string) => {
+  let accString = '';
+  const breadcrubsItems: string[] = [];
+  for (let i = 0; i < s.length; i++) {
+    const currentChar = s[i];
+    accString += currentChar;
+
+    if (currentChar === '/' || i === s.length - 1)
+      breadcrubsItems.push(accString);
+
+    if (currentChar === '/') accString = '';
+  }
+
+  return breadcrubsItems;
+};

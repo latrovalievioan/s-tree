@@ -1,0 +1,9 @@
+.fileReader {
+  height: 100%;
+  width: 100%;
+  padding: 16px;
+  margin: 0px;
+
+  background: var(--color-light);
+  overflow: auto;
+}
