@@ -1,3 +1,4 @@
+import './styles.css';
 import { ChevronRight } from '@/assets/ChevronRight';
 import { ClosedDir } from '@/assets/ClosedDir';
 import { FileIcon } from '@/assets/FileIcon';
@@ -26,8 +27,9 @@ export const ListItemIcons: React.FC<Props> = ({
   return (
     <>
       <ChevronRight
-        id="chevron"
-        className={`listItemIcon ${isExpanded ? 'expanded' : 'collapsed'}`}
+        className={`listItemIcon chevron ${
+          isExpanded ? 'expanded' : 'collapsed'
+        }`}
       />
       {isExpanded ? (
         <OpenDir className="listItemIcon" />

@@ -9,11 +9,12 @@ type Props = {
 
 export const Tree: React.FC<Props> = ({ prefix = '' }) => {
   const { data: objects } = useGetObjectNames();
+  const { toggleExpandedDir, setSelectedObject } = useStore();
+  const isExpanded = useStore((state) => state.expandedDirs.has(prefix));
+  const isSelected = useStore((state) => state.selectedObject === prefix);
+
   const directChildren = getDirectChildren(prefix, objects || []);
   const hasDirsAsDirectChildren = directChildren.filter(isDir).length;
-  const { toggleExpandedDir, selectedObject, setSelectedObject } = useStore();
-  const isExpanded = useStore((state) => state.expandedDirs.has(prefix));
-  const isSelected = selectedObject === prefix;
 
   return (
     <ul>

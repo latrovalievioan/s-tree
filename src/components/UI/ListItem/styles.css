@@ -6,7 +6,7 @@
   padding: 4px;
 }
 
-.listItem .shiftRight {
+.listItem.shiftRight {
   margin-left: 18px;
 }
 
@@ -22,6 +22,6 @@
   background: var(--color-light);
 }
 
-#chevron.expanded {
+.chevron.expanded {
   transform: rotate(90deg);
 }
