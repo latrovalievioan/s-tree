@@ -1,0 +1,12 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Form > Matches snapshot 1`] = `
+<form
+  data-testid="form-test_form"
+  name="test_form"
+>
+  <div>
+    HELLO
+  </div>
+</form>
+`;

@@ -9,6 +9,7 @@ type Props = {
 export const Form: React.FC<Props> = ({ name, onSubmit, children }) => {
   return (
     <form
+      data-testid={`form-${name}`}
       name={name}
       onSubmit={(e) => {
         e.preventDefault();
