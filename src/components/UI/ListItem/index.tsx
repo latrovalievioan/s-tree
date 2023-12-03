@@ -25,6 +25,7 @@ export const ListItem: React.FC<Props> = ({
 }) => {
   return (
     <button
+      data-testid={`list-item-${title}`}
       className={`listItem ${isSelected ? 'selected' : ''}`}
       onClick={(e) => {
         e.detail === 1 ? onClick() : onDoubleClick();
