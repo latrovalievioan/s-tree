@@ -22,7 +22,7 @@ export const AddFile = () => {
 
   return (
     <>
-      <IconButton Icon={AddFileIcon} onClick={openDialog} />
+      <IconButton icon={<AddFileIcon />} onClick={openDialog} />
       <Modal title="Add a file:" ref={dialogRef} onClose={closeDialog}>
         <AddObject formName={'addFile'} type="file" closeDialog={closeDialog} />
       </Modal>

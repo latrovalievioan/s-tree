@@ -24,7 +24,7 @@ export const Modal = forwardRef<HTMLDialogElement, Props>(
       >
         <header>
           <h2>{title}</h2>
-          {!nonEscapable && <IconButton Icon={Close} onClick={onClose} />}
+          {!nonEscapable && <IconButton icon={<Close />} onClick={onClose} />}
         </header>
         {children}
       </dialog>

@@ -46,26 +46,20 @@ export const initializeClientFromStorage = async () => {
   return await initializeClient(parsedCredentials);
 };
 
-export const generateBreadcrumbs = (s: string) => {
-  let accString = '';
-  const breadcrubsItems: string[] = [];
-  for (let i = 0; i < s.length; i++) {
-    const currentChar = s[i];
-    accString += currentChar;
-
-    if (currentChar === '/' || i === s.length - 1)
-      breadcrubsItems.push(accString);
-
-    if (currentChar === '/') accString = '';
-  }
-
-  return breadcrubsItems;
-};
-
 export const isParentOf = (parent: string, child: string) => {
   return child.includes(parent) && parent !== child;
 };
 
 export const getParentsOf = (keys: string[], child: string) => {
   return keys.filter((k) => isParentOf(k, child));
+};
+
+export const getParentDir = (key: string) => {
+  for (let i = isDir(key) ? key.length - 2 : key.length - 1; i > 0; i--) {
+    if (key[i] === '/') {
+      return key.slice(0, i + 1);
+    }
+  }
+
+  return '';
 };

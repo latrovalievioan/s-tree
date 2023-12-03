@@ -1,5 +1,6 @@
 .action {
   cursor: pointer;
+  height: fit-content;
 }
 
 .action:disabled > *, .action:disabled > *:hover {

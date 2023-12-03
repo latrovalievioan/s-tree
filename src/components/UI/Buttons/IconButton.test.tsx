@@ -4,7 +4,7 @@ import { AddFileIcon } from '@/assets/AddFileIcon';
 
 describe(IconButton, () => {
   beforeEach(() => {
-    render(<IconButton Icon={AddFileIcon} disabled onClick={() => {}} />);
+    render(<IconButton icon={<AddFileIcon />} disabled onClick={() => {}} />);
   });
 
   afterEach(() => {

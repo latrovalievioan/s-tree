@@ -1,6 +1,5 @@
 import {
   addCredentialsToStorage,
-  generateBreadcrumbs,
   getDepth,
   getDirectChildren,
   getParentsOf,
@@ -98,14 +97,6 @@ it('addCredentialsToStorage', () => {
 describe.skip(initializeClientFromStorage, () => {
   it(
     'Figure how to test this with ENV variables without exposing the secrets to github'
-  );
-});
-
-it(generateBreadcrumbs, () => {
-  const expected = ['test1/', 'test2/', 'test3/', 'test4.hs'];
-
-  expect(generateBreadcrumbs('test1/test2/test3/test4.hs')).toStrictEqual(
-    expected
   );
 });
 

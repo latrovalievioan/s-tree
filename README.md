@@ -49,6 +49,7 @@ An S3 bucket explorer that mimics a filesystem.
 - [x] Breadcrumbs
     - [x] Breadcrumbs navigation
     - [x] Handle multiple bredcrumbs wrapping
+- [x] Drop Breadcrumbs in favor of chevron navigation
 - [x] File reader
     - [x] Display file content
     - [x] Loading state

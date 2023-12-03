@@ -1,14 +1,13 @@
 import './IconButton.css';
-import { SVGProps } from 'react';
 
 type Props = {
-  Icon: React.FC<SVGProps<SVGSVGElement>>;
+  icon: JSX.Element;
   onClick: () => void;
   disabled?: boolean;
 };
 
 export const IconButton: React.FC<Props> = ({
-  Icon,
+  icon,
   onClick,
   disabled = false,
 }) => {
@@ -19,7 +18,7 @@ export const IconButton: React.FC<Props> = ({
       disabled={disabled}
       onClick={onClick}
     >
-      <Icon />
+      {icon}
     </button>
   );
 };

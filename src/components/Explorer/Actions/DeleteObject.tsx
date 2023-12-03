@@ -50,7 +50,7 @@ export const DeleteObject = () => {
     <>
       <IconButton
         disabled={selectedObjectForAction === ''}
-        Icon={Trash}
+        icon={<Trash />}
         onClick={openDialog}
       />
       <Modal
