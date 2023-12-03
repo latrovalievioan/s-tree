@@ -13,6 +13,7 @@ export const Navigation = () => {
       <IconButton
         icon={<Back />}
         onClick={() => setSelectedObject(getParentDir(selectedObject))}
+        disabled={selectedObject === ''}
       />
       <h1>{getDisplayName(selectedObject, bucket)}</h1>
     </div>
