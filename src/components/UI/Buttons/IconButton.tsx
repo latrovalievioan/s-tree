@@ -13,7 +13,12 @@ export const IconButton: React.FC<Props> = ({
   disabled = false,
 }) => {
   return (
-    <button className="action" disabled={disabled} onClick={onClick}>
+    <button
+      data-testid="icon-button"
+      className="action"
+      disabled={disabled}
+      onClick={onClick}
+    >
       <Icon />
     </button>
   );
