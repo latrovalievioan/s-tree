@@ -1,0 +1,9 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Modal > Matches snapshot 1`] = `
+<div
+  class="spinner lightSkin"
+  data-testid="loading-spinner"
+  style="width: 10px; height: 10px; border-width: 2px;"
+/>
+`;
