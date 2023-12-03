@@ -1,9 +1,10 @@
 import { ListItemIcons } from './ListItemIcons';
 import './styles.css';
-import { useGetDisplayName } from '@/utils';
+import { getDisplayName } from '@/utils';
 
 type Props = {
   title: string;
+  bucket: string;
   isSelected: boolean;
   isExpanded: boolean;
   isFromTree: boolean;
@@ -14,6 +15,7 @@ type Props = {
 
 export const ListItem: React.FC<Props> = ({
   title,
+  bucket,
   isSelected,
   isExpanded,
   isFromTree,
@@ -34,7 +36,7 @@ export const ListItem: React.FC<Props> = ({
         isExpandable={isExpandable}
         isFromTree={isFromTree}
       />
-      {useGetDisplayName(title)}
+      {getDisplayName(title, bucket)}
     </button>
   );
 };

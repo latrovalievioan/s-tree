@@ -21,7 +21,6 @@ export const Tree: React.FC<Props> = ({ prefix = '' }) => {
     <ul>
       <ListItem
         title={prefix}
-        bucket={bucket}
         isSelected={isSelected}
         isExpanded={isExpanded}
         isExpandable={!!hasDirsAsDirectChildren}

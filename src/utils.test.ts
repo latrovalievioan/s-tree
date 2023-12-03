@@ -8,7 +8,7 @@ import {
   initializeClientFromStorage,
   isDir,
   isParentOf,
-  useGetDisplayName,
+  getDisplayName,
 } from './utils';
 
 describe(isDir, () => {
@@ -59,8 +59,27 @@ describe(getDirectChildren, () => {
   });
 });
 
-describe.skip(useGetDisplayName, () => {
-  it('Figure out how to test this');
+describe(getDisplayName, () => {
+  const bucket = 'test_bucket_name';
+  it('Should generate correct name for root (empty string prefix)', () => {
+    const expected = 's3://' + bucket;
+
+    expect(getDisplayName('', bucket)).toEqual(expected);
+  });
+
+  it('Should generate correct display name for nested dir keys', () => {
+    const key = 'test1/test2/test3/';
+    const expected = 'test3';
+
+    expect(getDisplayName(key, bucket)).toEqual(expected);
+  });
+
+  it('Should generate correct display name for nested file keys', () => {
+    const key = 'test1/test2/test3.hs';
+    const expected = 'test3.hs';
+
+    expect(getDisplayName(key, bucket)).toEqual(expected);
+  });
 });
 
 it('addCredentialsToStorage', () => {

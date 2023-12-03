@@ -1,5 +1,4 @@
 import { initializeClient } from './api';
-import { useClientStore } from './store';
 import { CredentialsType } from './types';
 
 export const isDir = (s: string) => s.endsWith('/') || s === '';
@@ -22,14 +21,12 @@ export const getDirectChildren = (prefix: string, objects: string[]) => {
   });
 };
 
-export const useGetDisplayName = (s: string) => {
-  const { bucket } = useClientStore();
+export const getDisplayName = (key: string, bucket: string) => {
+  const split = key.split('/');
 
-  const split = s.split('/');
+  if (!key.length) return 's3://' + bucket;
 
-  if (!s.length) return 's3://' + bucket;
-
-  return isDir(s) ? split[split.length - 2] : split[split.length - 1];
+  return isDir(key) ? split[split.length - 2] : split[split.length - 1];
 };
 
 export const addCredentialsToStorage = (credentials: CredentialsType) => {

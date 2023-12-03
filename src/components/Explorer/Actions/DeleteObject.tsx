@@ -6,8 +6,8 @@ import { Form } from '@/components/UI/Form';
 import { Modal } from '@/components/UI/Modal';
 import { DELETE_CONFIRMATION_STRING } from '@/constants';
 import { useDeleteObject } from '@/hooks/useDeleteObject';
-import { useAppStore } from '@/store';
-import { useGetDisplayName } from '@/utils';
+import { useAppStore, useClientStore } from '@/store';
+import { getDisplayName } from '@/utils';
 import { useQueryClient } from '@tanstack/react-query';
 import { useRef, useState } from 'react';
 
@@ -16,6 +16,7 @@ export const DeleteObject = () => {
   const dialogRef = useRef<HTMLDialogElement>(null);
 
   const { selectedObjectForAction } = useAppStore();
+  const { bucket } = useClientStore();
   const [confirmationText, setConfirmationText] = useState('');
 
   const onSuccess = async () => {
@@ -53,7 +54,7 @@ export const DeleteObject = () => {
         onClick={openDialog}
       />
       <Modal
-        title={`Delete ${useGetDisplayName(selectedObjectForAction)}`}
+        title={`Delete ${getDisplayName(selectedObjectForAction, bucket)}`}
         ref={dialogRef}
         onClose={closeDialog}
       >

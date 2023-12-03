@@ -1,6 +1,6 @@
 import './styles.css';
 import { useGetObjectNames } from '@/hooks/useGetObjectNames';
-import { useAppStore } from '@/store';
+import { useAppStore, useClientStore } from '@/store';
 import { getDirectChildren, getParentsOf, isDir } from '@/utils';
 import { Actions } from './Actions';
 import { ListItem } from '@/components/UI/ListItem';
@@ -16,6 +16,7 @@ export const ExplorerList = () => {
   } = useAppStore();
   const directChildren = getDirectChildren(selectedObject, data || []);
   const { data: keys } = useGetObjectNames();
+  const { bucket } = useClientStore();
 
   const selectObject = (key: string) => {
     // The current working directory should always be visible in the tree view
@@ -36,6 +37,7 @@ export const ExplorerList = () => {
             <li key={c}>
               <ListItem
                 title={c}
+                bucket={bucket}
                 isSelected={c === selectedObjectForAction}
                 isExpanded={false}
                 isExpandable={false}
