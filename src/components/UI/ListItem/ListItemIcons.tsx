@@ -20,21 +20,25 @@ export const ListItemIcons: React.FC<Props> = ({
 }) => {
   if (!isExpandable)
     return isDir(title) ? (
-      <ClosedDir className={`listItemIcon ${isFromTree && 'shiftRight'}`} />
+      <ClosedDir
+        data-testid="closed-dir-icon"
+        className={`listItemIcon ${isFromTree && 'shiftRight'}`}
+      />
     ) : (
-      <FileIcon className="listItemIcon" />
+      <FileIcon data-testid="file-icon" className="listItemIcon" />
     );
   return (
     <>
       <ChevronRight
+        data-testid="chevron-icon"
         className={`listItemIcon chevron ${
           isExpanded ? 'expanded' : 'collapsed'
         }`}
       />
       {isExpanded ? (
-        <OpenDir className="listItemIcon" />
+        <OpenDir data-testid="open-dir-icon" className="listItemIcon" />
       ) : (
-        <ClosedDir className="listItemIcon" />
+        <ClosedDir data-testid="closed-dir-icon" className="listItemIcon" />
       )}
     </>
   );
