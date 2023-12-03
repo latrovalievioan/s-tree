@@ -55,14 +55,6 @@ export const AddObject: React.FC<Props> = ({ formName, type, closeDialog }) => {
       {(error || invalidName) && <ErrorMessage message={invalidNameMesssage} />}
       <Form name={formName} onSubmit={createObject}>
         <div>
-          <span>Location:&nbsp;</span>
-          <span>
-            <em>
-              s3://{bucket}/{selectedObject}
-            </em>
-          </span>
-        </div>
-        <div>
           <input
             maxLength={50}
             value={name}
