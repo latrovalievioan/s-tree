@@ -19,13 +19,12 @@ export const ExplorerList = () => {
   const { bucket } = useClientStore();
 
   const selectObject = (key: string) => {
+    setSelectedObject(key);
     // The current working directory should always be visible in the tree view
     // If we select the directory from the Explorer,
     // we expand the parents in the tree, so that it is visible
     const parentDirs = getParentsOf(keys || [], key);
     parentDirs.forEach((p) => toggleExpandedDir(p));
-
-    setSelectedObject(key);
   };
 
   return (

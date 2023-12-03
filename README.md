@@ -102,6 +102,7 @@ An S3 bucket explorer that mimics a filesystem.
 the tree view
 - [x] Add favicon
 - [x] User can delete the root object, hence everything in the bucket
+- [x] Selecting a dir from the explorer closes its parent in dirTree
 
 ### Nice to have
 - [ ] Bundle delete objects
