@@ -7,7 +7,7 @@
   text-align: left;
 }
 
-.listItem.shiftRight {
+.listItem .shiftRight {
   margin-left: 18px;
 }
 
