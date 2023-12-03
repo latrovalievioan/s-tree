@@ -8,5 +8,9 @@ type Props = {
 export const ErrorMessage: React.FC<Props> = ({
   message = DEFAULT_ERROR_MESSAGE,
 }) => {
-  return <div className="error">{message}</div>;
+  return (
+    <div data-testid="error-message" className="error">
+      {message}
+    </div>
+  );
 };
