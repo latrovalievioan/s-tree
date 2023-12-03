@@ -15,6 +15,7 @@ export const Spinner: React.FC<Props> = ({
 }) => {
   return (
     <div
+      data-testid="loading-spinner"
       className={`spinner ${skin}Skin`}
       style={{
         width: `${width}px`,

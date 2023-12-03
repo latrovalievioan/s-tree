@@ -11,7 +11,11 @@ export const FormSubmitButton: React.FC<Props> = ({
   isDisabled,
 }) => {
   return (
-    <button type="submit" disabled={isPending || isDisabled}>
+    <button
+      data-testid="form-submit"
+      type="submit"
+      disabled={isPending || isDisabled}
+    >
       {isPending ? (
         <Spinner skin="dark" width={24} height={24} border={2} />
       ) : (
