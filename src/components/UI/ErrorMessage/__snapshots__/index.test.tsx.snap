@@ -1,0 +1,10 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`ErrorMessage > Matches snapshot 1`] = `
+<div
+  class="error"
+  data-testid="error-message"
+>
+  There was an unexpected error, please refresh the page or try again.
+</div>
+`;
