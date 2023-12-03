@@ -14,6 +14,7 @@ export const Modal = forwardRef<HTMLDialogElement, Props>(
   ({ title, onClose, children, nonEscapable = false }, ref) => {
     return (
       <dialog
+        data-testid={`modal-${title}`}
         ref={ref}
         onKeyDown={(e: React.KeyboardEvent<HTMLDialogElement>) => {
           if (nonEscapable && e.key === 'Escape') {
