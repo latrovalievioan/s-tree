@@ -9,6 +9,7 @@ import { FormSubmitButton } from '../UI/Buttons/FormSubmitButton';
 import { Form } from '../UI/Form';
 import { ErrorMessage } from '../UI/ErrorMessage';
 import { addCredentialsToStorage } from '@/utils';
+import { LabelInput } from '../UI/LabelInput';
 
 export const Credentials = () => {
   const dialogRef = useRef<HTMLDialogElement>(null);
@@ -50,21 +51,19 @@ export const Credentials = () => {
     >
       {error && <ErrorMessage />}
       <Form name="credentials" onSubmit={() => mutate(inputValues)}>
-        <input
-          placeholder="Access Key Id"
-          type="text"
+        <LabelInput
+          title="Access Key Id:"
           required
           value={inputValues.accessKeyId}
-          onChange={(e) =>
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
             dispatchInputValue({
               type: 'setAccessKeyId',
               payload: e.target.value,
             })
           }
         />
-        <input
-          placeholder="Secret Access Key"
-          type="password"
+        <LabelInput
+          title="Secret Access Key:"
           required
           value={inputValues.secretAccessKey}
           onChange={(e) =>
@@ -74,9 +73,8 @@ export const Credentials = () => {
             })
           }
         />
-        <input
-          placeholder="Region"
-          type="text"
+        <LabelInput
+          title="Region:"
           required
           value={inputValues.region}
           onChange={(e) =>
@@ -86,9 +84,8 @@ export const Credentials = () => {
             })
           }
         />
-        <input
-          placeholder="Bucket"
-          type="text"
+        <LabelInput
+          title="Bucket:"
           required
           value={inputValues.bucket}
           onChange={(e) =>
