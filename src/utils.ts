@@ -1,3 +1,4 @@
+import { _Object } from '@aws-sdk/client-s3';
 import { initializeClient } from './api';
 import { CredentialsType } from './types';
 
@@ -62,4 +63,20 @@ export const getParentDir = (key: string) => {
   }
 
   return '';
+};
+
+export const generateObjectNames = (objs: _Object[]) => {
+  const names: Set<string> = new Set();
+  for (let n = 0; n < objs.length; n++) {
+    const str = objs[n].Key || '';
+
+    for (let i = 0; i < str.length; i++) {
+      const currentChar = str[i];
+      if (currentChar === '/' || i === str.length - 1) {
+        names.add(str.slice(0, i + 1));
+      }
+    }
+  }
+
+  return [...names];
 };
