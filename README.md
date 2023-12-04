@@ -104,6 +104,7 @@ the tree view
 - [x] Add favicon
 - [x] User can delete the root object, hence everything in the bucket
 - [x] Selecting a dir from the explorer closes its parent in dirTree
+- [x] Tooltips/titles for buttons
 
 ### Nice to have
 - [ ] Bundle delete objects
@@ -111,6 +112,5 @@ the tree view
 - [ ] Invalidate credentials in localStorage (logout)
 - [ ] Different views in explorer
 - [ ] Syntax highlighting
-- [ ] Tooltips for buttons
 - [ ] Empty dir state
 - [ ] Empty file state

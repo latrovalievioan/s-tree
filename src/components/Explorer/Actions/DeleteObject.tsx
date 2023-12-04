@@ -49,6 +49,7 @@ export const DeleteObject = () => {
   return (
     <>
       <IconButton
+        title="Delete Selected"
         disabled={selectedObjectForAction === ''}
         icon={<Trash />}
         onClick={openDialog}

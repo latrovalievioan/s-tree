@@ -22,7 +22,11 @@ export const AddDir = () => {
 
   return (
     <>
-      <IconButton icon={<AddDirIcon />} onClick={openDialog} />
+      <IconButton
+        title="Add Directory"
+        icon={<AddDirIcon />}
+        onClick={openDialog}
+      />
       <Modal title="Add a directory:" ref={dialogRef} onClose={closeDialog}>
         <AddObject
           formName={'addDir'}

@@ -5,6 +5,7 @@ exports[`IconButton > Matches snapshot 1`] = `
   class="action"
   data-testid="icon-button"
   disabled=""
+  title="Add File"
 >
   <svg
     aria-hidden="true"

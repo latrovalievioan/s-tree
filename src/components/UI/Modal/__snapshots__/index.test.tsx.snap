@@ -11,6 +11,7 @@ exports[`Modal > Matches snapshot 1`] = `
     <button
       class="action"
       data-testid="icon-button"
+      title="Close"
     >
       <svg
         aria-hidden="true"

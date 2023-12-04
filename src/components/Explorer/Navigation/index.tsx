@@ -7,12 +7,14 @@ import { getDisplayName, getParentDir } from '@/utils';
 export const Navigation = () => {
   const { selectedObject, setSelectedObject } = useAppStore();
   const { bucket } = useClientStore();
+  const parentDir = getParentDir(selectedObject);
 
   return (
     <div className="navigation">
       <IconButton
         icon={<Back />}
-        onClick={() => setSelectedObject(getParentDir(selectedObject))}
+        title={`Up to ${parentDir || bucket}`}
+        onClick={() => setSelectedObject(parentDir)}
         disabled={selectedObject === ''}
       />
       <h1>{getDisplayName(selectedObject, bucket)}</h1>
