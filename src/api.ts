@@ -7,6 +7,7 @@ import {
   HeadBucketCommand,
 } from '@aws-sdk/client-s3';
 import { CredentialsType } from './types';
+import { isDir } from './utils';
 
 export const initializeClient = async (credentials: CredentialsType) => {
   const { accessKeyId, secretAccessKey, bucket, region } = credentials;
@@ -71,6 +72,15 @@ export const deleteObject = async (
   bucket: string,
   key: string
 ) => {
+  if (!isDir(key)) {
+    const deleteObjectCommand = new DeleteObjectCommand({
+      Bucket: bucket,
+      Key: key,
+    });
+
+    return client.send(deleteObjectCommand);
+  }
+
   const objectsToDelete = await listObjects(client, bucket, key);
 
   if (!objectsToDelete.Contents) return;
