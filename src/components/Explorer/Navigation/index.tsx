@@ -1,4 +1,4 @@
-import { Back } from '@/assets/Back';
+import { DirUp } from '@/assets/DirUp';
 import './styles.css';
 import { IconButton } from '@/components/UI/Buttons/IconButton';
 import { useAppStore, useClientStore } from '@/store';
@@ -12,8 +12,8 @@ export const Navigation = () => {
   return (
     <div className="navigation">
       <IconButton
-        icon={<Back />}
-        title={`Up to ${parentDir || bucket}`}
+        icon={<DirUp />}
+        title={`Up to ${getDisplayName(parentDir, bucket)}`}
         onClick={() => setSelectedObject(parentDir)}
         disabled={selectedObject === ''}
       />
