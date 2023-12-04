@@ -8,6 +8,7 @@ import {
   isParentOf,
   getDisplayName,
   getParentDir,
+  generateObjectNames,
 } from './utils';
 
 describe(isDir, () => {
@@ -95,12 +96,6 @@ it('addCredentialsToStorage', () => {
   );
 });
 
-describe.skip(initializeClientFromStorage, () => {
-  it(
-    'Figure how to test this with ENV variables without exposing the secrets to github'
-  );
-});
-
 it(isParentOf, () => {
   expect(isParentOf('test1/test2/', 'test1/test2/test3.hs')).toBeTruthy();
 });
@@ -133,4 +128,20 @@ it(getParentDir, () => {
   expect(getParentDir('test/')).toEqual('');
   expect(getParentDir('test/test2/')).toEqual('test/');
   expect(getParentDir('test/test2/test3.hs')).toEqual('test/test2/');
+});
+
+describe(generateObjectNames, () => {
+  it('Generates a directory and a file from just a file object', () => {
+    const expected = ['test/', 'test/testFile.hs'];
+    expect(generateObjectNames([{ Key: 'test/testFile.hs' }])).toEqual(
+      expected
+    );
+  });
+
+  it('It contains only unique elements', () => {
+    const expected = ['test/', 'test/test2/'];
+    expect(
+      generateObjectNames([{ Key: 'test/' }, { Key: 'test/test2/' }])
+    ).toEqual(expected);
+  });
 });
