@@ -7,6 +7,7 @@ import {
   isDir,
   isParentOf,
   getDisplayName,
+  getParentDir,
 } from './utils';
 
 describe(isDir, () => {
@@ -126,4 +127,10 @@ it(getParentsOf, () => {
   expect(getParentsOf(keys, '/test1/test2/test3/test4.hs')).toStrictEqual(
     expected
   );
+});
+
+it(getParentDir, () => {
+  expect(getParentDir('test/')).toEqual('');
+  expect(getParentDir('test/test2/')).toEqual('test/');
+  expect(getParentDir('test/test2/test3.hs')).toEqual('test/test2/');
 });
