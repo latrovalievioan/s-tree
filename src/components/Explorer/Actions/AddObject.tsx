@@ -2,6 +2,7 @@ import { Info } from '@/assets/Info';
 import { FormSubmitButton } from '@/components/UI/Buttons/FormSubmitButton';
 import { ErrorMessage } from '@/components/UI/ErrorMessage';
 import { Form } from '@/components/UI/Form';
+import { LabelInput } from '@/components/UI/LabelInput';
 import { EXISTING_NAME_MESSAGE, OBJECT_NAME_REGEX } from '@/constants';
 import { useGetObjectNames } from '@/hooks/useGetObjectNames';
 import { usePutObject } from '@/hooks/usePutObject';
@@ -56,21 +57,17 @@ export const AddObject: React.FC<Props> = ({ formName, type, closeDialog }) => {
       {(error || invalidName) && <ErrorMessage message={invalidNameMesssage} />}
       <Form name={formName} onSubmit={createObject}>
         <div>
-          <input
+          <LabelInput
             maxLength={50}
             value={name}
-            placeholder="Name"
-            type="text"
+            title="Name:"
             pattern={OBJECT_NAME_REGEX}
             required
+            note='Should not contain "/" or an empty space'
             onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
               setName(e.target.value)
             }
           />
-          <em>
-            <Info />
-            Should not contain "/" or an empty space
-          </em>
         </div>
         {type === 'file' && (
           <textarea
