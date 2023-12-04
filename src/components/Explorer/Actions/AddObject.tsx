@@ -1,3 +1,4 @@
+import { Info } from '@/assets/Info';
 import { FormSubmitButton } from '@/components/UI/Buttons/FormSubmitButton';
 import { ErrorMessage } from '@/components/UI/ErrorMessage';
 import { Form } from '@/components/UI/Form';
@@ -66,7 +67,10 @@ export const AddObject: React.FC<Props> = ({ formName, type, closeDialog }) => {
               setName(e.target.value)
             }
           />
-          <em>*Should not contain "/" or an empty space</em>
+          <em>
+            <Info />
+            Should not contain "/" or an empty space
+          </em>
         </div>
         {type === 'file' && (
           <textarea

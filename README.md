@@ -105,6 +105,7 @@ the tree view
 - [x] User can delete the root object, hence everything in the bucket
 - [x] Selecting a dir from the explorer closes its parent in dirTree
 - [x] Tooltips/titles for buttons
+- [x] Add info icon to info texts in modal
 
 ### Nice to have
 - [ ] Bundle delete objects

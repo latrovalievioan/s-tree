@@ -37,5 +37,9 @@ textarea::placeholder {
 }
 
 em {
-  color: var(--color-accent)
+  color: var(--color-lighter);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top:4px;
 }

@@ -1,3 +1,4 @@
+import { Info } from '@/assets/Info';
 import { Trash } from '@/assets/Trash';
 import { FormSubmitButton } from '@/components/UI/Buttons/FormSubmitButton';
 import { IconButton } from '@/components/UI/Buttons/IconButton';
@@ -73,7 +74,8 @@ export const DeleteObject = () => {
               }
             />
             <em>
-              *Deleting is permanent, type "DELETE" to confirm your action:
+              <Info />
+              Deleting is permanent, type "DELETE" to confirm your action.
             </em>
           </div>
           <FormSubmitButton
