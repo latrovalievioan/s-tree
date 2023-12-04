@@ -107,7 +107,7 @@ the tree view
 - [x] Tooltips/titles for buttons
 - [x] Add info icon to info texts in modal
 - [x] Deleting a file named "test" will also delete the directory "test/" and all its subchildren or files starting with the prefix "test"
-- [ ] Add labels for input fields
+- [x] Add labels for certain input fields
 
 ### Nice to have
 - [ ] Bundle delete objects
