@@ -1,4 +1,3 @@
-import { Info } from '@/assets/Info';
 import { FormSubmitButton } from '@/components/UI/Buttons/FormSubmitButton';
 import { ErrorMessage } from '@/components/UI/ErrorMessage';
 import { Form } from '@/components/UI/Form';

@@ -101,9 +101,7 @@ export const deleteObject = async (
 
   const objectsToDelete = await listObjects(client, bucket, key);
 
-  if (!objectsToDelete.Contents) return;
-
-  const deletionPromises = objectsToDelete.Contents.map((o) => {
+  const deletionPromises = objectsToDelete.map((o) => {
     const deleteObjectCommand = new DeleteObjectCommand({
       Bucket: bucket,
       Key: o.Key,

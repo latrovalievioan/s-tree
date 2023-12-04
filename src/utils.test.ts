@@ -3,7 +3,6 @@ import {
   getDepth,
   getDirectChildren,
   getParentsOf,
-  initializeClientFromStorage,
   isDir,
   isParentOf,
   getDisplayName,
