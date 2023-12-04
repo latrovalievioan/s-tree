@@ -5,6 +5,7 @@ import {
   PutObjectCommand,
   DeleteObjectCommand,
   HeadBucketCommand,
+  _Object,
 } from '@aws-sdk/client-s3';
 import { CredentialsType } from './types';
 import { isDir } from './utils';
@@ -32,12 +33,29 @@ export const listObjects = async (
   bucket: string,
   prefix = ''
 ) => {
-  const listObjectsCommand = new ListObjectsCommand({
-    Bucket: bucket,
-    Prefix: prefix,
-  });
+  const objects: _Object[] = [];
+  let marker: string | undefined = undefined;
+  let shouldFetch = true;
 
-  return await client.send(listObjectsCommand);
+  do {
+    const listObjectsCommand = new ListObjectsCommand({
+      Bucket: bucket,
+      Prefix: prefix,
+      Marker: marker,
+    });
+
+    const response = await client.send(listObjectsCommand);
+
+    if (!response.Contents || response.Contents.length < 1000) {
+      shouldFetch = false;
+      break;
+    }
+
+    objects.push(...response.Contents);
+    marker = objects[objects.length - 1].Key || '';
+  } while (shouldFetch);
+
+  return objects;
 };
 
 export const getObject = async (

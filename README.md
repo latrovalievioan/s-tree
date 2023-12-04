@@ -108,6 +108,7 @@ the tree view
 - [x] Add info icon to info texts in modal
 - [x] Deleting a file named "test" will also delete the directory "test/" and all its subchildren or files starting with the prefix "test"
 - [x] Add labels for certain input fields
+- [x] The app only lists up to 1000 objects
 
 ### Nice to have
 - [ ] Bundle delete objects

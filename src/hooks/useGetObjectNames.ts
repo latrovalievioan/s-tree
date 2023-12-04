@@ -12,9 +12,7 @@ export const useGetObjectNames = () => {
       if (!client || !bucket) return [];
       const list = await listObjects(client, bucket);
 
-      if (!list?.Contents) return [];
-
-      return generateObjectNames(list.Contents);
+      return generateObjectNames(list);
     },
     enabled: !!client && !!bucket,
     refetchInterval: 1000 * 10,
