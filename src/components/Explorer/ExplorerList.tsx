@@ -1,4 +1,4 @@
-import './styles.css';
+import './ExplorerList.css';
 import { useGetObjectNames } from '@/hooks/useGetObjectNames';
 import { useAppStore, useClientStore } from '@/store';
 import { getDirectChildren, getParentsOf, isDir } from '@/utils';
