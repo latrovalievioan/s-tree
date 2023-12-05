@@ -34,10 +34,10 @@ export const inputValuesReducer = (state: CredentialsType, action: Action) => {
 };
 
 export const testCredentials: CredentialsType = {
-  accessKeyId: import.meta.env.VITE_ACCESS_KEY_ID_LUCID,
-  secretAccessKey: import.meta.env.VITE_SECRET_ACCESS_KEY_LUCID,
-  region: import.meta.env.VITE_REGION_LUCID,
-  bucket: import.meta.env.VITE_BUCKET_LUCID,
+  accessKeyId: import.meta.env.VITE_ACCESS_KEY_ID,
+  secretAccessKey: import.meta.env.VITE_SECRET_ACCESS_KEY,
+  region: import.meta.env.VITE_REGION,
+  bucket: import.meta.env.VITE_BUCKET,
 };
 
 export const initialInputValues: CredentialsType = import.meta.env.DEV

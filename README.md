@@ -2,6 +2,25 @@
 
 An S3 bucket explorer that mimics a filesystem.
 
+## Run locally:
+```
+npm ci
+npm run dev
+```
+
+For easier development, the Bucket credentials are prefilled from a `.env.local` file.
+To enable this, create a `.env.local` file with the following content:
+
+```
+VITE_ACCESS_KEY_ID=
+VITE_SECRET_ACCESS_KEY=
+VITE_BUCKET=
+VITE_REGION=
+```
+
+## Running the tests:
+`npm run test`
+
 ## TODOS:
 
 ### Client <-> AWS API communication:
