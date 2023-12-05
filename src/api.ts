@@ -35,9 +35,8 @@ export const listObjects = async (
 ) => {
   const objects: _Object[] = [];
   let marker: string | undefined = undefined;
-  let shouldFetch = true;
 
-  do {
+  for (;;) {
     const listObjectsCommand = new ListObjectsCommand({
       Bucket: bucket,
       Prefix: prefix,
@@ -46,14 +45,14 @@ export const listObjects = async (
 
     const response = await client.send(listObjectsCommand);
 
-    if (!response.Contents || response.Contents.length < 1000) {
-      shouldFetch = false;
-      break;
-    }
+    if (!response.Contents) break;
 
     objects.push(...response.Contents);
+
+    if (response.Contents.length < 1000) break;
+
     marker = objects[objects.length - 1].Key || '';
-  } while (shouldFetch);
+  }
 
   return objects;
 };

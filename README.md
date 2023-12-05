@@ -109,6 +109,7 @@ the tree view
 - [x] Deleting a file named "test" will also delete the directory "test/" and all its subchildren or files starting with the prefix "test"
 - [x] Add labels for certain input fields
 - [x] The app only lists up to 1000 objects
+- [x] The app doesn't list objects unless it receives 1000 objects from the API
 
 ### Nice to have
 - [ ] Bundle delete objects
