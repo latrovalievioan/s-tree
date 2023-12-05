@@ -1,6 +1,6 @@
 # S-tree
 
-An S3 bucket explorer that mimics a filesystem.
+An S3 bucket object explorer.
 
 ## Run locally:
 Prerequisites:
@@ -24,6 +24,48 @@ VITE_SECRET_ACCESS_KEY=
 VITE_BUCKET=
 VITE_REGION=
 ```
+
+## Items for next iteration:
+
+- Bundle delete objects
+- React router for file explorer
+- Invalidate credentials in localStorage (logout)
+- Different views in explorer
+- Syntax highlighting for file view
+- Empty dir state
+- Empty file state
+- Update the contents of a file
+- Rename an object
+- Upload a file
+- Better handling of buckets with more than 1000 objects (both performance optimization and request handling)
+
+## Things that I would change from the specification for better UX/UI:
+
+### Tree view
+- Shows only directories.
+
+I don't see a reason for the tree not to display files.
+This would facilitate the user to navigate through the filesystem however he pleases.
+
+- When a marked directory is clicked, it should be
+expanded, and its subdirs should be displayed.
+- If an expanded directory is clicked, it should be collapsed,
+and all its subdirs should be hidden.
+- If a directory is double-clicked, it should be selected as the
+current directory and displayed in the other view.
+
+I would create two separate buttons.
+One would be responsible for expanding/collapsing the directories,
+while the other would have the function to select a directory by a single click.
+This would help us create a better UX since right now a double click will always trigger a single click.
+Also there is no way for the user to know that to select a directory it should be double-clicked.
+
+- The current working directory should always be visible in
+the tree view.
+
+This requirement creates some confusion.
+Always visible means that even if the user wants to collapse the parent directory of the current working one, it would not collapse.
+This creates inconsistency in the UX and confusion for the user.
 
 ## TODOS:
 
@@ -133,12 +175,3 @@ the tree view
 - [x] Add labels for certain input fields
 - [x] The app only lists up to 1000 objects
 - [x] The app doesn't list objects unless it receives 1000 objects from the API
-
-### Nice to have
-- [ ] Bundle delete objects
-- [ ] React router for file explorer
-- [ ] Invalidate credentials in localStorage (logout)
-- [ ] Different views in explorer
-- [ ] Syntax highlighting
-- [ ] Empty dir state
-- [ ] Empty file state
